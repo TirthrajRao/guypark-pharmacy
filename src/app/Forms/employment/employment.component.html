@@ -1,0 +1,64 @@
+<ion-header>
+  <app-header [cname]="'Employment'"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="p-3">
+    <div class="form-name">
+      <p class="m-0 form-title">Please Fill This Form</p>
+      <h4 class="mt-3">Basic Details</h4>
+    </div>
+    <form class="form-detail" [formGroup]="employmentForm">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+          <div *ngIf="f.fname.errors.required">First name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+          <div *ngIf="f.lname.errors.required">Last name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email is not valid</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Phone Number" formControlName="phone_number">
+        <div *ngIf="submitted && f.phone_number.errors" class="invalid-feedback">
+          <div *ngIf="f.phone_number.errors.required">Phone number is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Position Applying for" formControlName="position">
+      </div>
+
+      <div class="form-group">
+        <textarea type="text" class="form-control" placeholder="Message" formControlName="message"></textarea>
+      </div>
+
+      <div class="form-group file-select">
+        <input type="file" #file (change)="selectFile($event)" hidden>
+        <span (click)="file.click()">Attach Resume</span>
+        <p *ngIf="fileName" class="mt-2">{{fileName}}</p>
+      </div>
+
+      <div class="submit-btn text-center mt-4">
+        <button class="btn " [disabled]="isDisable" (click)="addEmploymentForm(employmentForm.value)">Submit</button>
+      </div>
+
+
+
+    </form>
+
+  </div>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-content>
+  <div class="login-page">
+
+    <!-- <h4 class="text-center">Jax Pharmacy</h4> -->
+    <div class="login_form">
+      <h4 class="text-center text-color">Sign Up</h4>
+      <form [formGroup]='signUpForm'>
+
+        <div class="form-group mb-4">
+          <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-4">
+          <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-4">
+          <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email is required</div>
+            <div *ngIf="f.email.errors.email">Email is invalid</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-4">
+          <input type="text" class="form-control" formControlName="mobile" placeholder="Mobile Number" />
+          <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
+            <div *ngIf="f.mobile.errors.required">Mobile No. is required</div>
+          </div>
+        </div>
+
+        <div class="form-group mb-4" style="position: relative;">
+          <ion-icon [name]="passwordIcon" (click)="showHide()" class="eye-icon"></ion-icon>
+          <input [type]="passwordType" class="form-control" formControlName="password" id="password"
+            placeholder="Password">
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <button type="submit" class="login_btn btn" (click)="signUpUser(signUpForm.value)" [disabled]="isDisable">Sign
+          Up</button>
+
+        <div class="sign_up_link text-center">
+          <a href="#" routerLink='/login'>Already Have an account? <span> Login</span></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

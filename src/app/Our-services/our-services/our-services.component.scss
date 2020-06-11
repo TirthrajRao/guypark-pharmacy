@@ -1,0 +1,45 @@
+p{
+    margin-bottom: 0;
+}
+.service-card {
+    padding: 10px;
+    background: #999395;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-bottom: 15px;
+    .service-title {
+        align-items: center;
+        display: -webkit-inline-box;
+        width: 100%;
+        .service-img {
+            height: 50px;
+            width: 50px;
+            img {
+                max-height: 100%;
+                min-height: 100%;
+                max-width: 100%;
+                min-width: 100%;
+                object-fit: cover;
+            }
+        }
+        p {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: 10px;
+            
+        }
+        .title {
+            width: 87%;
+            margin: auto;
+        }
+    }
+    .service-content {
+        color: white;
+        .read-more {
+            text-align: right;
+            margin-bottom: 0;
+            outline: none;
+        }
+    }
+}

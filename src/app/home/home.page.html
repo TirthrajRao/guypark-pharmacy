@@ -1,0 +1,23 @@
+<ion-menu side="start" menuId="first" contentId="content">
+  <div class="menu">
+    <div class="logo-img">
+      <img src="assets/images/logo.png" alt="logo-img">
+    </div>
+    <div class="all-menu-list mt-4">
+      <div class="menu-list" *ngFor="let page of menuPages" [routerLink]='page.url' (click)="closeMenu()">
+        <p>
+          <!-- <img [src]="page.iconSrc" alt="icon">  -->
+          {{page.name}} </p>
+      </div>
+      <div class="menu-list pt-0">
+        <p (click)="changeLanguage('en');closeMenu()">English</p>
+        <p (click)="changeLanguage('es');closeMenu()">Spanish</p>
+      </div>
+      <div class="menu-list pt-0" (click)="logOut()">
+        <!-- <ion-img src="assets/images/10.png" class="mr-3"></ion-img> -->
+        <p> Log Out</p>
+      </div>
+    </div>
+  </div>
+</ion-menu>
+<ion-router-outlet main id="content"></ion-router-outlet>

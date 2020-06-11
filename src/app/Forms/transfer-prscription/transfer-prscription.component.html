@@ -1,0 +1,141 @@
+<ion-header>
+  <app-header [cname]="'Transfer Prescription'"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="p-3">
+    <div class="form-name">
+      <p class="m-0 form-title">Please Fill This Form</p>
+      <h4 class="mt-3">Basic Details</h4>
+    </div>
+    <form class="form-detail" [formGroup]="transferPrescriptionForm">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+          <div *ngIf="f.fname.errors.required">First name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+          <div *ngIf="f.lname.errors.required">Last name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email is not valid</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Phone Number" formControlName="phone">
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">Phone number is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <ion-datetime class="form-control" placeholder="Birth Date" [max]="currentDate"></ion-datetime>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="City">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="State">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Zip/Postal Code">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Pharmacy Name">
+      </div>
+
+      <div class="form-group">
+        <input type="nember" class="form-control" placeholder="Pharmacy Phone No.">
+      </div>
+
+      <div class="form-group">
+        <textarea type="text" class="form-control" placeholder="Address"></textarea>
+      </div>
+
+      <div class="row rx-number">
+        <label class="ml-3 w-100">List specific prescriptions to be transferred</label>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx1 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 1 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx2 Med name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 2 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx3 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 3 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx4 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 4 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx5 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx5# ">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx6 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 6 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx7 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 7 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx8 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 8 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx9 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 9 #">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx10 Med Name">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 10 #">
+        </div>
+      </div>
+
+      <div class="submit-btn text-center mt-4">
+        <button class="btn" (click)="addTransferPresForm(transferPrescriptionForm.value)" [disabled]="isDisable">Submit</button>
+
+      </div>
+
+    </form>
+
+  </div>
+</ion-content>

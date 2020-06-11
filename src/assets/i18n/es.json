@@ -1,0 +1,13 @@
+{
+	"home": {
+		"headerTitle": "Farmacia Guy Park",
+		"serviceOptionTitle": "Opciones de medicación",
+		"TransferPrescripsion":"Transferencia de prescripción",
+		"RefillRequest": "Solicitud de recarga",
+		"PriceCheck": "Comprobación de precio"
+	},
+	"sidemenu": {
+		"Home": "Casa",
+		"Medication": "Medicamento"
+	}
+}

@@ -1,0 +1,49 @@
+ion-title {
+    margin-left: 17px;
+}
+.pharmacy-service {
+    .serivice-title {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        h4 {
+            color: var(--title-color);
+            font-size: 18px;
+            margin: 0;
+            padding-left: 5px;
+        }
+        img{
+            height: 33px;
+            width: 33px;
+        }
+    }
+  
+    .services-content{
+        background:linear-gradient(#4160B8, #15275E 50%); ;
+    }
+}
+
+.single-servics {
+    border: 2px solid #7a7375;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    min-height: 122px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 86%;
+    img {
+        width: 50px;
+        height: 50px;
+    }
+    p {
+        font-size: 12px;
+        line-height: 16px;
+        color: #000;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+}

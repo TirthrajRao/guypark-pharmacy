@@ -1,0 +1,13 @@
+{
+	"home": {
+		"headerTitle": "Guy park Pharmacy",
+		"serviceOptionTitle": "Medication Options",
+		"TransferPrescripsion": "Transfer Prescripsion",
+		"RefillRequest": "Refill Request",
+		"PriceCheck": "Price Check"
+	},
+	"sidemenu": {
+		"Home": "Home",
+		"Medication": "Medication"
+	}
+}

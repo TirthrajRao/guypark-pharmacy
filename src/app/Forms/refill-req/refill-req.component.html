@@ -1,0 +1,126 @@
+<ion-header>
+  <app-header [cname]="'Refill Request'"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="p-3">
+    <div class="form-name">
+      <p class="m-0 form-title">Please Fill This Form</p>
+      <h4 class="mt-3">Basic Details</h4>
+    </div>
+    <form class="form-detail" [formGroup]="refillReqForm">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+          <div *ngIf="f.fname.errors.required">First name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
+          <div *ngIf="f.lname.errors.required">Last name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email is not valid</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Phone Number" formControlName="phone">
+        <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+          <div *ngIf="f.phone.errors.required">Phone number is required</div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <ion-datetime class="form-control" placeholder="Birth Date" [max]="currentDate" formControlName="birthDate"></ion-datetime>
+      </div>
+
+
+      <div class="form-group">
+        <ion-select placeholder="Delivery Method" formControlName="deliveryMethod">
+          <ion-select-option value="Pick Up">Pick Up</ion-select-option>
+        </ion-select>
+      </div>
+
+
+      <div class="row rx-number">
+        <label class="ml-3 w-100">Please Provide Rx# for each Refill Request:</label>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 1 #" formControlName="rx1">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 2 #" formControlName="rx2">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 3 #" formControlName="rx3">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 4 #" formControlName="rx4">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 5 # " formControlName="rx5">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 6 #" formControlName="rx6">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 7 #" formControlName="rx7">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 8 #" formControlName="rx8">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 9 #" formControlName="rx9">
+        </div>
+
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 10 #" formControlName="rx10">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 11 #" formControlName="rx11">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" placeholder="Rx 12 #" formControlName="rx12">
+        </div>
+      </div>
+      <div class="form-footer">
+        <ion-item>
+          <ion-label position="floating">
+            Pick Up Date
+          </ion-label>
+          <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}" formControlName="pickUpDate">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            Pick Up Time
+          </ion-label>
+          <ion-datetime display-format="h:mm A" picker-format="h:mm A" formControlName="pickUpTime"></ion-datetime>
+        </ion-item>
+      </div>
+      <div class="submit-btn text-center mt-4">
+        <button class="btn" [disabled]="isDisable" (click)="addRefillReq(refillReqForm.value)">Submit</button>
+      </div>
+
+    </form>
+
+  </div>
+</ion-content>

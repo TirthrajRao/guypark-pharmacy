@@ -1,0 +1,17 @@
+ion-select {
+    --placeholder-color: #495057;
+    --placeholder-opacity: 1;
+    border: 1px solid #ced4da;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.25rem;
+    color: #495057;
+    background-color: white;
+}
+ion-content {
+    --background: #eaedf3;
+    .rx-number {
+        .form-control {
+            border-radius: 0;
+        }
+    }
+}

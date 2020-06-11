@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar class="toolbar-color1">
+    <div class="menu d-flex">
+      <ion-title class="text-center">{{details.headerTitle}}</ion-title>
+      <div class="menu-icon float-right ml-auto">
+        <ion-menu-button class=" text-white">
+        </ion-menu-button>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style=" height: 100%;">
+    <div class="pharmacy-service">
+      <div class="roboto-miduim serivice-title">
+        <img src="assets/images/rx-icon.png">
+        <h4>{{details.serviceOptionTitle}}</h4>
+      </div>
+      <div class="services-content">
+        <div class="row m-0">
+          <div class="col-4 p-0">
+            <div class="single-servics" routerLink="/home/transfer-prescription">
+              <img src="assets/images/prescripsion.png" style="height:45px">
+              <p class="text-center">{{details.TransferPrescripsion}}</p>
+            </div>
+          </div>
+          <div class="col-4 p-0">
+            <div class="single-servics" routerLink="/home/refill-request">
+              <img src="assets/images/refill.png" style="height:47px">
+              <p class="text-center">{{details.RefillRequest}}</p>
+            </div>
+          </div>
+          <div class="col-4 p-0">
+            <div class="single-servics" routerLink="/home/price-check">
+              <img src="assets/images/prise.png">
+              <p class="text-center">{{details.PriceCheck}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- <ion-item>
+          <ion-select [value]="language" (ionChange)="changeLanguage($event)">
+            <ion-select-option value="en" selected="true">English</ion-select-option>
+            <ion-select-option value="de">German</ion-select-option>
+            <ion-select-option value="es">Spanish</ion-select-option>
+            <ion-select-option value="fr">French</ion-select-option>
+          </ion-select>
+        </ion-item> -->
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

@@ -1,0 +1,14 @@
+<ion-header>
+  <app-header [cname]="'Jax Services'"></app-header>
+</ion-header>
+<ion-content>
+  <div class="p-3">
+    <div *ngFor="let form of formList" class="text-center form-name mb-2" [routerLink]="form.url">
+      <span>{{form.name}}</span>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>
