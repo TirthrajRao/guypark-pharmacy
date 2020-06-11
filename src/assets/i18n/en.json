@@ -4,7 +4,8 @@
 		"serviceOptionTitle": "Medication Options",
 		"TransferPrescripsion": "Transfer Prescripsion",
 		"RefillRequest": "Refill Request",
-		"PriceCheck": "Price Check"
+		"PriceCheck": "Price Check",
+		"Services":"Services"
 	},
 	"sidemenu": {
 		"Home": "Home",

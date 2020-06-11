@@ -18,35 +18,38 @@
         <h4>{{details.serviceOptionTitle}}</h4>
       </div>
       <div class="services-content">
-        <div class="row m-0">
-          <div class="col-4 p-0">
-            <div class="single-servics" routerLink="/home/transfer-prescription">
-              <img src="assets/images/prescripsion.png" style="height:45px">
+        <div class="row m-0 ubntu-regular">
+          <div class="col-4 p-0 ">
+            <div class="single-servics first-req" routerLink="/home/transfer-prescription">
+              <img src="assets/images/transfer-req.png">
               <p class="text-center">{{details.TransferPrescripsion}}</p>
             </div>
           </div>
           <div class="col-4 p-0">
             <div class="single-servics" routerLink="/home/refill-request">
-              <img src="assets/images/refill.png" style="height:47px">
+              <img src="assets/images/refill-req.png">
               <p class="text-center">{{details.RefillRequest}}</p>
             </div>
           </div>
           <div class="col-4 p-0">
             <div class="single-servics" routerLink="/home/price-check">
-              <img src="assets/images/prise.png">
+              <img src="assets/images/price-check.png">
               <p class="text-center">{{details.PriceCheck}}
               </p>
             </div>
           </div>
         </div>
-        <!-- <ion-item>
-          <ion-select [value]="language" (ionChange)="changeLanguage($event)">
-            <ion-select-option value="en" selected="true">English</ion-select-option>
-            <ion-select-option value="de">German</ion-select-option>
-            <ion-select-option value="es">Spanish</ion-select-option>
-            <ion-select-option value="fr">French</ion-select-option>
-          </ion-select>
-        </ion-item> -->
+        <div class="service-card">
+          <div class="service-img">
+          </div>
+          <div class="p-2">
+            <h4>{{details.Services}}</h4>
+            <div class="d-flex" style="align-items: center;">
+              <p class="sans-font">Lorem ipsum dolor sit amet, consetetur , sed diam nonumy.</p>
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

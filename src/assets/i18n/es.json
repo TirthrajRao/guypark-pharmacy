@@ -4,7 +4,8 @@
 		"serviceOptionTitle": "Opciones de medicación",
 		"TransferPrescripsion":"Transferencia de prescripción",
 		"RefillRequest": "Solicitud de recarga",
-		"PriceCheck": "Comprobación de precio"
+		"PriceCheck": "Comprobación de precio",
+		"Services":"Servicios"
 	},
 	"sidemenu": {
 		"Home": "Casa",

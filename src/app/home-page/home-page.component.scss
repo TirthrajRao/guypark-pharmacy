@@ -2,48 +2,94 @@ ion-title {
     margin-left: 17px;
 }
 .pharmacy-service {
+    h4 {
+        color: var(--title-color);
+        font-size: 18px;
+        margin: 0;
+        padding-left: 5px;
+    }
     .serivice-title {
         display: flex;
         align-items: center;
         padding: 8px;
-        h4 {
-            color: var(--title-color);
-            font-size: 18px;
-            margin: 0;
-            padding-left: 5px;
-        }
-        img{
+       
+        img {
             height: 33px;
             width: 33px;
         }
     }
-  
-    .services-content{
-        background:linear-gradient(#4160B8, #15275E 50%); ;
-    }
-}
 
-.single-servics {
-    border: 2px solid #7a7375;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    margin: 5px;
-    min-height: 122px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    height: 86%;
-    img {
-        width: 50px;
-        height: 50px;
-    }
-    p {
-        font-size: 12px;
-        line-height: 16px;
-        color: #000;
-        font-weight: 600;
-        margin-top: 5px;
+    .services-content {
+        background: linear-gradient(#4160b8, #15275e 50%);
+        padding: 35px 0;
+        .single-servics {
+            padding: 10px;
+            text-align: center;
+            margin: 5px;
+            min-height: 122px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            // justify-content: center;
+            height: 86%;
+            img {
+                width: 89px;
+                height: 73px;
+            }
+            p {
+                font-size: 12px;
+                line-height: 14px;
+                color: #ffffff;
+                opacity: 52%;
+                margin-top: 5px;
+            }
+        }
+        .first-req {
+            background-color: white;
+            box-shadow: 0 3px 6px #0000005e;
+            p {
+                color: #092882;
+                opacity: 100%;
+            }
+            img {
+                width: 71px;
+                height: 60px;
+            }
+        }
+        .service-card {
+            box-shadow: 0 1px 3px #00000030;
+            padding: 10px;
+            margin: 10px;
+            background: white;
+            border-radius: 2px;
+            .service-img {
+                height: 143px;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                position: relative;
+                background-image: url("../../assets/images/service-img.png");
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(#4160B8, #15275E 50%);
+                    opacity: 0.64;
+                }
+               
+            }
+        }
+        p{
+            color:#989898;
+            font-size: 12px;
+            padding-left: 5px;
+        }
+        i{
+            color: var(--title-color);
+            margin-left: 11px;
+        }
     }
 }
