@@ -5,10 +5,27 @@
 		"TransferPrescripsion": "Transfer Prescripsion",
 		"RefillRequest": "Refill Request",
 		"PriceCheck": "Price Check",
-		"Services":"Services"
+		"Services": "Services"
 	},
 	"sidemenu": {
 		"Home": "Home",
 		"Medication": "Medication"
+	},
+	"services": {
+		"headerTitle": "Our Services",
+		"title": "Services",
+		"readMore": "Read More",
+		"service1": "We offer free delivery",
+		"service2": "Accept E-scribe",
+		"service3": "Curbside delivery",
+		"service4": "We offer speciality packing show with picture dose packs",
+		"service5": "$4.99 Generic Drug Plan",
+		"service6": "Accept All Major Insurance Plans",
+		"content1":"We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.",
+		"content2":"E-Prescribing supports a shift to a paperless for prescribers, payers and pharmacists to make better medication management decisions.",
+		"content3":"Curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus.",
+		"content4":"The top of each individual blister pack lists the person's name, the medication within and the time it should be taken.",
+		"content5":"Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications.",
+		"content6":"Jax Pharmacy accepts all major insurance plans. We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!"
 	}
 }

@@ -2,13 +2,30 @@
 	"home": {
 		"headerTitle": "Farmacia Guy Park",
 		"serviceOptionTitle": "Opciones de medicación",
-		"TransferPrescripsion":"Transferencia de prescripción",
+		"TransferPrescripsion": "Transferencia de prescripción",
 		"RefillRequest": "Solicitud de recarga",
 		"PriceCheck": "Comprobación de precio",
-		"Services":"Servicios"
+		"Services": "Servicios"
 	},
 	"sidemenu": {
 		"Home": "Casa",
 		"Medication": "Medicamento"
+	},
+	"services": {
+		"headerTitle": "Nuestros servicios",
+		"title": "Servicios",
+		"readMore": "Lee mas",
+		"service1": "Ofrecemos entrega gratis",
+		"service2": "Aceptar E-scribe",
+		"service3": "Entrega en la acera",
+		"service4": "Ofrecemos un espectáculo de embalaje especial con paquetes de dosis de imagen",
+		"service5": "Plan de medicamentos genéricos de $ 4.99",
+		"service6": "Acepte todos los planes de seguro principales",
+		"content1": "Le aseguramos servicios las 24 horas del día junto con el suministro de reabastecimientos automáticos a medida que su suministro de medicamentos llega a su fin.",
+		"content2": "E-Prescribing respalda un cambio a un sistema sin papel para que los prescriptores, pagadores y farmacéuticos tomen mejores decisiones de administración de medicamentos.",
+		"content3": "Entrega en la acera para evitar que nuestros pacientes se expongan a enfermedades y reducir la cantidad de personas que visitan nuestro campus.",
+		"content4": "La parte superior de cada blister individual enumera el nombre de la persona, el medicamento dentro y el tiempo que debe tomarse.",
+		"content5": "Nuestro plan de medicamentos genéricos es garantizar que obtenga su medicamento de una manera menos costosa sin comprometer la calidad de los medicamentos.",
+		"content6": "Jax Pharmacy acepta todos los planes de seguro principales. También igualaremos los precios de nuestros competidores locales para que definitivamente pueda obtener el mayor valor por la menor cantidad de dinero que esté dispuesto a pagar."
 	}
 }

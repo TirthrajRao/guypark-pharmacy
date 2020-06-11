@@ -1,25 +1,36 @@
 <ion-header>
-  <app-header [cname]="'Our Services'"></app-header>
+  <app-header [cname]="details.headerTitle" *ngIf="details"></app-header>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div *ngFor="let service of allServices ;let i= index" class="service-card" >
-    <div class=" service-title">
-      <div class="service-img">
-        <img [src]="service.image">
+<ion-content>
+  <div class="service-header">
+    <img src="assets/images/service-info-icon.png">
+    <h4 *ngIf="details">{{details.title}}</h4>
+  </div>
+  <div class="service-list">
+    <div *ngFor="let service of allServices ;let i= index" class="service-card">
+      <div class="row">
+        <div class="col-4 service-img">
+          <div>
+            <img [src]="service.image">
+          </div>
+        </div>
+        <div class="col-8 pl-0">
+          <h4 class="ubntu-regular">{{service.name}}</h4>
+          <div class="service-content sans-font">
+            <p class=" ml-2 mt-2">{{service.content}}</p>
+            <p class="read-more mt-2" [routerLink]="service.url">{{details.readMore}}
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </p>
+          </div>
+        </div>
+
       </div>
-      <div class="title">
-        <p>{{service.name}}</p>
-      </div>
-    </div>
-    <div class="service-content">
-      <p class="text-white ml-2 mt-2">{{service.content}}</p>
-      <p class="read-more mt-2" [routerLink]="service.url">Read More
-        <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-      </p>
+     
     </div>
   </div>
 </ion-content>
+
 <ion-footer>
   <app-footer></app-footer>
 </ion-footer>

@@ -21,10 +21,10 @@ export class HomePage {
     private _translate: TranslateService,
     public _userService: UserService
   ) {
+    
     this._initialiseTranslation();
     setTimeout(() => {
       this.createMenu();
-
     }, 30);
 
   }

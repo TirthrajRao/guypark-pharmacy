@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-our-services',
@@ -7,48 +9,77 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OurServicesComponent implements OnInit {
 
-  allServices: any;
-  constructor() {
+  allServices: any = [];
+  language: any = 'en';
+  details: any;
+
+  constructor(
+    private _translate: TranslateService,
+    public _userService: UserService
+  ) {
+    this._initialiseTranslation();
+    setTimeout(() => {
+      this.createServiceList();
+    }, 30);
+
+  }
+
+  ngOnInit() {
+    this._userService.languageChanges().subscribe((res: any) => {
+      console.log("RESPONSE", res);
+      this.language = res.language
+      this._initialiseTranslation();
+    })
+
+  }
+
+  createServiceList() {
     this.allServices = [
       {
-        name: 'We offer free delivery',
-        image: 'assets/images/free-delivery.png',
-        content: "We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.",
+        name: this.details.service1,
+        image: 'assets/images/free-home.png',
+        content: this.details.content1,
         url: "/home/free-home-delivery"
       },
       {
-        name: 'Accept E-scribe',
+        name: this.details.service2,
         image: 'assets/images/e-scribe.png',
-        content: "E-Prescribing supports a shift to a paperless for prescribers, payers and pharmacists to make better medication management decisions.",
+        content: this.details.content2,
         url: "/home/e-scribe"
       },
       {
-        name: 'Curbside delivery',
-        image: 'assets/images/crubside.png',
-        content: "Curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus.",
+        name: this.details.service3,
+        image: 'assets/images/curbside.png',
+        content: this.details.content3,
         url: "/home/curb-side"
       },
       {
-        name: 'We offer speciality packing show with picture dose packs',
-        image: 'assets/images/offer.png',
-        content: "The top of each individual blister pack lists the person's name, the medication within and the time it should be taken.",
+        name: this.details.service4,
+        image: 'assets/images/speciality-packing.png',
+        content: this.details.content4,
         url: "/home/speciality-packing"
       },
       {
-        name: '$4.99 Generic Drug Plan',
-        image: 'assets/images/generic.png',
-        content: "Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications.",
+        name: this.details.service5,
+        image: 'assets/images/generic-drug.png',
+        content: this.details.content5,
         url: "/home/generic-drug"
       },
       {
-        name: 'Accept All Major Insurance Plans',
+        name: this.details.service6,
         image: 'assets/images/major.png',
-        content: "Jax Pharmacy accepts all major insurance plans. We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!",
+        content: this.details.content6,
         url: "/home/major-insurance"
       }
     ]
   }
 
-  ngOnInit() { }
-
+  _initialiseTranslation(): void {
+    this._translate.use(this.language);
+    setTimeout(() => {
+      this.details = this._translate.instant("services");
+      console.log(this.details)
+      this.createServiceList();
+    }, 25);
+  }
 }
