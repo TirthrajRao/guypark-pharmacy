@@ -28,21 +28,7 @@ export class HomePageComponent implements OnInit {
       this._initialiseTranslation();
     })
 
-    // this._userService.languageChanges().subscribe((res: any) => {
-    //   this._initialiseTranslation();
-    // })
-
   }
-
-
-
-
-  // changeLanguage(e): void {
-  //   this._initialiseTranslation();
-  //   this.language = e.target.value;
-  //   console.log("-----", this.language)
-   
-  // }
 
 
   _initialiseTranslation(): void {

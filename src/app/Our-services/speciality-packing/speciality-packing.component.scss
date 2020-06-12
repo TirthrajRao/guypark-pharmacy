@@ -1,8 +1,22 @@
-.offer{
-    background-image: url("../../../assets/images/speciality-packing.jpg");
+
+ion-header {
+    height: 0;
+    ion-back-button {
+        color: #213778;
+    }
+    ion-toolbar {
+        --background: transparent;
+    }
 }
-ul{
-    color: #5c5885;
-    padding: 0 0 0 31px;
+h4 {
+    margin: 0;
+    color: var(--title-color);
     font-size: 14px;
+}
+.service-img{
+    width: unset;
+    height: unset;
+    img{
+        min-height: unset;
+    }
 }

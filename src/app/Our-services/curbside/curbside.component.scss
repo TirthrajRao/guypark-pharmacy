@@ -1,7 +1,4 @@
-.curbside {
-    // background-image: url("../../../assets/images/curbside.png");
-    background-size: 50%;
-}
+
 ion-header {
     height: 0;
     ion-back-button {
@@ -9,43 +6,5 @@ ion-header {
     }
     ion-toolbar {
         --background: transparent;
-    }
-}
-.service-img {
-    height: 120px;
-    width: 220px;
-    margin: auto;
-    z-index: 2;
-    img {
-        max-height: 100%;
-        min-height: 100%;
-        max-width: 100%;
-        min-width: 100%;
-        object-fit: cover;
-    }
-}
-.servicename-card {
-    background: linear-gradient(180deg, #4160b8, #15275e);
-    padding: 10px 24px;
-    border-radius: 9px;
-    margin-top: -26px;
-    z-index: 4;
-    position: relative;
-    margin: -26px 15px 0;
-    font-family: "Ubuntu", sans-serif;
-    color: white;
-    box-shadow: 0 3px 6px #00000029;
-    .card-title {
-        font-size: 17px;
-    }
-    .des {
-        font-size: 12px;
-    }
-}
-.about-text{
-    padding: 30px 25px 30px 43px;
-    .content-text{
-        color: #787878;
-        font-size: 13px;
     }
 }

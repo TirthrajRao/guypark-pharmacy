@@ -21,11 +21,84 @@
 		"service4": "We offer speciality packing show with picture dose packs",
 		"service5": "$4.99 Generic Drug Plan",
 		"service6": "Accept All Major Insurance Plans",
-		"content1":"We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.",
-		"content2":"E-Prescribing supports a shift to a paperless for prescribers, payers and pharmacists to make better medication management decisions.",
-		"content3":"Curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus.",
-		"content4":"The top of each individual blister pack lists the person's name, the medication within and the time it should be taken.",
-		"content5":"Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications.",
-		"content6":"Jax Pharmacy accepts all major insurance plans. We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!"
+		"content1": "We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.",
+		"content2": "E-Prescribing supports a shift to a paperless for prescribers, payers and pharmacists to make better medication management decisions.",
+		"content3": "Curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus.",
+		"content4": "The top of each individual blister pack lists the person's name, the medication within and the time it should be taken.",
+		"content5": "Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications.",
+		"content6": "Guy Park Pharmacy accepts all major insurance plans. We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!"
+	},
+	"curbside": {
+		"title": "Curbside Delivery",
+		"subTitle": "All kind of Care",
+		"contentTitle": "Guy Park Pharmacy",
+		"content1": "provide curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus, Guy Park Pharmacy is providing free prescription delivery services to our patients’ households.",
+		"content2": "Patients may call the Guy Park Pharmacy at +1 904-222-8490 to request this service and make appropriate arrangements. For those patients who would like to utilize curbside delivery at the Pharmacy, they are welcome to park at the curb closest to the Pharmacy and call +1 904-222-8490 for a curbside delivery of their prescription(s).",
+		"content3": "Over-the-counter Pharmacy items are also available with curbside and home delivery services. Community members may call the Guy Park Pharmacy at +1 904-222-8490 for any questions regarding these services"
+	},
+	"eScribe": {
+		"title": "Accept E-scribe",
+		"subTitle": "All kind of Care",
+		"contentTitle": "Advanced E-prescribing",
+		"content1": "In order to serve you better, our pharmacy dispensing system accepts Surescripts E-prescriptions. This is especially helpful for our customers and Physicians. E-Prescribing supports a shift to a paperless and more informed way for prescribers, payers and pharmacists to make better medication management decisions. This more secure electronic workflow leads to improved health outcomes while helping to:",
+		"list1": "Reduce Healthcare Costs",
+		"list2": "Improve Patient Safety",
+		"list3": "Increase Efficiency",
+		"list4": "Reduce wait time at pharmacy",
+		"content2": "By using a computer or handheld device with e-prescribing software, prescribers can electronically access patient prescription benefit information and patient medication history, and route prescriptions electronically to Guy Park Pharmacy.",
+		"content3": "E-Prescription is helpful for our customers, who are always on the go and might not have the time to have their prescriptions filled traditionally."
+	},
+	"speciality": {
+		"title": "We Offer Speciality Packing Show With Picture Dose Packs",
+		"subTitle": "All kind of Care",
+		"content1": "Dispill blisters are safe, simple and convenient :",
+		"list1": "Easy to open, detachable and portable",
+		"list2": "Color-coded to indicate the time of day when medication should be taken",
+		"list3": "Filled directly by the pharmacist to ensure accuracy",
+		"list4": "Cleaner and more convenient than traditional pill boxes",
+		"list5": "Effective medication reminder system",
+		"content2": "The top of each individual blister pack lists the person's name, the medication within and the time it should be taken. Going out for lunch or away for the weekend? Simply bring along the appropriate blisters!"
+	},
+	"drug": {
+		"title": "$4.99 Generic Drug Plan",
+		"subTitle": "All kind of Care",
+		"contentTitle": "Guy Park Pharmacy",
+		"content1": "is an advocate of affordable yet quality healthcare. Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications. All of our medications are FDA approved generics and comply with the Florida’s pedigree law. When you visit our pharmacy, please make sure to ask our staff about our $4.99 Generic Drug Plan."
+	},
+	"major": {
+		"title": "Accept All Major Insurance Plans",
+		"subTitle": "All kind of Care",
+		"contentTitle": "Guy Park Pharmacy",
+		"content1": "accepts all major insurance plans such as:",
+		"list1": "Aetna",
+		"list2": "Blue Cross & Blue Shield",
+		"list3": "Cigna",
+		"list4": "CVS/Caremark",
+		"list5": "Express Scripts",
+		"list6": "Humana",
+		"list7": "Medco",
+		"list8": "Medicare Part B",
+		"list9": "Medicare Part D",
+		"list10": "Medicaid (FL)",
+		"list11": "Optum",
+		"list12": "United Healthcare",
+		"content2": "We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!"
+	},
+	"freeHome": {
+		"title": "Free Home Delivery",
+		"subTitle": "All kind of Care"
+	},
+	"form": {
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"email": "Email",
+		"phone": "Phone Number",
+		"checkLabel": "Yes, I want free delivery of RX.",
+		"selectLabel": "Would you like us to notify you when your prescription(s) are ready?",
+		"select": "Select",
+		"option1": "No Thanks",
+		"option2": "Yes,By Email",
+		"option3": "Yes,By Phone",
+		"btnText": "Submit"
 	}
 }

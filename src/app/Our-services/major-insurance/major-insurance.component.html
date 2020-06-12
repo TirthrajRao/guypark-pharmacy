@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <app-header [cname]="'Major Insurance Plan'"></app-header>
 </ion-header>
 
@@ -28,5 +28,44 @@
       <li>United Healthcare</li>
     </ul>
     <p class="content-text">We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!</p>
+  </div>
+</ion-content> -->
+
+<ion-header>
+  <div class="header d-flex">
+    <div class="back-icon float-left">
+      <ion-back-button [icon]="'arrow-back-outline'" [text]="">
+      </ion-back-button>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="service-detail">
+  <div class="cover-img curbside">
+    <div class="service-img">
+      <img src="assets/images/major.png">
+    </div>
+  </div>
+  <div class="servicename-card">
+    <p class="card-title m-0">{{details.title}}</p>
+    <p class="des m-0">{{details.subTitle}}</p>
+  </div>
+  <div class="about-text sans-font">
+    <p class="content-text"><strong>{{details.contentTitle}}</strong> {{details.content1}} </p>
+    <ul class="content-text">
+      <li>{{details.list1}}</li>
+      <li>{{details.list2}}</li>
+      <li>{{details.list3}}</li>
+      <li>{{details.list4}}</li>
+      <li>{{details.list5}}</li>
+      <li>{{details.list6}}</li>
+      <li>{{details.list7}}</li>
+      <li>{{details.list8}}</li>
+      <li>{{details.list9}}</li>
+      <li>{{details.list10}}</li>
+      <li>{{details.list11}}</li>
+      <li>{{details.list12}}</li>
+    </ul>
+    <p class="content-text"> {{details.content2}}</p>
   </div>
 </ion-content>

@@ -4,6 +4,16 @@ ion-content {
    .logo-img{
        margin: auto;
        display: block;
-       height: 111px;
+       height: 80px;
+   }
+   .english-title{
+    margin: 0;
+    font-size: 9px;
+    color: var(--btn-color);
+   }
+   .spanish-title{
+    margin: 0;
+    font-size: 9px;
+    color: var(--title-color);
    }
 }

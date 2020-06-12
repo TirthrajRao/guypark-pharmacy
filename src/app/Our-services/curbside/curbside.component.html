@@ -1,5 +1,4 @@
 <ion-header>
-  <!-- <app-header [cname]="'Curbside Delivery'"></app-header> -->
   <div class="header d-flex">
     <div class="back-icon float-left">
       <ion-back-button [icon]="'arrow-back-outline'" [text]="">
@@ -8,26 +7,19 @@
   </div>
 </ion-header>
 
-<ion-content>
+<ion-content class="service-detail">
   <div class="cover-img curbside">
     <div class="service-img">
       <img src="assets/images/crub-deatil.png">
     </div>
   </div>
   <div class="servicename-card">
-    <p class="card-title m-0">Curbside Delivery</p>
-    <p class="des m-0">gfhf</p>
+    <p class="card-title m-0">{{details.title}}</p>
+    <p class="des m-0">{{details.subTitle}}</p>
   </div>
   <div class="about-text sans-font">
-   
-    <p class="content-text"><strong>Jax Pharmacy</strong> provide curbside delivery to prevent our patients from
-      potential exposure to illness and reduce the number of people visiting our campus, Jax Pharmacy is providing free
-      prescription delivery services to our patients’ households.</p>
-    <p class="content-text"> Patients may call the Jax Pharmacy at +1 904-222-8490 to request this service and make
-      appropriate arrangements. For those patients who would like to utilize curbside delivery at the Pharmacy, they are
-      welcome to park at the curb closest to the Pharmacy and call +1 904-222-8490 for a curbside delivery of their
-      prescription(s).</p>
-    <p class="content-text">Over-the-counter Pharmacy items are also available with curbside and home delivery services.
-      Community members may call the Jax Pharmacy at +1 904-222-8490 for any questions regarding these services</p>
+    <p class="content-text"><strong>{{details.contentTitle}}</strong> {{details.content1}}</p>
+    <p class="content-text"> {{details.content2}}</p>
+    <p class="content-text">{{details.content3}}</p>
   </div>
 </ion-content>

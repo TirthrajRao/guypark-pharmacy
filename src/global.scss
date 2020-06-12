@@ -26,8 +26,8 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
 
 :root {
     --text-color: #a1a1a1;
@@ -50,8 +50,8 @@ body *[routerlink] {
 .ubntu-regular {
     font-family: "Ubuntu", sans-serif;
 }
-.sans-font{
-    font-family: 'Open Sans', sans-serif;
+.sans-font {
+    font-family: "Open Sans", sans-serif;
 }
 // Header css start
 
@@ -254,10 +254,25 @@ ion-header ion-toolbar:first-child {
 
 .form-detail {
     .form-control {
+        font-size: 12px;
+        border: none;
+        border-radius: 5px;
+        border: 1px solid #d2d2d2;
+        font-weight: 500;
+        color: var(--text-color);
+        background: #f9f9f9;
         box-shadow: none;
+        padding:  17px 0 17px 15px;
     }
+    ::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        // font-weight: 500;
+        color: var(--text-color);
+        font-size: 12px;
+    }
+
     .form-control:focus {
-        border-color: #ced4da;
+        border-color: #d2d2d2;
     }
 }
 .form-footer {
@@ -273,9 +288,11 @@ ion-header ion-toolbar:first-child {
 }
 .submit-btn {
     button {
-        background-color: #898989 !important;
-        color: white;
-        text-transform: uppercase;
+        background-color: var(--btn-color) !important;
+        color: rgba(250,250,250,70%);
+        border-radius: 0;
+        font-size: 13px;
+        padding: 7px 23px;
     }
     .btn {
         outline: none;
@@ -312,7 +329,7 @@ ion-header ion-toolbar:first-child {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(178deg,#F8F8F8, #70A0FF);
+        background: linear-gradient(178deg, #f8f8f8, #70a0ff);
         opacity: 0.64;
     }
 }
@@ -350,5 +367,45 @@ ion-header ion-toolbar:first-child {
         height: 34px;
         width: 30px;
         margin-top: 2px;
+    }
+}
+.service-detail {
+    .service-img {
+        height: 120px;
+        width: 220px;
+        margin: auto;
+        z-index: 2;
+        img {
+            max-height: 100%;
+            min-height: 100%;
+            max-width: 100%;
+            min-width: 100%;
+            object-fit: cover;
+        }
+    }
+    .servicename-card {
+        background: linear-gradient(180deg, #4160b8, #15275e);
+        padding: 10px 24px;
+        border-radius: 9px;
+        margin-top: -26px;
+        z-index: 4;
+        position: relative;
+        margin: -26px 15px 0;
+        font-family: "Ubuntu", sans-serif;
+        color: white;
+        box-shadow: 0 3px 6px #00000029;
+        .card-title {
+            font-size: 17px;
+        }
+        .des {
+            font-size: 12px;
+        }
+    }
+    .about-text {
+        padding: 30px 25px 30px 43px;
+        .content-text {
+            color: #787878;
+            font-size: 13px;
+        }
     }
 }

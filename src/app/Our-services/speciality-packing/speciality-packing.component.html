@@ -1,25 +1,31 @@
 <ion-header>
-  <app-header [cname]="'Speciality Paciking'"></app-header>
-</ion-header>
-
-<ion-content>
-  <div class="cover-img offer">
-    <div class="cover-text">
-      <h4>Speciality Paciking</h4>
+  <div class="header d-flex">
+    <div class="back-icon float-left">
+      <ion-back-button [icon]="'arrow-back-outline'" [text]="">
+      </ion-back-button>
     </div>
   </div>
-  <div class="about-text ion-padding">
-    <div class="form-name">
-      <h3 class="form-title">We offer speciality packing show with picture dose packs</h3>
+</ion-header>
+
+<ion-content class="service-detail">
+  <div class="cover-img curbside">
+    <div class="service-img">
+      <img src="assets/images/speciality-packing.png">
     </div>
-    <p class="content-text"><strong>Dispill blisters are safe, simple and convenient :</strong> </p>
-    <ul>
-      <li>Easy to open, detachable and portable</li>
-      <li>Color-coded to indicate the time of day when medication should be taken</li>
-      <li>Filled directly by the pharmacist to ensure accuracy</li>
-      <li>Cleaner and more convenient than traditional pill boxes</li>
-      <li>Effective medication reminder system</li>
+  </div>
+  <div class="servicename-card">
+    <p class="card-title m-0">{{details.title}}</p>
+    <p class="des m-0">{{details.subTitle}}</p>
+  </div>
+  <div class="about-text sans-font">
+    <p class="content-text">{{details.content1}}</p>
+    <ul class="content-text">
+      <li>{{details.list1}}</li>
+      <li>{{details.list2}}</li>
+      <li>{{details.list3}}</li>
+      <li>{{details.list4}}</li>
+      <li>{{details.list5}}</li>
     </ul>
-    <p class="content-text">The top of each individual blister pack lists the person's name, the medication within and the time it should be taken. Going out for lunch or away for the weekend? Simply bring along the appropriate blisters!</p>
+    <p class="content-text"> {{details.content2}}</p>
   </div>
 </ion-content>

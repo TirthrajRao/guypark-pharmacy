@@ -1,9 +1,9 @@
 ion-content {
-    --background: #eaedf3;
     .check-box {
         display: flex;
         align-items: center;
         margin-left: 5px;
+        color: var(--text-color);
         ion-label{
             margin-left: 5px;
             font-size: 14px;
@@ -12,9 +12,38 @@ ion-content {
     }
     .form-footer{
         padding: 25px 5px;
+        color: var(--text-color);
         span{
             font-size: 14px;
             font-weight: 600;
         }
     }
+    ion-item{
+        color: var(--text-color);
+    }
+}
+
+ion-header {
+    height: 0;
+    ion-back-button {
+        color: #213778;
+    }
+    ion-toolbar {
+        --background: transparent;
+    }
+}
+h4 {
+    margin: 0;
+    color: var(--title-color);
+    font-size: 14px;
+}
+.service-img{
+    width: unset;
+    height: unset;
+    img{
+        min-height: unset;
+    }
+}
+.form-section{
+    padding: 15px 45px;
 }
