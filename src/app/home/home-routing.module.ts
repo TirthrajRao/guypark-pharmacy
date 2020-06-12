@@ -16,6 +16,7 @@ import { GenericDrugComponent } from '../Our-services/generic-drug/generic-drug.
 import { MajorInsuranceComponent } from '../Our-services/major-insurance/major-insurance.component';
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
+import { NotificationComponent } from '../notification/notification.component';
 
 const routes: Routes = [
   {
@@ -87,6 +88,10 @@ const routes: Routes = [
       {
         path:'about-us',
         component:AboutUsComponent
+      },
+      {
+        path:'notification',
+        component:NotificationComponent
       }
     ]
   }

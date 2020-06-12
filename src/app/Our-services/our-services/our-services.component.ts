@@ -74,6 +74,9 @@ export class OurServicesComponent implements OnInit {
     ]
   }
 
+  /**
+   * langugae 
+   */
   _initialiseTranslation(): void {
     this._translate.use(this.language);
     setTimeout(() => {

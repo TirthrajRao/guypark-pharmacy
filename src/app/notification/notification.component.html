@@ -1,0 +1,33 @@
+<ion-header>
+  <app-header [cname]="'Notification'"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="service-header">
+    <img src="assets/images/notification.png">
+    <h4>Notification</h4>
+  </div>
+  <div class="notification-list">
+    <div  class="notification-card mb-3" *ngFor ="let notification of notificationList" [ngClass]="notification.color">
+      <div class="row">
+        <div class="col-3">
+          <div class="notification-img">
+            <img [src]="'assets/images/Image 92.png'">
+          </div>
+        </div>
+        <div class="col-9 pl-0">
+          <h4 class="ubntu-regular notification-title">{{notification.title}}</h4>
+          <div class="service-content sans-font">
+            <p class=" ml-2 mt-2 mb-0 notification-content">{{notification.message}}</p>
+            <p class="read-more mt-2" >Read More
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <app-footer></app-footer>
+</ion-footer>

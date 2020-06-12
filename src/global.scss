@@ -27,6 +27,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 :root {
     --text-color: #a1a1a1;
@@ -303,6 +304,7 @@ ion-header ion-toolbar:first-child {
     position: relative;
     display: flex;
     align-items: flex-end;
+    border-bottom: 1px solid #707070;
     &:after {
         content: "";
         position: absolute;
@@ -310,7 +312,7 @@ ion-header ion-toolbar:first-child {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(#f0ecec, #756c71 50%);
+        background: linear-gradient(178deg,#F8F8F8, #70A0FF);
         opacity: 0.64;
     }
 }
@@ -339,4 +341,14 @@ ion-header ion-toolbar:first-child {
 .content-text {
     font-size: 14px;
     color: #898989;
+}
+.service-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    img {
+        height: 34px;
+        width: 30px;
+        margin-top: 2px;
+    }
 }

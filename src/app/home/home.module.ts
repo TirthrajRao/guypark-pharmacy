@@ -23,10 +23,8 @@ import { GenericDrugComponent } from '../Our-services/generic-drug/generic-drug.
 import { MajorInsuranceComponent } from '../Our-services/major-insurance/major-insurance.component';
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
+import { NotificationComponent } from '../notification/notification.component';
 
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 
 // AoT requires an exported function for factories
@@ -40,14 +38,6 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     IonicModule,
     HomePageRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    // TranslateModule.forRoot({
-    //     loader: {
-    //         provide: TranslateLoader,
-    //         useFactory: HttpLoaderFactory,
-    //         deps: [HttpClient]
-    //     }
-    // }),
   ],
   declarations: [
     HomePage,
@@ -67,7 +57,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     GenericDrugComponent,
     MajorInsuranceComponent,
     ContactUsComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    NotificationComponent
   ]
 })
 export class HomePageModule { }

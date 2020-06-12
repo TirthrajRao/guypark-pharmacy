@@ -1,0 +1,77 @@
+ion-content {
+    --background: #f0f2f9;
+}
+h4 {
+    margin: 0;
+    padding-left: 10px;
+    color: var(--title-color);
+    font-size: 18px;
+}
+.service-header {
+    background: white;
+    img {
+        height: 25px;
+        width: 24px;
+    }
+}
+.notification-list {
+    // background-color: #f0f2f9;
+    padding: 10px;
+    .notification-card {
+        background-color: white;
+        border-radius: 2px;
+        box-shadow: 0 1px 0 #0000000d;
+        padding: 10px 6px;
+        .notification-img {
+            height: 66px;
+            width: 70px;
+            border-radius: 5px;
+            overflow: hidden;
+            img {
+                max-height: 100%;
+                min-height: 100%;
+                min-width: 100%;
+                max-width: 100%;
+                object-fit: cover;
+            }
+        }
+        .notification-title{
+            font-size: 12px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            padding-left: 8px;;
+        }
+      
+        .service-content {
+            color: #989898;
+            font-size: 10px;
+            .notification-content{
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .read-more {
+                text-align: right;
+                margin-bottom: 0;
+                outline: none;
+                i {
+                    margin-left: 7px;
+                    color: var(--title-color);
+                }
+            }
+        }
+    }
+}
+.first{
+    border-left: 4px solid #C0FFD1;
+}
+.second{
+    border-left: 4px solid rgb(227, 26, 51,63%);
+}
+.third{
+    border-left: 4px solid rgb(240, 204, 6,37%);
+}
+.fourth{
+    border-left: 4px solid rgb(31, 60, 146,49%);
+}
