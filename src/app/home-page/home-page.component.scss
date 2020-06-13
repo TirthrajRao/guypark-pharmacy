@@ -1,6 +1,9 @@
 ion-title {
     margin-left: 17px;
 }
+ion-content {
+    --background: linear-gradient(#4160b8, #15275e 50%);
+}
 .pharmacy-service {
     h4 {
         color: var(--title-color);
@@ -12,7 +15,7 @@ ion-title {
         display: flex;
         align-items: center;
         padding: 8px;
-       
+        background: white;
         img {
             height: 33px;
             width: 33px;
@@ -20,7 +23,6 @@ ion-title {
     }
 
     .services-content {
-        background: linear-gradient(#4160b8, #15275e 50%);
         padding: 35px 0;
         .single-servics {
             padding: 10px;
@@ -76,18 +78,17 @@ ion-title {
                     left: 0;
                     right: 0;
                     bottom: 0;
-                    background: linear-gradient(#4160B8, #15275E 50%);
+                    background: linear-gradient(#4160b8, #15275e 50%);
                     opacity: 0.64;
                 }
-               
             }
         }
-        p{
-            color:#989898;
+        p {
+            color: #989898;
             font-size: 12px;
             padding-left: 5px;
         }
-        i{
+        i {
             color: var(--title-color);
             margin-left: 11px;
         }
