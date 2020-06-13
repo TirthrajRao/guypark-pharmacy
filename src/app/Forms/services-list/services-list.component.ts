@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-services-list',
@@ -8,27 +10,53 @@ import { Component, OnInit } from '@angular/core';
 export class ServicesListComponent implements OnInit {
 
   formList: any = [];
-  constructor() {
+  detail: any = this._translate.instant("home");
+  language: string = "en";
+
+  constructor(
+    private _translate: TranslateService,
+    public _userService: UserService
+  ) {
+    setTimeout(() => {
+      this.createServiceList()
+    }, 260);
+
+  }
+
+  ngOnInit() {
+    this._userService.languageChanges().subscribe((res: any) => {
+      console.log("RESPONSE", res);
+      this.language = res.language
+      this._initialiseTranslation();
+    })
+  }
+
+  createServiceList() {
     this.formList = [
       {
-        name: 'Transfer Prescription',
+        name: this.detail.TransferPrescripsion,
         url: '/home/transfer-prescription'
       },
       {
-        name: 'Refill Request',
+        name: this.detail.RefillRequest,
         url: '/home/refill-request'
       },
       {
-        name: 'Price Check',
+        name: this.detail.PriceCheck,
         url: '/home/price-check'
-      },
-      // {
-      //   name: 'Employment',
-      //   url: '/home/employment'
-      // }
+      }
     ]
   }
 
-  ngOnInit() { }
+  /**
+   * change and detect language
+   */
+  _initialiseTranslation(): void {
+    this._translate.use(this.language);
+    setTimeout(() => {
+      this.detail = this._translate.instant("home");
+      this.createServiceList();
+    }, 250);
+  }
 
 }
