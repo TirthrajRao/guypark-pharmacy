@@ -1,8 +1,11 @@
 .form-name {
-    border: 2px solid grey;
+    border: 2px solid #133682;
     padding: 18px;
     border-top-right-radius: 20px;
     box-shadow: 1px 0px 15px rgba(146, 140, 142, 0.28);
     border-bottom-left-radius: 20px;
     outline: none;
+}
+ion-content {
+    --background: #f0f2f9;
 }

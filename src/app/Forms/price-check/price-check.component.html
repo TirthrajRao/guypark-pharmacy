@@ -1,90 +1,89 @@
 <ion-header>
-  <app-header [cname]="'Price Check'"></app-header>
+  <app-header [cname]="formDetail.form3"></app-header>
 </ion-header>
 
 <ion-content>
   <div class="p-3">
     <div class="form-name">
-      <p class="m-0 form-title">Please Fill This Form</p>
-      <h4 class="mt-3">Basic Details</h4>
+      <h4 class="mb-3">{{formDetail.basicDetail}}</h4>
     </div>
     <form class="form-detail" [formGroup]="priceCheckForm">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+        <input type="text" class="form-control" [placeholder]="formDetail.firstName" formControlName="fname">
         <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
-          <div *ngIf="f.fname.errors.required">First name is required</div>
+          <div *ngIf="f.fname.errors.required">{{formDetail.validation.fname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+        <input type="text" class="form-control" [placeholder]="formDetail.lastName" formControlName="lname">
         <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
-          <div *ngIf="f.lname.errors.required">Last name is required</div>
+          <div *ngIf="f.lname.errors.required">{{formDetail.validation.lname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email">
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">Email is required</div>
-          <div *ngIf="f.email.errors.email">Email is not valid</div>
+          <div *ngIf="f.email.errors.required">{{formDetail.validation.email}}</div>
+          <div *ngIf="f.email.errors.email">{{formDetail.validation.email1}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="number" class="form-control" placeholder="Phone Number" formControlName="phone_number">
+        <input type="number" class="form-control" [placeholder]="formDetail.phone" formControlName="phone_number">
         <div *ngIf="submitted && f.phone_number.errors" class="invalid-feedback">
-          <div *ngIf="f.phone_number.errors.required">Phone number is required</div>
+          <div *ngIf="f.phone_number.errors.required">{{formDetail.validation.phone}}</div>
         </div>
       </div>
 
 
-      <div class="row rx-number">
-        <label class="ml-3 w-100">Rx Numbers to be transfered</label>
+      <div class="row rx-number m-0">
+        <label class=" w-100">{{formDetail.priceHeading}}</label>
         <div class="col-6 p-0">
-          <input type="text" class="form-control" placeholder="Name of medicine" formControlName="medicine_name_1">
+          <input type="text" class="form-control" [placeholder]="formDetail.medName" formControlName="medicine_name_1">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Strength" formControlName="medicine_1_strength">
+          <input type="text" class="form-control" [placeholder]="formDetail.strength" formControlName="medicine_1_strength">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Quantity" formControlName="madicine_1_quantity">
-        </div>
-        <div class="col-6 p-0">
-          <input type="text" class="form-control" placeholder="Name of medicine" formControlName="medicine_name_2">
-        </div>
-        <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Strength" formControlName="medicine_2_strength">
-        </div>
-        <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Quantity" formControlName="madicine_2_quantity">
+          <input type="text" class="form-control" [placeholder]="formDetail.quantity" formControlName="madicine_1_quantity">
         </div>
         <div class="col-6 p-0">
-          <input type="text" class="form-control" placeholder="Name of medicine" formControlName="medicine_name_3">
+          <input type="text" class="form-control" [placeholder]="formDetail.medName" formControlName="medicine_name_2">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Strength" formControlName="medicine_3_strength">
+          <input type="text" class="form-control" [placeholder]="formDetail.strength" formControlName="medicine_2_strength">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Quantity" formControlName="madicine_3_quantity">
+          <input type="text" class="form-control" [placeholder]="formDetail.quantity" formControlName="madicine_2_quantity">
         </div>
         <div class="col-6 p-0">
-          <input type="text" class="form-control" placeholder="Name of medicine" formControlName="medicine_name_4">
+          <input type="text" class="form-control" [placeholder]="formDetail.medName" formControlName="medicine_name_3">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Strength" formControlName="medicine_4_strength">
+          <input type="text" class="form-control" [placeholder]="formDetail.strength" formControlName="medicine_3_strength">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Quantity" formControlName="madicine_4_quantity">
+          <input type="text" class="form-control" [placeholder]="formDetail.quantity" formControlName="madicine_3_quantity">
         </div>
         <div class="col-6 p-0">
-          <input type="text" class="form-control" placeholder="Name of medicine" formControlName="medicine_name_5">
+          <input type="text" class="form-control" [placeholder]="formDetail.medName" formControlName="medicine_name_4">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Strength" formControlName="medicine_5_strength">
+          <input type="text" class="form-control" [placeholder]="formDetail.strength" formControlName="medicine_4_strength">
         </div>
         <div class="col-3 p-0">
-          <input type="text" class="form-control" placeholder="Quantity" formControlName="madicine_5_quantity">
+          <input type="text" class="form-control" [placeholder]="formDetail.quantity" formControlName="madicine_4_quantity">
+        </div>
+        <div class="col-6 p-0">
+          <input type="text" class="form-control" [placeholder]="formDetail.medName" formControlName="medicine_name_5">
+        </div>
+        <div class="col-3 p-0">
+          <input type="text" class="form-control" [placeholder]="formDetail.strength" formControlName="medicine_5_strength">
+        </div>
+        <div class="col-3 p-0">
+          <input type="text" class="form-control" [placeholder]="formDetail.quantity" formControlName="madicine_5_quantity">
         </div>
       </div>
 
@@ -92,14 +91,14 @@
         <ion-item>
           <ion-label position="floating">
             <!-- <img src="assets/images/note.png" alt=""> -->
-            Note To Pharmacy
+            {{formDetail.note}}
           </ion-label>
           <ion-input type="text" formControlName="note_to_pharmacy"></ion-input>
         </ion-item>
       </div>
 
-      <div class="submit-btn text-center mt-4">
-        <button class="btn " [disabled]="isDisable" (click)="addPriceForm(priceCheckForm.value)">Submit</button>
+      <div class="submit-btn mt-4">
+        <button class="btn " [disabled]="isDisable" (click)="addPriceForm(priceCheckForm.value)">{{formDetail.btnText}}</button>
       </div>
     </form>
   </div>

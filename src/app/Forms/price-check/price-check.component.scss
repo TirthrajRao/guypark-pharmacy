@@ -4,5 +4,15 @@ ion-content {
         .form-control {
             border-radius: 0;
         }
+        label{
+            color: var(--title-color);
+            font-size: 15px;
+        }
+    }
+    h4 {
+        margin: 0;
+        padding-left: 2px;
+        color: var(--title-color);
+        font-size: 18px;
     }
 }

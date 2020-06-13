@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-price-check',
@@ -11,8 +13,13 @@ export class PriceCheckComponent implements OnInit {
   priceCheckForm: FormGroup;
   submitted: Boolean = false;
   isDisable: Boolean = false;
+  formDetail: any = this._translate.instant("form");
+  language: string = "en";
 
-  constructor() {
+  constructor(
+    private _translate: TranslateService,
+    public _userService: UserService
+  ) {
     this.priceCheckForm = new FormGroup({
       fname: new FormControl('', [Validators.required]),
       lname: new FormControl('', [Validators.required]),
@@ -37,7 +44,14 @@ export class PriceCheckComponent implements OnInit {
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._userService.languageChanges().subscribe((res: any) => {
+      console.log("RESPONSE", res);
+      this.language = res.language
+      this._initialiseTranslation();
+    })
+  }
+
   get f() { return this.priceCheckForm.controls }
 
   /**
@@ -51,5 +65,15 @@ export class PriceCheckComponent implements OnInit {
     }
     this.isDisable = true;
     console.log(data);
+  }
+
+  /**
+   * change and detect language
+   */
+  _initialiseTranslation(): void {
+    this._translate.use(this.language);
+    setTimeout(() => {
+      this.formDetail = this._translate.instant("form")
+    }, 250);
   }
 }

@@ -1,58 +1,58 @@
 <ion-header>
-  <app-header [cname]="'Refill Request'"></app-header>
+  <app-header [cname]="formDetail.form2"></app-header>
 </ion-header>
 
-<ion-content>
+<ion-content class="roboto-miduim">
   <div class="p-3">
     <div class="form-name">
-      <p class="m-0 form-title">Please Fill This Form</p>
-      <h4 class="mt-3">Basic Details</h4>
+      <h4 class="mb-3">{{formDetail.basicDetail}}</h4>
     </div>
     <form class="form-detail" [formGroup]="refillReqForm">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="First Name" formControlName="fname">
+        <input type="text" class="form-control" [placeholder]="formDetail.firstName" formControlName="fname">
         <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
-          <div *ngIf="f.fname.errors.required">First name is required</div>
+          <div *ngIf="f.fname.errors.required">{{formDetail.validation.fname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Last Name" formControlName="lname">
+        <input type="text" class="form-control" [placeholder]="formDetail.lastName" formControlName="lname">
         <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
-          <div *ngIf="f.lname.errors.required">Last name is required</div>
+          <div *ngIf="f.lname.errors.required">{{formDetail.validation.lname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email">
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">Email is required</div>
-          <div *ngIf="f.email.errors.email">Email is not valid</div>
+          <div *ngIf="f.email.errors.required">{{formDetail.validation.email}}</div>
+          <div *ngIf="f.email.errors.email">{{formDetail.validation.email1}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="number" class="form-control" placeholder="Phone Number" formControlName="phone">
+        <input type="number" class="form-control" [placeholder]="formDetail.phone" formControlName="phone">
         <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
-          <div *ngIf="f.phone.errors.required">Phone number is required</div>
+          <div *ngIf="f.phone.errors.required">{{formDetail.validation.phone}}</div>
         </div>
       </div>
 
 
       <div class="form-group">
-        <ion-datetime class="form-control" placeholder="Birth Date" [max]="currentDate" formControlName="birthDate"></ion-datetime>
+        <ion-datetime class="form-control" [placeholder]="formDetail.birthDate" [max]="currentDate"
+          formControlName="birthDate"></ion-datetime>
       </div>
 
 
       <div class="form-group">
         <ion-select placeholder="Delivery Method" formControlName="deliveryMethod">
-          <ion-select-option value="Pick Up">Pick Up</ion-select-option>
+          <ion-select-option value="Pick Up">{{formDetail.pickUp}}</ion-select-option>
         </ion-select>
       </div>
 
 
-      <div class="row rx-number">
-        <label class="ml-3 w-100">Please Provide Rx# for each Refill Request:</label>
+      <div class="row rx-number m-0">
+        <label class="w-100">{{formDetail.refillHeaing}}</label>
 
         <div class="col-6 p-0">
           <input type="text" class="form-control" placeholder="Rx 1 #" formControlName="rx1">
@@ -101,9 +101,18 @@
         </div>
       </div>
       <div class="form-footer">
+
         <ion-item>
           <ion-label position="floating">
-            Pick Up Date
+            {{formDetail.reminder}}
+          </ion-label>
+          <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}" formControlName="refillRemnder">
+          </ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">
+            {{formDetail.pickDate}}
           </ion-label>
           <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}" formControlName="pickUpDate">
           </ion-datetime>
@@ -111,16 +120,15 @@
 
         <ion-item>
           <ion-label position="floating">
-            Pick Up Time
+            {{formDetail.pickTime}}
           </ion-label>
           <ion-datetime display-format="h:mm A" picker-format="h:mm A" formControlName="pickUpTime"></ion-datetime>
         </ion-item>
       </div>
-      <div class="submit-btn text-center mt-4">
-        <button class="btn" [disabled]="isDisable" (click)="addRefillReq(refillReqForm.value)">Submit</button>
+      <div class="submit-btn mt-4">
+        <button class="btn" [disabled]="isDisable"
+          (click)="addRefillReq(refillReqForm.value)">{{formDetail.btnText}}</button>
       </div>
-
     </form>
-
   </div>
 </ion-content>

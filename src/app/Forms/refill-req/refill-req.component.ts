@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-refill-req',
@@ -13,9 +15,14 @@ export class RefillReqComponent implements OnInit {
   refillReqForm: FormGroup;
   submitted: Boolean = false;
   isDisable: Boolean = false;
+  formDetail: any = this._translate.instant("form");
+  language: string = "en";
 
 
-  constructor() {
+  constructor(
+    private _translate: TranslateService,
+    public _userService: UserService
+  ) {
     this.nextYearCount();
 
     this.refillReqForm = new FormGroup({
@@ -27,6 +34,7 @@ export class RefillReqComponent implements OnInit {
       pickUpDate: new FormControl(''),
       pickUpTime: new FormControl(''),
       deliveryMethod: new FormControl(''),
+      refillRemnder: new FormControl(''),
       rx1: new FormControl(''),
       rx2: new FormControl(''),
       rx3: new FormControl(''),
@@ -43,7 +51,13 @@ export class RefillReqComponent implements OnInit {
     })
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this._userService.languageChanges().subscribe((res: any) => {
+      console.log("RESPONSE", res);
+      this.language = res.language
+      this._initialiseTranslation();
+    })
+  }
 
   get f() {
     return this.refillReqForm.controls
@@ -67,5 +81,15 @@ export class RefillReqComponent implements OnInit {
     }
     this.isDisable = true;
     console.log(data)
+  }
+
+  /**
+   * change and detect language
+   */
+  _initialiseTranslation(): void {
+    this._translate.use(this.language);
+    setTimeout(() => {
+      this.formDetail = this._translate.instant("form")
+    }, 250);
   }
 }
