@@ -1,12 +1,37 @@
 .file-select{
     span{
-        background:#898989;
-        padding: 8px;
+        background:var(--btn-color);
+        padding: 10px;
         color: white;
-        border-radius: 5px;
+        // border-radius: 5px;
+        font-size: 12px;
     }
 }
 ion-content {
-    --background: #eaedf3;
-    
+    --background: #f0f2f9;
+}
+.about {
+    background-image: url("../../../assets/images/carrer.jpg");
+}
+ion-header {
+    height: 0;
+    ion-back-button,ion-menu-button {
+        color: #213778;
+    }
+    ion-toolbar {
+        --background: transparent;
+    }
+}
+.cover-img {
+    &:after {
+        background: linear-gradient(181deg, #5d5d5d, #095bff);
+    }
+}
+h4 {
+    margin: 0;
+    color: var(--title-color);
+    font-size: 14px;
+}
+.form{
+padding: 20px 49px;
 }

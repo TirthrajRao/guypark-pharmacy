@@ -147,6 +147,8 @@
 		"strength":"Fuerza",
 		"quantity":"Cantidad",
 		"note":"Nota para farmacia",
+		"position":"Puesto que solicita",
+		"attach":"Adjuntar curriculum vitae",
 		"validation": {
 			"fname": "Se requiere el primer nombre",
 			"lname": "Apellido es obligatorio",
@@ -178,5 +180,9 @@
 		"email": "noreply@envato.com",
 		"phone": "518-212-6020",
 		"Phone": "Teléfono"
+	},
+	"employment": {
+		"title": "Empleo",
+		"subTitle": "Empleamos a residentes locales de la comunidad para diversas oportunidades. Puede solicitar el empleo rellenando el siguiente formulario"
 	}
 }

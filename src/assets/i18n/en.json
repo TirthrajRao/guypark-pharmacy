@@ -101,7 +101,7 @@
 		"title": "Notification"
 	},
 	"form": {
-		"form1":"Transfer Prescription",
+		"form1": "Transfer Prescription",
 		"form2": "Refill Request",
 		"form3": "Price Check",
 		"basicDetail": "Basic Details",
@@ -137,22 +137,24 @@
 		"rx8": "Rx8 Medicine Name",
 		"rx9": "Rx9 Medicine Name",
 		"rx10": "Rx10 Medicine Name",
-		"pickUp":"Pick Up",
-		"refillHeaing":"Please Provide Rx# for each Refill Request:",
-		"pickDate":"Pick Up Date",
-		"pickTime":"Pick Up Time",
-		"reminder":"Refill Reminder",
-		"priceHeading":"Rx Numbers to be transfered",
-		"medName":"Name of medicine",
-		"strength":"Strength",
-		"quantity":"Quantity",
-		"note":"Note To Pharmacy",
-		"validation":{
-			"fname":"First name is required",
-			"lname":"Last name is required",
-			"email":"Email is required",
-			"email1":"Email is not valid",
-			"phone":"Phone number is required"
+		"pickUp": "Pick Up",
+		"refillHeaing": "Please Provide Rx# for each Refill Request:",
+		"pickDate": "Pick Up Date",
+		"pickTime": "Pick Up Time",
+		"reminder": "Refill Reminder",
+		"priceHeading": "Rx Numbers to be transfered",
+		"medName": "Name of medicine",
+		"strength": "Strength",
+		"quantity": "Quantity",
+		"note": "Note To Pharmacy",
+		"position":"Position Applying for",
+		"attach":"Attach Resume",
+		"validation": {
+			"fname": "First name is required",
+			"lname": "Last name is required",
+			"email": "Email is required",
+			"email1": "Email is not valid",
+			"phone": "Phone number is required"
 		}
 	},
 	"about": {
@@ -178,5 +180,9 @@
 		"email": "noreply@envato.com",
 		"phone": "518-212-6020",
 		"Phone": "Phone"
+	},
+	"employment": {
+		"title": "Employment",
+		"subTitle": "We employ local residents of the community for various opportunities. You can apply Job filling below form"
 	}
 }
