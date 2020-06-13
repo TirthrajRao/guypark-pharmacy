@@ -111,7 +111,10 @@
 		"option1": "No Thanks",
 		"option2": "Yes,By Email",
 		"option3": "Yes,By Phone",
-		"btnText": "Submit"
+		"btnText": "Submit",
+		"name":"Name",
+		"subject":"Subject",
+		"message":"Message"
 	},
 	"about":{
 		"title":"About Us",
@@ -125,5 +128,17 @@
 		"contentTitle3":"We do it for the greater good of the society",
 		"content5":"Our mission is to optimize health care services by providing caring and convenient pharmacy experience to better manage our patients health and well being.",
 		"content6":"As independent pharmacy, we take the time to deliver a higher level of personal attention, trusted advice that our patients may not find in chain pharmacies. With each visit, you will discover award winning quality service from a pharmacist who knows you by your name-not just by number."
+	},
+	"contact":{
+		"title":"Contact Us",
+		"subTitle":"You can locate us on Different Nearby Locations",
+		"contentTitle1":"We are available at Following location",
+		"location":"New York",
+		"name":"Guy Park Pharmacy",
+		"address":"151 Guy Park Ave, , Amsterdam, New York",
+		"email":"noreply@envato.com",
+		"phone":"518-212-6020",
+		"Phone":"Phone"
+		
 	}
 }

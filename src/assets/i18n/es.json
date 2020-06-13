@@ -66,19 +66,19 @@
 		"list3": "Llenado directamente por el farmacéutico para garantizar la precisión.",
 		"list4": "Más limpio y más conveniente que los pastilleros tradicionales",
 		"list5": "Sistema eficaz de recordatorio de medicación",
-		"content2":"La parte superior de cada blister individual enumera el nombre de la persona, el medicamento dentro y el tiempo que debe tomarse. ¿Salir a almorzar o salir el fin de semana? ¡Simplemente traiga las ampollas apropiadas!"
+		"content2": "La parte superior de cada blister individual enumera el nombre de la persona, el medicamento dentro y el tiempo que debe tomarse. ¿Salir a almorzar o salir el fin de semana? ¡Simplemente traiga las ampollas apropiadas!"
 	},
-	"drug":{
-		"title":"Plan de medicamentos genéricos de $ 4.99",
+	"drug": {
+		"title": "Plan de medicamentos genéricos de $ 4.99",
 		"subTitle": "Todo tipo de cuidados",
 		"contentTitle": "Farmacias De Guy Park",
-		"content1":"es un defensor de la asistencia sanitaria asequible pero de calidad. Nuestro plan de medicamentos genéricos es garantizar que obtenga sus medicamentos de una manera menos costosa sin comprometer la calidad de los medicamentos. Todos nuestros medicamentos son genéricos aprobados por la FDA y cumplen con la ley de pedigrí de la Florida. Cuando visite nuestra farmacia, asegúrese de preguntarle a nuestro personal sobre nuestro Plan de medicamentos genéricos de $ 4.99."
+		"content1": "es un defensor de la asistencia sanitaria asequible pero de calidad. Nuestro plan de medicamentos genéricos es garantizar que obtenga sus medicamentos de una manera menos costosa sin comprometer la calidad de los medicamentos. Todos nuestros medicamentos son genéricos aprobados por la FDA y cumplen con la ley de pedigrí de la Florida. Cuando visite nuestra farmacia, asegúrese de preguntarle a nuestro personal sobre nuestro Plan de medicamentos genéricos de $ 4.99."
 	},
 	"major": {
 		"title": "Acepte todos los planes de seguro principales",
 		"subTitle": "Todo tipo de cuidados",
 		"contentTitle": "Farmacias De Guy Park",
-		"content1":"acepta todos los planes de seguro principales, tales como:",
+		"content1": "acepta todos los planes de seguro principales, tales como:",
 		"list1": "Aetna",
 		"list2": "Cruz Azul y Escudo Azul",
 		"list3": "Cigna",
@@ -111,19 +111,33 @@
 		"option1": "No, gracias",
 		"option2": "Sí, por correo electrónico",
 		"option3": "Sí, por teléfono",
-		"btnText": "Enviar"
+		"btnText": "Enviar",
+		"name":"Nombre",
+		"subject":"Sujeta",
+		"message":"Mensaje"
 	},
-	"about":{
-		"title":"Sobre nosotras",
+	"about": {
+		"title": "Sobre nosotras",
 		"subTitle": "Todo tipo de cuidados",
-		"contentTitle1":"Experiencia y confianza construidas durante 15 años.",
-		"content1":"Guy Park Pharmacy es una farmacia comunitaria independiente en Florida, que brinda servicios de farmacia a los lugares circundantes. Tenemos la misión de:",
-		"content2":"Optimice los servicios de atención médica al brindar una experiencia de farmacia conveniente y atenta para administrar mejor la salud y el bienestar del paciente.",
-		"content3":"Como farmacia independiente, nos tomamos el tiempo para brindar un mayor nivel de atención personal, consejos confiables que nuestros pacientes pueden no encontrar en las farmacias de la cadena. Con cada visita, descubrirá un galardonado servicio de calidad de un farmacéutico que lo conoce por su nombre, no solo por su número.",
-		"content4":"Todos nuestros servicios están disponibles para todos los elegibles.",
-		"contentTitle2":"Nuestra misión",
-		"contentTitle3":"La hacemos por el bien de la sociedad.",
-		"content5":"Nuestra misión es optimizar los servicios de atención médica al brindar una experiencia de farmacia conveniente y atenta para administrar mejor la salud y el bienestar de nuestros pacientes.",
-		"content6":"Como farmacia independiente, nos tomamos el tiempo para brindar un mayor nivel de atención personal, consejos confiables que nuestros pacientes pueden no encontrar en las farmacias de la cadena. Con cada visita, descubrirá un galardonado servicio de calidad de un farmacéutico que lo conoce por su nombre, no solo por su número."
+		"contentTitle1": "Experiencia y confianza construidas durante 15 años.",
+		"content1": "Guy Park Pharmacy es una farmacia comunitaria independiente en Florida, que brinda servicios de farmacia a los lugares circundantes. Tenemos la misión de:",
+		"content2": "Optimice los servicios de atención médica al brindar una experiencia de farmacia conveniente y atenta para administrar mejor la salud y el bienestar del paciente.",
+		"content3": "Como farmacia independiente, nos tomamos el tiempo para brindar un mayor nivel de atención personal, consejos confiables que nuestros pacientes pueden no encontrar en las farmacias de la cadena. Con cada visita, descubrirá un galardonado servicio de calidad de un farmacéutico que lo conoce por su nombre, no solo por su número.",
+		"content4": "Todos nuestros servicios están disponibles para todos los elegibles.",
+		"contentTitle2": "Nuestra misión",
+		"contentTitle3": "La hacemos por el bien de la sociedad.",
+		"content5": "Nuestra misión es optimizar los servicios de atención médica al brindar una experiencia de farmacia conveniente y atenta para administrar mejor la salud y el bienestar de nuestros pacientes.",
+		"content6": "Como farmacia independiente, nos tomamos el tiempo para brindar un mayor nivel de atención personal, consejos confiables que nuestros pacientes pueden no encontrar en las farmacias de la cadena. Con cada visita, descubrirá un galardonado servicio de calidad de un farmacéutico que lo conoce por su nombre, no solo por su número."
+	},
+	"contact": {
+		"title": "Contacta con nosotras",
+		"subTitle": "Puede ubicarnos en diferentes ubicaciones cercanas",
+		"contentTitle1": "Estamos disponibles en la siguiente ubicación",
+		"location": "Nueva York",
+		"name": "Farmacias De Guy Park",
+		"address": "151 Guy Park Ave`` Amsterdam, Nueva York",
+		"email": "noreply@envato.com",
+		"phone": "518-212-6020",
+		"Phone": "Teléfono"
 	}
 }

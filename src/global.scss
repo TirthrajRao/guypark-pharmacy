@@ -28,6 +28,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Ubuntu&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
 :root {
     --text-color: #a1a1a1;
@@ -52,6 +53,10 @@ body *[routerlink] {
 }
 .sans-font {
     font-family: "Open Sans", sans-serif;
+}
+.montserrat-font{
+    font-family: 'Montserrat', sans-serif;
+
 }
 // Header css start
 
