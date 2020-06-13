@@ -9,7 +9,16 @@
 	},
 	"sidemenu": {
 		"Home": "Home",
-		"Medication": "Medication"
+		"Medication": "Medication",
+		"AboutUs": "About Us",
+		"Services": "Services",
+		"Career": "Career",
+		"HippaNotice": "Hippa Notice",
+		"Notification": "Notification",
+		"ContactUs": "Contact Us",
+		"LogOut": "Log Out",
+		"English": "English",
+		"Spanish": "Spanish"
 	},
 	"services": {
 		"headerTitle": "Our Services",
@@ -88,6 +97,9 @@
 		"title": "Free Home Delivery",
 		"subTitle": "All kind of Care"
 	},
+	"notification": {
+		"title": "Notification"
+	},
 	"form": {
 		"firstName": "First Name",
 		"lastName": "Last Name",
@@ -100,5 +112,18 @@
 		"option2": "Yes,By Email",
 		"option3": "Yes,By Phone",
 		"btnText": "Submit"
+	},
+	"about":{
+		"title":"About Us",
+		"subTitle": "All kind of Care",
+		"contentTitle1":"Experience & trust built for 15 years",
+		"content1":"Guy Park Pharmacy is an independent community pharmacy in Florida, serving the surrounding locations with pharmacy services. We have a mission to:",
+		"content2":"Optimize health care services by providing caring and convenient pharmacy experience to better manage a patient’s health and well being.",
+		"content3":"  As an independent pharmacy, we take the time to deliver a higher level of personal attention, trusted advice that our patients may not find in chain pharmacies. With each visit, you will discover award winning quality service from a pharmacist who knows you by your name-not just by number.",
+		"content4":" All our services are made available to everyone who is eligible.",
+		"contentTitle2":"Our Mission",
+		"contentTitle3":"We do it for the greater good of the society",
+		"content5":"Our mission is to optimize health care services by providing caring and convenient pharmacy experience to better manage our patients health and well being.",
+		"content6":"As independent pharmacy, we take the time to deliver a higher level of personal attention, trusted advice that our patients may not find in chain pharmacies. With each visit, you will discover award winning quality service from a pharmacist who knows you by your name-not just by number."
 	}
 }

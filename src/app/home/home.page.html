@@ -9,13 +9,13 @@
           <!-- <img [src]="page.iconSrc" alt="icon">  -->
           {{page.name}} </p>
       </div>
-      <div class="menu-list pt-0">
-        <p (click)="changeLanguage('en');closeMenu()">English</p>
-        <p (click)="changeLanguage('es');closeMenu()">Spanish</p>
+      <div class="menu-list pt-0" *ngIf="details">
+        <p (click)="changeLanguage('en');closeMenu()">{{details.English}}</p>
+        <p (click)="changeLanguage('es');closeMenu()">{{details.Spanish}}</p>
       </div>
-      <div class="menu-list pt-0" (click)="logOut()">
+      <div class="menu-list pt-0" (click)="logOut()" *ngIf="details">
         <!-- <ion-img src="assets/images/10.png" class="mr-3"></ion-img> -->
-        <p> Log Out</p>
+        <p> {{details.LogOut}}</p>
       </div>
     </div>
   </div>

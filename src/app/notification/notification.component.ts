@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-notification',
@@ -9,7 +11,13 @@ export class NotificationComponent implements OnInit {
   notificationList: any = [];
   colors = ['first', 'second', 'third', 'fourth'];
   lastImage: any;
-  constructor() {
+  language: string = "en";
+  details: any = this._translate.instant("notification")
+
+  constructor(
+    private _translate: TranslateService,
+    public _userService: UserService
+  ) {
     this.notificationList = [
       {
         title: "We Offer free Delivery On Purchase of 100$ Drugs & Medicine Dose.",
@@ -55,15 +63,34 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._userService.languageChanges().subscribe((res: any) => {
+      console.log("RESPONSE", res);
+      this.language = res.language
+      this._initialiseTranslation();
+    })
+
+    this.generateBorder();
+  }
+
+  _initialiseTranslation(): void {
+    this._translate.use(this.language);
+    setTimeout(() => {
+      console.log(this._translate.instant("freeHome"));
+      this.details = this._translate.instant("notification");
+
+    }, 250);
+  }
+
+  /**
+   * Generate border color
+   */
+  generateBorder() {
     this.notificationList.map((notification, index) => {
-      console.log(index)
-      var rand:any = this.colors[ Math.floor(Math.random() * this.colors.length)];
+      var rand: any = this.colors[Math.floor(Math.random() * this.colors.length)];
       rand = index % this.colors.length;
-      console.log(rand)
       this.lastImage = rand;
       notification['color'] = this.colors[rand];
       return notification;
     });
   }
-
 }

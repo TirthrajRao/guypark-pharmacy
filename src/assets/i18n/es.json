@@ -9,7 +9,16 @@
 	},
 	"sidemenu": {
 		"Home": "Casa",
-		"Medication": "Medicamento"
+		"Medication": "Medicamento",
+		"AboutUs": "Sobre nosotras",
+		"Services": "Servicios",
+		"Career": "Carrera",
+		"HippaNotice": "Aviso de Hipaa",
+		"Notification": "Notificación",
+		"ContactUs": "Contacta con nosotras",
+		"LogOut": "Cerrar sesión",
+		"English": "Inglesa",
+		"Spanish": "Española"
 	},
 	"services": {
 		"headerTitle": "Nuestros servicios",
@@ -88,6 +97,9 @@
 		"title": "Entrega gratis en casa",
 		"subTitle": "Todo tipo de cuidados"
 	},
+	"notification": {
+		"title": "Notificación"
+	},
 	"form": {
 		"firstName": "Nombre de pila",
 		"lastName": "Apellido",
@@ -100,5 +112,18 @@
 		"option2": "Sí, por correo electrónico",
 		"option3": "Sí, por teléfono",
 		"btnText": "Enviar"
+	},
+	"about":{
+		"title":"Sobre nosotras",
+		"subTitle": "Todo tipo de cuidados",
+		"contentTitle1":"Experiencia y confianza construidas durante 15 años.",
+		"content1":"Guy Park Pharmacy es una farmacia comunitaria independiente en Florida, que brinda servicios de farmacia a los lugares circundantes. Tenemos la misión de:",
+		"content2":"Optimice los servicios de atención médica al brindar una experiencia de farmacia conveniente y atenta para administrar mejor la salud y el bienestar del paciente.",
+		"content3":"Como farmacia independiente, nos tomamos el tiempo para brindar un mayor nivel de atención personal, consejos confiables que nuestros pacientes pueden no encontrar en las farmacias de la cadena. Con cada visita, descubrirá un galardonado servicio de calidad de un farmacéutico que lo conoce por su nombre, no solo por su número.",
+		"content4":"Todos nuestros servicios están disponibles para todos los elegibles.",
+		"contentTitle2":"Nuestra misión",
+		"contentTitle3":"La hacemos por el bien de la sociedad.",
+		"content5":"Nuestra misión es optimizar los servicios de atención médica al brindar una experiencia de farmacia conveniente y atenta para administrar mejor la salud y el bienestar de nuestros pacientes.",
+		"content6":"Como farmacia independiente, nos tomamos el tiempo para brindar un mayor nivel de atención personal, consejos confiables que nuestros pacientes pueden no encontrar en las farmacias de la cadena. Con cada visita, descubrirá un galardonado servicio de calidad de un farmacéutico que lo conoce por su nombre, no solo por su número."
 	}
 }

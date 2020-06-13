@@ -51,32 +51,32 @@ export class HomePage {
         url: '/home/service-list'
       },
       {
-        name: 'About Us',
+        name: this.details.AboutUs,
         icon: '',
         url: '/home/about-us'
       },
       {
-        name: 'Services',
+        name: this.details.Services,
         icon: '',
         url: '/home/our-services'
       },
       {
-        name: 'Career',
+        name: this.details.Career,
         icon: '',
         url: '/home/employment'
       },
       {
-        name: 'Hippa Notice',
+        name: this.details.HippaNotice,
         icon: '',
         url: '/home/hippa-notice'
       },
       {
-        name: 'Notification',
+        name: this.details.Notification,
         icon: '',
         url: '/home/notification'
       },
       {
-        name: 'Contact Us',
+        name: this.details.ContactUs,
         icon: '',
         url: '/home/contact-us'
       },

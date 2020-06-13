@@ -1,4 +1,33 @@
-.about{
-    background-image: url('../../assets/images/about-us.jpg');
+.about {
+    background-image: url("../../assets/images/service-img.png");
 }
-
+ion-header {
+    height: 0;
+    ion-back-button,ion-menu-button {
+        color: #213778;
+    }
+    ion-toolbar {
+        --background: transparent;
+    }
+}
+.cover-img {
+    &:after {
+        background: linear-gradient(181deg, #5d5d5d, #095bff);
+    }
+}
+h4 {
+    margin: 0;
+    color: var(--title-color);
+    font-size: 14px;
+}
+.mission-img{
+    height: 132px;
+    border-radius: 5px;
+    overflow: hidden;
+    img{
+        max-width: 100%;
+        min-width: 100%;
+        min-height: 100%;
+        max-height: 100%;
+    }
+}
