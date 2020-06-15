@@ -24,6 +24,7 @@ import { MajorInsuranceComponent } from '../Our-services/major-insurance/major-i
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
 import { NotificationComponent } from '../notification/notification.component';
+import { HippaNoticeComponent } from '../hippa-notice/hippa-notice.component';
 
 
 
@@ -58,7 +59,8 @@ import { NotificationComponent } from '../notification/notification.component';
     MajorInsuranceComponent,
     ContactUsComponent,
     AboutUsComponent,
-    NotificationComponent
+    NotificationComponent,
+    HippaNoticeComponent
   ]
 })
 export class HomePageModule { }
