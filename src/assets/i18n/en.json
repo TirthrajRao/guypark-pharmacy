@@ -6,8 +6,8 @@
 		"RefillRequest": "Refill Request",
 		"PriceCheck": "Price Check",
 		"Services": "Services",
-		"explore":"Explore More about services",
-		"allServices":"All Services"
+		"explore": "Explore More about services",
+		"allServices": "All Services"
 	},
 	"sidemenu": {
 		"Home": "Home",
@@ -110,7 +110,7 @@
 		"firstName": "First Name",
 		"lastName": "Last Name",
 		"email": "Email",
-		"password":"Password",
+		"password": "Password",
 		"phone": "Phone Number",
 		"checkLabel": "Yes, I want free delivery of RX.",
 		"selectLabel": "Would you like us to notify you when your prescription(s) are ready?",
@@ -158,19 +158,19 @@
 			"email": "Email is required",
 			"email1": "Email is not valid",
 			"phone": "Phone number is required",
-			"password":"Password is required"
+			"password": "Password is required"
 		}
 	},
 	"about": {
 		"title": "About Us",
 		"subTitle": "Engendering Resplendent Life",
 		"contentTitle1": "We are well equipped with Spanish verbalizing staff",
-		"subTitle1":"A pharmacy for all of your needs Guy Park Pharmacy.",
+		"subTitle1": "A pharmacy for all of your needs Guy Park Pharmacy.",
 		"content1": "Guy Park Pharmacy is an independent community pharmacy in Amsterdam New York, serving the surrounding locations with pharmacy services.",
 		"contentTitle2": "Our Mission",
 		"content2": "Our Mission is to Optimize health care services by providing caring and convenient pharmacy experience to better manage a patient’s health and well being.",
 		"content3": "As independent pharmacy, we take the time to deliver a higher level of personal attention, trusted advice that our patients may not find in chain pharmacies. With each visit, you will discover award winning quality service from a pharmacist who knows you by your name-not just by number.",
-		"contentTitle3":"A Moments of Caring Health",
+		"contentTitle3": "A Moments of Caring Health",
 		"content4": "We are a dedicated and experienced pharmacy in Amsterdam New York, who want our clients to be on their tiptop shape. We believe that health is an investment leading to success. We keep our clients well informed about our products as they please. We offer services that make their lives easier and take selling medicine to the next level by actually establishing support to our customers.",
 		"content5": "The very first step to quality service is a smile. We want to eradicate the nervousness of customers who have questions about our products and services through friendliness, kindness and patience.",
 		"contentTitle4": "To continue our momentum of success",
@@ -180,10 +180,10 @@
 		"title": "Contact Us",
 		"subTitle": "You can locate us on Different Nearby Locations",
 		"contentTitle1": "We are available at Following location",
-		"location": "New York",
+		"location": "Location",
 		"name": "Guy Park Pharmacy",
-		"address": "151 Guy Park Ave, , Amsterdam, New York",
-		"email": "noreply@envato.com",
+		"address": "151 Guy Park Ave, Amsterdam, New York",
+		"email": "guyparkpharmacy@gmail.com",
 		"phone": "518-212-6020",
 		"Phone": "Phone"
 	},
@@ -255,6 +255,6 @@
 		"newAccount": "Create new account?",
 		"conect": "or connect with",
 		"forPsw": "Forgot Your Password?",
-		"haveAcc":"Already Have an account?"
+		"haveAcc": "Already Have an account?"
 	}
 }

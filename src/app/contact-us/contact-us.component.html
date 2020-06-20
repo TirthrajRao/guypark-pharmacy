@@ -12,40 +12,48 @@
 </ion-header>
 
 <ion-content class="service-detail">
-  <div class="cover-img about">
-    <div class="cover-text">
-    </div>
+  <div class="about-img">
+    <img src="assets/images/about1.png">
   </div>
   <div class="servicename-card">
-    <p class="card-title m-0">{{details.title}}</p>
+    <p class="card-title m-0 mt-2">{{details.title}}</p>
     <p class="des m-0">{{details.subTitle}}</p>
   </div>
+  <div class="logo-img mt-3">
+    <img src="assets/images/logo.png">
+  </div>
 
-  <div class="about-text sans-font">
-    <h4 class="header-text ubntu-regular mb-3 ml-3">{{details.contentTitle1}}</h4>
-    <div class="contact-detail">
-      <div class="card-padding pb-0">
-        <h4 class="location mb-1">{{details.location}}</h4>
-        <p class="pharmacy-name">{{details.name}}</p>
-        <div class="montserrat-font contact-content">
-          <div class="d-flex mb-3">
-            <ion-icon name="location-outline" class="location-icon"></ion-icon>
-            <span class="ml-3">{{details.address}}</span>
-          </div>
-          <div class="mb-3">
-            <img src="assets/images/email-icon.png" style="margin-left: -6px;">
-            <span class="ml-3">{{details.email}}</span>
-          </div>
+  <div class="about-text ">
+    <h4 class="header-text mb-3 text-center mt-3">{{details.contentTitle1}}</h4>
+    <div class="mt-3">
+      <div class="d-flex location-detail" >
+        <div class="image-icon" style="width: 29px;">
+          <img src="assets/images/location-icon.png" style="margin-top: -2px;">
+        </div>
+        <div>
+          <span class="title">{{details.location}}: </span><span class="detail">{{details.address}}</span>
         </div>
       </div>
-      <hr>
-      <div class="ubntu-regular card-padding pt-0">
-        <img src="assets/images/phn-icon.png" class="phn-icon">
-        <span class="phn-text ml-3">{{details.Phone}}:</span><span class="phn-num"> {{details.phone}}</span>
+      <div class="d-flex location-detail">
+        <div class="image-icon" >
+          <img src="assets/images/email-icon.png" >
+        </div>
+        <div>
+          <span class="title">Email: </span><span class="detail">{{details.email}}</span>
+        </div>
+      </div>
+      <div class="d-flex location-detail">
+        <div class="image-icon">
+          <img src="assets/images/phn-icon.png" >
+        </div>
+        <div>
+          <span class="title">{{details.Phone}}: </span><span class="detail">{{details.phone}}</span>
+        </div>
       </div>
     </div>
+  
     <div class="contact-form">
-      <h4 class="header-text ubntu-regular mb-3">{{details.title}}</h4>
+      <p class="heading  mb-3">{{details.title}}</p>
       <form [formGroup]="contactForm" class="form-detail">
         <div class="form-group">
           <input type="text" class="form-control" [placeholder]="formDetail.name" formControlName="name">
