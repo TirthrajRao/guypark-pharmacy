@@ -3,27 +3,27 @@
     <div class="logo-img">
       <img src="assets/images/logo.png" alt="logo-img">
     </div>
-    <div class="all-menu-list mt-4">
+    <hr>
+    <div class="all-menu-list">
       <div class="menu-list" *ngFor="let page of menuPages" [routerLink]='page.url' (click)="closeMenu()">
         <p>
           <img [src]="page.icon" alt="icon">
           {{page.name}} </p>
       </div>
-      <div class="menu-list pt-0" *ngIf="details">
+     
+      <div class="menu-list" *ngIf="details">
         <div id="accordion" class="accordion">
-      
-            <div class="title collapsed" data-toggle="collapse" href="#collapseOne">
-              <a class="card-title"> <img src="assets/images/9.png" style="height: 20px;margin-right: 8px;"> Language </a>
-            </div>
-            <div id="collapseOne" class="collapse" data-parent="#accordion">
-              <p (click)="changeLanguage('en');closeMenu()" class="menu-list ml-3 mt-0">{{details.English}}</p>
-              <p (click)="changeLanguage('es');closeMenu()" class="ml-3">{{details.Spanish}}</p>
-            </div>
+          <div class="collapsed" data-toggle="collapse" href="#collapseOne">
+            <a class="card-title"> <img src="assets/images/9.png" style="height: 20px;margin-right: 8px;"> Language </a>
           </div>
-    
-      
+          <div id="collapseOne" class="collapse" data-parent="#accordion">
+            <p (click)="changeLanguage('en');closeMenu()" class="menu-list ml-3 mt-0">{{details.English}}</p>
+            <p (click)="changeLanguage('es');closeMenu()" class="ml-3">{{details.Spanish}}</p>
+          </div>
+        </div>
       </div>
-      <div class="menu-list pt-0" (click)="logOut()" *ngIf="details">
+
+      <div class="menu-list" (click)="logOut()" *ngIf="details" style="border: none;">
         <!-- <ion-img src="" class="mr-3"></ion-img> -->
         <p> <img src="assets/images/10.png">{{details.LogOut}}</p>
       </div>

@@ -367,16 +367,16 @@ ion-header ion-toolbar:first-child {
 //     font-size: 14px;
 //     color: #898989;
 // }
-// .service-header {
-//     display: flex;
-//     align-items: center;
-//     padding: 10px 15px;
-//     img {
-//         height: 34px;
-//         width: 30px;
-//         margin-top: 2px;
-//     }
-// }
+.service-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    img {
+        height: 34px;
+        width: 30px;
+        margin-top: 2px;
+    }
+}
 
 .service-detail {
     .about-img {
