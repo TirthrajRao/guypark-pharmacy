@@ -31,6 +31,10 @@ export class ServicesListComponent implements OnInit {
     })
   }
 
+  ionViewWillEnter(){
+    this._userService.detectFooterChange('request');
+  }
+
   createServiceList() {
     this.formList = [
       {
@@ -47,6 +51,7 @@ export class ServicesListComponent implements OnInit {
       }
     ]
   }
+
 
   /**
    * change and detect language

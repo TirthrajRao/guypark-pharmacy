@@ -23,6 +23,13 @@ export class AppComponent {
     public _translate:TranslateService
   ) {
 
+     //Exit app
+     this.platform.backButton.subscribe(() => {
+      if (this.router.url === '/home/home-page' || this.router.url === '/login') {
+        navigator['app'].exitApp();
+      }
+    })
+    
     this.initializeApp();
     // this.router.navigate(['/home'])
   }

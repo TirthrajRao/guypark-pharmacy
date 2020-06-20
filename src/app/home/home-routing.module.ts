@@ -16,8 +16,9 @@ import { GenericDrugComponent } from '../Our-services/generic-drug/generic-drug.
 import { MajorInsuranceComponent } from '../Our-services/major-insurance/major-insurance.component';
 import { ContactUsComponent } from '../contact-us/contact-us.component';
 import { AboutUsComponent } from '../about-us/about-us.component';
-import { NotificationComponent } from '../notification/notification.component';
+import { NotificationComponent } from '../Notification/notification/notification.component';
 import { HippaNoticeComponent } from '../hippa-notice/hippa-notice.component';
+import { NotificationDetailComponent } from '../Notification/notification-detail/notification-detail.component';
 
 const routes: Routes = [
   {
@@ -97,6 +98,10 @@ const routes: Routes = [
       {
         path:"hippa-notice",
         component:HippaNoticeComponent
+      },
+      {
+        path:"notification-detail/:id",
+        component:NotificationDetailComponent
       }
     ]
   }

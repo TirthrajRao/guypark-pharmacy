@@ -3,33 +3,32 @@ ul {
     margin: 0;
 }
 
-
 ion-toolbar:last-of-type {
-    height: 90px !important;
+    height: 80px !important;
     position: relative;
-    &:before {
-        left: -1px;
-        transform: rotate(8deg);
-        @media only screen and (min-width: 627px) {
-          transform: rotate(4deg);
-        }
-    }
-    &:after {
-        right: -1px;
-        transform: rotate(-8deg);
-        @media only screen and (min-width: 627px) {
-            transform: rotate(-4deg);
-          }
-    }
-    &:after,
-    &:before {
-        content: "";
-        position: absolute;
-        top: 20px;
-        height: 2px;
-        width: 51%;
-        background-color: #7a7375;
-    }
+    // &:before {
+    //     left: -1px;
+    //     transform: rotate(8deg);
+    //     @media only screen and (min-width: 627px) {
+    //       transform: rotate(4deg);
+    //     }
+    // }
+    // &:after {
+    //     right: -1px;
+    //     transform: rotate(-8deg);
+    //     @media only screen and (min-width: 627px) {
+    //         transform: rotate(-4deg);
+    //       }
+    // }
+    // &:after,
+    // &:before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 20px;
+    //     height: 2px;
+    //     width: 51%;
+    //     background-color: #7a7375;
+    // }
 }
 .footer ul {
     width: 100%;
@@ -41,12 +40,13 @@ ion-toolbar:last-of-type {
     list-style: none;
     display: inline-block;
     position: relative;
-    padding-top: 55px;
-    color: #a59ca0;
-    font-size: 10px;
+    padding-top: 45px;
+    color: #c6c6c6;
+    font-size: 13px;
     width: 20%;
     text-align: center;
     z-index: 2;
+    font-family: "Roboto", sans-serif;
     img,
     svg {
         position: absolute;
@@ -63,20 +63,40 @@ ion-toolbar:last-of-type {
         margin: auto;
         height: 28px;
         width: 23px;
-        fill: #a59ca0;
+        fill: #bcbcbc;
     }
 }
 .footer ul li.active {
     padding-top: 38px;
+    img {
+        height: 55px;
+        width: 55px;
+        // background: linear-gradient(139deg, #F90000, #F51207);
+    }
 }
 .footer ul li.active-page {
-    color: #fa6ca2;
-    font-weight: 600;
+    color: #f90000;
+    font-weight: 500;
     svg {
-        fill: #fa6fa2;
+        fill: #f90000;
     }
 }
 
 .footer {
-    height: 90px;
+    height: 80px;
 }
+.notify-badge {
+    position: absolute;
+    right: 25%;
+    top: 19%;
+    width: 17px;
+    height: 17px;
+    line-height: 18px;
+    background: #f90000;
+    text-align: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: 600;
+    z-index: 11;
+  }
+  

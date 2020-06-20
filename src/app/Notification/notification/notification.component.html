@@ -3,9 +3,10 @@
 </ion-header>
 
 <ion-content>
-  <div class="service-header">
-    <img src="assets/images/notification.png">
+  <div class="roboto-miduim serivice-title">
+    <img src="assets/images/notification.png" class="icon">
     <h4>{{details.title}}</h4>
+    <img src="assets/images/logo.png" class="logo-img ml-auto mr-2">
   </div>
   <div class="notification-list">
     <div class="notification-card mb-3" *ngFor="let notification of notificationList" [ngClass]="notification.color">
@@ -15,11 +16,11 @@
             <img [src]="'assets/images/Image 92.png'">
           </div>
         </div>
-        <div class="col-9 pl-0">
-          <h4 class="ubntu-regular notification-title">{{notification.title}}</h4>
+        <div class="col-9 pl-0 mt-2">
+          <h4 class=" notification-title">{{notification.title}}</h4>
           <div class="service-content sans-font">
             <p class=" ml-2 mt-2 mb-0 notification-content">{{notification.message}}</p>
-            <p class="read-more mt-2">Read More
+            <p class="read-more mt-2" routerLink="/home/notification-detail/1">Read More
               <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
             </p>
           </div>
@@ -28,6 +29,3 @@
     </div>
   </div>
 </ion-content>
-<ion-footer>
-  <app-footer></app-footer>
-</ion-footer>

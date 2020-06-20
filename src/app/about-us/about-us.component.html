@@ -12,34 +12,49 @@
 </ion-header>
 
 <ion-content class="service-detail">
-  <div class="cover-img about">
-    <div class="cover-text">
-    </div>
+  <div class="about-img">
+    <img src="assets/images/about1.png">
   </div>
   <div class="servicename-card">
-    <p class="card-title m-0">{{details.title}}</p>
+    <p class="card-title m-0 mt-2">{{details.title}}</p>
     <p class="des m-0">{{details.subTitle}}</p>
+    <img src="assets/images/about3.png">
   </div>
 
-  <div class="about-text sans-font ion-padding">
-    <h4 class="header-text ubntu-regular mb-2">{{details.contentTitle1}}</h4>
-
-    <p class="content-text"><strong>{{details.content1}}</strong></p>
-
-    <p class="content-text">{{details.content2}}</p>
-    <p class="content-text">
-     {{details.content3}}
-    </p>
-    <p class="content-text">
-     {{details.content4}}
-    </p>
-
-    <h4 class="header-text ubntu-regular mb-3">{{details.contentTitle2}}</h4>
-    <div class="mission-img mb-4">
-      <img src="assets/images/our-mission.png">
+  <div class="about-text roboto-miduim ion-padding">
+    <div>
+      <div class="row m-0">
+        <div class="col-2 p-0 text-center">
+          <img src="assets/images/about2.png" class="title-img">
+        </div>
+        <div class="col-10">
+          <p class="heading">{{details.contentTitle1}}</p>
+          <p class="sub-title">{{details.subTitle1}}</p>
+        </div>
+        <p class="sub-title mt-2">{{details.content1}}</p>
+        <div class="d-flex" style="align-items: center;">
+          <img src="assets/images/about4.png">
+          <p class="titles m-0 ml-2">{{details.contentTitle2}}</p>
+        </div>
+        <div class="mission-img mb-4 mt-2">
+          <img src="assets/images/our-mission.png">
+        </div>
+        <p class="sub-title">{{details.content2}}</p>
+        <p class="sub-title">{{details.content3}}</p>
+        <p class="titles m-0 mt-3">{{details.contentTitle3}}</p>
+        <div class="mission-img mb-4 mt-3">
+          <img src="assets/images/caring.png">
+        </div>
+        <!-- <p class="sub-title">Guy Park Pharmacy is an independent community pharmacy in Amsterdam New York, serving the
+          surrounding locations with pharmacy services.</p> -->
+        <p class="sub-title">{{details.content4}}</p>
+        <p class="sub-title">{{details.content5}}</p>
+        <p class="titles m-0 mt-3">{{details.contentTitle4}}</p>
+        <div class="mission-img mb-4 mt-3">
+          <img src="assets/images/success.jpg">
+        </div>
+        <p class="sub-title">{{details.content6}}</p>
+      </div>
     </div>
-    <h4 class="header-text ubntu-regular mb-2">{{details.contentTitle3}}</h4>
-    <p class="content-text">{{details.content5}}</p>
-    <p class="content-text">{{details.content6}}</p>
   </div>
 </ion-content>

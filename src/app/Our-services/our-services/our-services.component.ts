@@ -74,6 +74,10 @@ export class OurServicesComponent implements OnInit {
     ]
   }
 
+  ionViewWillEnter(){
+    this._userService.detectFooterChange('services');
+  }
+
   /**
    * langugae 
    */

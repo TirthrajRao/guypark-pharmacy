@@ -2,7 +2,8 @@ ion-title {
     margin-left: 17px;
 }
 ion-content {
-    --background: linear-gradient(#4160b8, #15275e 50%);
+    // --background: linear-gradient(#4160b8, #15275e 50%);
+    --background: white;
 }
 .pharmacy-service {
     h4 {
@@ -16,14 +17,24 @@ ion-content {
         align-items: center;
         padding: 8px;
         background: white;
-        img {
+        .medicarion-icon {
             height: 33px;
             width: 33px;
+        }
+        .logo-img {
+            height: 37px;
         }
     }
 
     .services-content {
-        padding: 35px 0;
+        // padding: 35px 0;
+        .form-section {
+            background-image: url("../../assets/images/form-bg.png");
+            padding: 25px 35px 15px 35px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
         .single-servics {
             padding: 10px;
             text-align: center;
@@ -32,65 +43,68 @@ ion-content {
             display: flex;
             align-items: center;
             flex-direction: column;
-            // justify-content: center;
             height: 86%;
+            box-shadow: 0 3px 6px #00000024;
+            background-color: white;
             img {
-                width: 89px;
-                height: 73px;
+                width: 66px;
+                height: 67px;
             }
             p {
                 font-size: 12px;
                 line-height: 14px;
-                color: #ffffff;
-                opacity: 52%;
+                color: var( --heading-color);
+                // opacity: 52%;
                 margin-top: 5px;
+               
             }
         }
-        .first-req {
-            background-color: white;
-            box-shadow: 0 3px 6px #0000005e;
-            p {
-                color: #092882;
-                opacity: 100%;
-            }
-            img {
-                width: 71px;
-                height: 60px;
-            }
-        }
-        .service-card {
-            box-shadow: 0 1px 3px #00000030;
-            padding: 10px;
-            margin: 10px;
-            background: white;
-            border-radius: 2px;
-            .service-img {
-                height: 143px;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: cover;
-                position: relative;
-                background-image: url("../../assets/images/service-img.png");
-                &:after {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: linear-gradient(#4160b8, #15275e 50%);
-                    opacity: 0.64;
+
+        .service-img {
+            .service-img-sec {
+                height: 180px;
+                width: 174px;
+                img {
+                    max-height: 100%;
+                    min-height: 100%;
+                    max-width: 100%;
+                    min-width: 100%;
+                    object-fit: cover;
                 }
             }
-        }
-        p {
-            color: #989898;
-            font-size: 12px;
-            padding-left: 5px;
-        }
-        i {
-            color: var(--title-color);
-            margin-left: 11px;
+            .service-detail {
+                p {
+                    color: var(--title-color);
+                    font-size: 17px;
+                    font-weight: 100;
+                    text-transform: uppercase;
+                }
+                .about {
+                    color: #184f68;
+                    font-size: 10px;
+                }
+                .service-btn {
+                    border: 1px solid #e7e7e7;
+                    text-align: center;
+                    color: var(--title-color);
+                    font-size: 11px;
+                    padding: 6px 0;
+                    margin-top: 37px;
+                    i {
+                        font-size: 14px;
+                    }
+                    .btn-text {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+            .detail {
+                z-index: 2;
+                position: relative;
+                padding-top: 24px !important;
+            }
         }
     }
 }

@@ -39,6 +39,10 @@ export class ContactUsComponent implements OnInit {
     })
   }
 
+  ionViewWillEnter(){
+    this._userService.detectFooterChange('contact');
+  }
+
   get f() { return this.contactForm.controls }
 
   /**

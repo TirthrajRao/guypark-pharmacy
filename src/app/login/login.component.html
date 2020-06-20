@@ -6,41 +6,41 @@
       <img src="assets/images/logo.png" class="logo-img">
       <p class="english-title text-center mt-2">We don't just meet expectations, We exceed them.</p>
       <p class="spanish-title text-center">No solo cumplimos con las expectativas, las superamos.</p>
-      <h4 class="text-center text-color">Login to Account</h4>
+      <h4 class="text-center text-color">{{details.title}}</h4>
       <form [formGroup]='loginForm'>
         <div class="form-group mb-4" style="position: relative;">
           <!-- <i class="fa fa-email "></i> -->
           <!-- <i class="fa fa-envelope-o email-icon" aria-hidden="true"></i> -->
-          <ion-icon name="mail-outline" class="lock-icon"></ion-icon>
-          <input type="text" class="form-control" formControlName="email" placeholder="Email" />
+          <input type="text" class="form-control" formControlName="email" [placeholder]="formDetails.email" />
+          <ion-icon name="mail-outline" class="lock-icon" style="top: 11px;"></ion-icon>
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">Email is required</div>
-            <div *ngIf="f.email.errors.email">Email is invalid</div>
+            <div *ngIf="f.email.errors.required">{{formDetails.validation.email}}</div>
+            <div *ngIf="f.email.errors.email">{{formDetails.validation.email1}}</div>
           </div>
         </div>
         <div class="form-group mb-4" style="position: relative;">
           <!-- <img src="assets/images/lock.png" class="fa-lock"> -->
-          <ion-icon name="lock-open-outline" class="lock-icon"></ion-icon>
+          <ion-icon name="lock-open-outline" class="lock-icon" style="top: 10px;"></ion-icon>
           <!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
           <ion-icon [name]="passwordIcon" (click)="showHide()" class="eye-icon"></ion-icon>
           <input [type]="passwordType" class="form-control" formControlName="password" id="password"
-            placeholder="Password">
+            [placeholder]="formDetails.password">
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
+            <div *ngIf="f.password.errors.required">{{formDetails.validation.password}}</div>
           </div>
         </div>
         <button type="submit" class="login_btn btn" (click)="loginUser(loginForm.value)"
-          [disabled]="isDisable">Login</button>
+          [disabled]="isDisable">{{details.login}}</button>
         <div class="sign_up_link text-center">
-          <a id="forgot-psw">Forgot Your Password?</a>
+          <a id="forgot-psw">{{details.forPsw}}</a>
         </div>
-        <div class="or_section">or connect with</div>
+        <div class="or_section">{{details.conect}}</div>
         <div class="social_media_login">
           <div class="row">
             <div class="col-6">
               <div class="facebook_login">
                 <button href="#" class="facebook_btn btn" (click)="facebookLogin()" [disabled]="isDisable"><i
-                    class="fa fa-facebook" aria-hidden="true"></i>Facebook
+                    class="fa fa-facebook" aria-hidden="true"></i>{{details.facebook}}
                 </button>
               </div>
             </div>
@@ -48,13 +48,13 @@
               <div class="google_login">
                 <button class="google_btn btn" (click)="googleLogin()" [disabled]="isDisable"><img
                     src="assets/images/google.png">
-                  Google</button>
+                  {{details.google}}</button>
               </div>
             </div>
           </div>
         </div>
         <div class="sign_up_link text-center">
-          <a href="#" routerLink='/sign-up'>Create new account? <span> Sign Up</span></a>
+          <a href="#" routerLink='/sign-up'>{{details.newAccount}} <span> {{details.signUp}}</span></a>
         </div>
       </form>
     </div>

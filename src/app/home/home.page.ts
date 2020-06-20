@@ -25,7 +25,7 @@ export class HomePage {
     this._initialiseTranslation();
     setTimeout(() => {
       this.createMenu();
-    }, 30);
+    }, 300);
 
   }
 
@@ -42,42 +42,42 @@ export class HomePage {
     this.menuPages = [
       {
         name: this.details.Home,
-        icon: '',
+        icon: 'assets/images/1.png',
         url: '/home/home-page'
       },
       {
         name: this.details.Medication,
-        icon: '',
+        icon: 'assets/images/2.png',
         url: '/home/service-list'
       },
       {
         name: this.details.AboutUs,
-        icon: '',
+        icon: 'assets/images/3.png',
         url: '/home/about-us'
       },
       {
         name: this.details.Services,
-        icon: '',
+        icon: 'assets/images/4.png',
         url: '/home/our-services'
       },
       {
         name: this.details.Career,
-        icon: '',
+        icon: 'assets/images/5.png',
         url: '/home/employment'
       },
       {
         name: this.details.HippaNotice,
-        icon: '',
+        icon: 'assets/images/6.png',
         url: '/home/hippa-notice'
       },
       {
         name: this.details.Notification,
-        icon: '',
+        icon: 'assets/images/7.png',
         url: '/home/notification'
       },
       {
         name: this.details.ContactUs,
-        icon: '',
+        icon: 'assets/images/8.png',
         url: '/home/contact-us'
       },
 
@@ -106,7 +106,7 @@ export class HomePage {
       console.log("in home page", this._translate.instant("sidemenu"));
       this.details = this._translate.instant("sidemenu");
       this.createMenu();
-    }, 25);
+    }, 250);
   }
 
   changeLanguage(language){

@@ -30,6 +30,9 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  ionViewWillEnter(){
+    this._userService.detectFooterChange('home');
+  }
 
   _initialiseTranslation(): void {
     this._translate.use(this.language);
