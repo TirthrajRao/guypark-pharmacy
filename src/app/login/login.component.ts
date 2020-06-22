@@ -5,6 +5,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { TranslateService } from '@ngx-translate/core';
+declare const $: any;
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
   language: string = "en";
   details: any = this._translate.instant("login");
   formDetails: any = this._translate.instant("form");
-
+  forgotPswForm: FormGroup;
+  submmitedFPsw: Boolean = false;
 
   constructor(
     private fb: Facebook,
@@ -34,13 +36,17 @@ export class LoginComponent implements OnInit {
     console.log("in counstructor")
     this._initialiseTranslation()
     this.loginForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      username: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
+    })
+    this.forgotPswForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email])
     })
 
   }
 
   ngOnInit() {
+    // this.loading = true
     console.log("in ngoninit")
     this._initialiseTranslation()
 
@@ -52,6 +58,7 @@ export class LoginComponent implements OnInit {
   }
 
   get f() { return this.loginForm.controls }
+  get fpsw() { return this.forgotPswForm.controls; }
 
   /**
    * Show hide password
@@ -71,8 +78,20 @@ export class LoginComponent implements OnInit {
       return
     }
     console.log("login data", data);
-    this._userService.login(data);
-    this.router.navigate(['/home']);
+    this.isDisable = true;
+    this.loading = true;
+    this._userService.login(data).subscribe((res: any) => {
+      console.log(res);
+      this.loading = false;
+      this.isDisable = false;
+      this.loginForm.reset();
+      this.submitted = false;
+      this.router.navigate(['/home'])
+    }, err => {
+      console.log(err);
+      this.loading = false;
+      this.isDisable = false;
+    });
   }
 
   /**
@@ -126,12 +145,50 @@ export class LoginComponent implements OnInit {
    * language change
    */
   _initialiseTranslation() {
-    console.log("in language",this.language)
+    console.log("in language", this.language)
     this._translate.use(this.language);
     setTimeout(() => {
       console.log(this._translate.instant("login"));
       this.details = this._translate.instant("login");
       this.formDetails = this._translate.instant("form");
     }, 250);
+  }
+
+  /**
+   * Forgot password
+   * @param {Object} data
+   */
+  forgotPassword(data) {
+    console.log(data);
+    this.submmitedFPsw = true;
+    if (this.forgotPswForm.invalid) {
+      return
+    }
+    this.loading = true;
+    this.isDisable = true;
+    this._userService.forgotPassword(data).subscribe((res: any) => {
+      console.log("res of forgot psw", res);
+      this.loading = false;
+      this.isDisable = false;
+      $("#forgot-password").fadeOut();
+      // this.appComponent.sucessAlert("Please Check the mail")
+    }, (err) => {
+      console.log("err in f psw", err);
+      // this.appComponent.errorAlert(err.error.message);
+      this.loading = false;
+      this.isDisable = false;
+      $("#forgot-password").fadeOut();
+    })
+  }
+
+  openModal() {
+    $('#forgot-password').fadeIn();
+    $('#forgot-password .modal_body').click(function (event) {
+      event.stopPropagation();
+    });
+    $('#forgot-password').click(() => {
+      $('#forgot-password').fadeOut();
+      this.submmitedFPsw = false;
+    });
   }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from 'src/app/services/user.service';
+import * as _ from 'lodash';
+import { FormService } from '../../services/form.service';
 
 @Component({
   selector: 'app-employment',
@@ -15,29 +17,33 @@ export class EmploymentComponent implements OnInit {
   employmentForm: FormGroup;
   submitted: Boolean = false;
   isDisable: Boolean = false;
+  loading: Boolean = false;
   language: string = "en";
   details: any = this._translate.instant("employment");
   formDetail: any = this._translate.instant("form");
+  currentUserData = JSON.parse(localStorage.getItem('userFormData'));
 
 
   constructor(
     private _translate: TranslateService,
-    public _userService: UserService
+    public _userService: UserService,
+    public _formService: FormService
   ) {
     this._initialiseTranslation();
 
     this.employmentForm = new FormGroup({
-      fname: new FormControl('', [Validators.required]),
-      lname: new FormControl('', [Validators.required]),
-      phone_number: new FormControl('', [Validators.required]),
+      first_name: new FormControl('', [Validators.required]),
+      last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      position: new FormControl(''),
+      phone_number: new FormControl('', [Validators.required]),
+      mobile_number: new FormControl('', [Validators.required]),
+      position_apply: new FormControl('', [Validators.required]),
       message: new FormControl(''),
     })
 
   }
 
-  ngOnInit() { 
+  ngOnInit() {
     this._userService.languageChanges().subscribe((res: any) => {
       console.log("RESPONSE", res);
       this.language = res.language
@@ -65,8 +71,29 @@ export class EmploymentComponent implements OnInit {
     if (this.employmentForm.invalid) {
       return
     }
-    this.isDisable = true;
     console.log(data);
+    let formData = new FormData();
+    _.forOwn(data, (value, key) => {
+      formData.append(key, value)
+    })
+    formData.append('user_id', this.currentUserData.id);
+    if (this.files)
+      formData.append('resume', this.files[0])
+    this.isDisable = true;
+    this.loading = true;
+    this._formService.addEmploymentForm(data).subscribe((res: any) => {
+      console.log("refill", res);
+      this.loading = false;
+      this.isDisable = false;
+      this.submitted = false;
+      this.employmentForm.reset();
+      this.files = '';
+      this.fileName = '';
+    }, err => {
+      console.log("err", err);
+      this.loading = false;
+      this.isDisable = false;
+    })
   }
 
   /**

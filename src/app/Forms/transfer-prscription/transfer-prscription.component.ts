@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
+import { FormService } from '../../services/form.service';
+import * as moment from 'moment';
+declare const $: any;
 
 @Component({
   selector: 'app-transfer-prscription',
@@ -17,47 +20,50 @@ export class TransferPrscriptionComponent implements OnInit {
   isDisable: Boolean = false;
   formDetail: any = this._translate.instant("form");
   language: string = "en";
+  currentUserData = JSON.parse(localStorage.getItem('userFormData'));
+  loading: Boolean = false;
 
   constructor(
     private _translate: TranslateService,
-    public _userService: UserService
+    public _userService: UserService,
+    public _formService:FormService
   ) {
-    
+
     this.nextYearCount();
 
     this.transferPrescriptionForm = new FormGroup({
-      fname: new FormControl('', [Validators.required]),
-      lname: new FormControl('', [Validators.required]),
+      first_name: new FormControl('', [Validators.required]),
+      last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [Validators.required]),
-      birthDate: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zipCode: new FormControl(''),
-      pharmacyName: new FormControl(''),
-      pharmacyPhoneNo: new FormControl(''),
-      address: new FormControl(''),
-      refillRemnder: new FormControl(''),
-      rx1MedName: new FormControl(''),
-      rx1: new FormControl(''),
-      rx2MedName: new FormControl(''),
-      rx2: new FormControl(''),
-      rx3MedName: new FormControl(''),
-      rx3: new FormControl(''),
-      rx4MedName: new FormControl(''),
-      rx4: new FormControl(''),
-      rx5MedName: new FormControl(''),
-      rx5: new FormControl(''),
-      rx6MedName: new FormControl(''),
-      rx6: new FormControl(''),
-      rx7MedName: new FormControl(''),
-      rx7: new FormControl(''),
-      rx8MedName: new FormControl(''),
-      rx8: new FormControl(''),
-      rx9MedName: new FormControl(''),
-      rx9: new FormControl(''),
-      rx10MedName: new FormControl(''),
-      rx10: new FormControl(''),
+      phone_number: new FormControl('', [Validators.required]),
+      date_of_birth: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      zipcode: new FormControl('', [Validators.required]),
+      pharmacy_name: new FormControl('', [Validators.required]),
+      pharmacy_number: new FormControl('', [Validators.required]),
+      address: new FormControl('', [Validators.required]),
+      refill_date: new FormControl(''),
+      mad_name_1: new FormControl(''),
+      mad_number_1: new FormControl(''),
+      mad_name_2: new FormControl(''),
+      mad_number_2: new FormControl(''),
+      mad_name_3: new FormControl(''),
+      mad_number_3: new FormControl(''),
+      mad_name_4: new FormControl(''),
+      mad_number_4: new FormControl(''),
+      mad_name_5: new FormControl(''),
+      mad_number_5: new FormControl(''),
+      mad_name_6: new FormControl(''),
+      mad_number_6: new FormControl(''),
+      mad_name_7: new FormControl(''),
+      mad_number_7: new FormControl(''),
+      mad_name_8: new FormControl(''),
+      mad_number_8: new FormControl(''),
+      mad_name_9: new FormControl(''),
+      mad_number_9: new FormControl(''),
+      mad_name_10: new FormControl(''),
+      mad_number_10: new FormControl(''),
     })
   }
 
@@ -67,9 +73,39 @@ export class TransferPrscriptionComponent implements OnInit {
       this.language = res.language
       this._initialiseTranslation();
     })
+
+    $(".next-step").click((e) => {
+      var active = $('.nav-tabs li.active');
+      active.next().removeClass('disabled');
+      this.nextTab(active);
+    });
+
+    $(".prev-step").click(function (e) {
+      var active = $('.nav-tabs li.active');
+      prevTab(active);
+
+    });
+
+    function prevTab(elem) {
+      $(elem).prev().find('a[data-toggle="tab"]').click();
+    }
+
+    $('.nav-tabs').on('click', 'li', function () {
+      $('.nav-tabs li.active').removeClass('active');
+      $(this).addClass('active');
+    });
+  }
+
+  nextTab(elem) {
+    this.submitted = true;
+    // if (this.transferPrescriptionForm.invalid) {
+    //   return
+    // }
+    $(elem).next().find('a[data-toggle="tab"]').click();
   }
 
   get f() { return this.transferPrescriptionForm.controls }
+
 
   // Count next 25 year for date
   nextYearCount() {
@@ -85,11 +121,26 @@ export class TransferPrscriptionComponent implements OnInit {
   addTransferPresForm(data) {
     console.log("--")
     this.submitted = true;
+    data['user_id']= this.currentUserData.id;
+    data.date_of_birth= moment(data.date_of_birth).format('DD/MM/yyyy');
+    data.refill_date= moment(data.refill_date).format('DD/MM/yyyy');
     if (this.transferPrescriptionForm.invalid) {
       return
     }
     this.isDisable = true;
-    console.log(data)
+    this.loading = true;
+    console.log(data);
+    this._formService.addTransferForm(data).subscribe((res: any) => {
+      console.log("transfer", res);
+      this.loading = false;
+      this.isDisable = false;
+      this.submitted = false;
+      this.transferPrescriptionForm.reset()
+    }, err => {
+      console.log("err", err);
+      this.loading = false;
+      this.isDisable = false;
+    })
   }
 
   /**

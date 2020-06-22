@@ -40,7 +40,7 @@
             </div>
           </div>
         </div>
-        <div class="service-img mx-3 mt-3 d-flex roboto-miduim">
+        <div class="service-img mx-3 mt-3 d-flex roboto-miduim" routerLink="/home/our-services">
           <div class="service-img-sec">
             <img src="assets/images/service.jpg">
 
@@ -50,8 +50,8 @@
               {{details.Services}}
             </p>
             <span class="about">{{details.explore}}</span>
-            <div class="service-btn">
-              <span class="btn-text">{{details.allServices}}   <i class="fa fa-long-arrow-right ml-2" aria-hidden="true" routerLink="/home/our-services"></i></span>
+            <div class="service-btn" routerLink="/home/our-services">
+              <span class="btn-text">{{details.allServices}}   <i class="fa fa-long-arrow-right ml-2" aria-hidden="true" ></i></span>
             </div>
           </div>
         </div>

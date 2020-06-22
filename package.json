@@ -34,6 +34,8 @@
     "cordova-plugin-facebook4": "6.4.0",
     "cordova-plugin-fcm-with-dependecy-updated": "6.4.3",
     "cordova-plugin-googleplus": "8.5.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.27.0",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

@@ -3,9 +3,14 @@
 </ion-header>
 
 <ion-content>
-  <div class="service-header">
+  <!-- <div class="service-header">
     <img src="assets/images/service-info-icon.png">
     <h4 *ngIf="details">{{details.title}}</h4>
+  </div> -->
+  <div class="roboto-miduim serivice-title">
+    <img src="assets/images/service-info-icon.png" class="icon">
+    <h4 *ngIf="details">{{details.title}}</h4>
+    <img src="assets/images/logo.png" class="logo-img ml-auto mr-2">
   </div>
   <div class="service-list">
     <div *ngFor="let service of allServices ;let i= index" class="service-card">

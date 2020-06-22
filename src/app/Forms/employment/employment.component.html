@@ -15,35 +15,38 @@
 </ion-header>
 
 <ion-content class="service-detail">
-  <div class="cover-img about">
-    <div class="cover-text">
-    </div>
+
+  <div class="about-img">
+    <img src="assets/images/carrer.jpg">
   </div>
-  <div class="servicename-card">
-    <p class="card-title m-0">{{details.title}}</p>
+  <div class="servicename-card" style="height: 95px;">
+    <p class="card-title m-0 mt-2">{{details.title}}</p>
     <p class="des m-0">{{details.subTitle}}</p>
   </div>
-  <div class="form sans-font">
+  <div class="form medication-forms">
     <div class="form-name">
-      <h4 class="mb-3 ubntu-regular">{{formDetail.basicDetail}}</h4>
+      <p class="mb-3 titles">{{formDetail.basicDetail}}</p>
     </div>
-    <form class="form-detail" [formGroup]="employmentForm">
+    <form [formGroup]="employmentForm">
       <div class="form-group">
-        <input type="text" class="form-control" [placeholder]="formDetail.firstName" formControlName="fname">
-        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
-          <div *ngIf="f.fname.errors.required">{{formDetail.validation.fname}}</div>
+        <input type="text" class="form-control" [placeholder]="formDetail.firstName" formControlName="first_name"
+          [(ngModel)]="currentUserData.first_name">
+        <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+          <div *ngIf="f.first_name.errors.required">{{formDetail.validation.fname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" [placeholder]="formDetail.lastName" formControlName="lname">
-        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
-          <div *ngIf="f.lname.errors.required">{{formDetail.validation.lname}}</div>
+        <input type="text" class="form-control" [placeholder]="formDetail.lastName" formControlName="last_name"
+          [(ngModel)]="currentUserData.last_name">
+        <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+          <div *ngIf="f.last_name.errors.required">{{formDetail.validation.lname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email">
+        <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email"
+          [(ngModel)]="currentUserData.email">
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
           <div *ngIf="f.email.errors.required">{{formDetail.validation.email}}</div>
           <div *ngIf="f.email.errors.email">{{formDetail.validation.email1}}</div>
@@ -51,18 +54,31 @@
       </div>
 
       <div class="form-group">
-        <input type="number" class="form-control" [placeholder]="formDetail.phone" formControlName="phone_number">
+        <input type="number" class="form-control" [placeholder]="formDetail.phone" formControlName="phone_number"
+          [(ngModel)]="currentUserData.phone_number">
         <div *ngIf="submitted && f.phone_number.errors" class="invalid-feedback">
           <div *ngIf="f.phone_number.errors.required">{{formDetail.validation.phone}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" [placeholder]="formDetail.position" formControlName="position">
+        <input type="number" class="form-control" [placeholder]="formDetail.mobile" formControlName="mobile_number">
+        <div *ngIf="submitted && f.mobile_number.errors" class="invalid-feedback">
+          <div *ngIf="f.mobile_number.errors.required">{{formDetail.validation.mobile}}</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" [placeholder]="formDetail.position" formControlName="position"
+          formControlName="position_apply">
+        <div *ngIf="submitted && f.position_apply.errors" class="invalid-feedback">
+          <div *ngIf="f.position_apply.errors.required">{{formDetail.validation.position}}</div>
+        </div>
       </div>
 
       <div class="form-group mb-4">
-        <textarea type="text" class="form-control p-2" [placeholder]="formDetail.message" formControlName="message"></textarea>
+        <textarea type="text" class="form-control" [placeholder]="formDetail.message"
+          formControlName="message"></textarea>
       </div>
 
       <div class="form-group file-select">
@@ -72,8 +88,16 @@
       </div>
 
       <div class="submit-btn mt-4">
-        <button class="btn " [disabled]="isDisable" (click)="addEmploymentForm(employmentForm.value)">{{formDetail.btnText}}</button>
+        <button class="btn " [disabled]="isDisable"
+          (click)="addEmploymentForm(employmentForm.value)">{{formDetail.btnText}}</button>
       </div>
     </form>
+  </div>
+  <div *ngIf="loading">
+    <div id="loader-wrapper">
+      <div class="heartbeatloader">
+        <ion-img class="svgdraw" src="assets/images/loader.gif"></ion-img>
+      </div>
+    </div>
   </div>
 </ion-content>

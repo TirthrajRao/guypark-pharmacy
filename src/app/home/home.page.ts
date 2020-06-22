@@ -21,7 +21,7 @@ export class HomePage {
     private _translate: TranslateService,
     public _userService: UserService
   ) {
-    
+
     this._initialiseTranslation();
     setTimeout(() => {
       this.createMenu();
@@ -35,7 +35,7 @@ export class HomePage {
       this.language = res.language
       this._initialiseTranslation();
     })
-
+    this.getUserDetail();
   }
 
   createMenu() {
@@ -43,7 +43,8 @@ export class HomePage {
       {
         name: this.details.Home,
         icon: 'assets/images/1.png',
-        url: '/home/home-page'
+        url: '/home/home-page',
+        class: 'active'
       },
       {
         name: this.details.Medication,
@@ -87,8 +88,14 @@ export class HomePage {
   /**
    * Close Menu
    */
-  closeMenu() {
+  closeMenu(index) {
+    console.log(index);
+    this.menuPages.map((page) => {
+      page['class'] = ""
+    })
     this.menu.close();
+    this.menuPages[index]['class'] = "active"
+
   }
 
   /**
@@ -109,11 +116,27 @@ export class HomePage {
     }, 250);
   }
 
-  changeLanguage(language){
+  changeLanguage(language) {
     console.log(language);
+    this.menu.close();
     this.language = language;
     this._translate.use(this.language);
     this.details = this._translate.instant("sidemenu");
     this._userService.detectLanguageChange(this.language);
+  }
+
+  getUserDetail() {
+    const currentUserData = JSON.parse(localStorage.getItem('currentUser'))
+    const data = {
+      id: currentUserData.id,
+      api_access_token: currentUserData.api_access_token
+    }
+    this._userService.getUserDetail(data).subscribe((res: any) => {
+      console.log("user details", res);
+      localStorage.setItem("userFormData", JSON.stringify(res.data))
+      // this.currentUserData = res;
+    }, err => {
+      console.log(err);
+    })
   }
 }

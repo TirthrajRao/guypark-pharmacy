@@ -103,6 +103,7 @@
 		"title": "Notification"
 	},
 	"form": {
+		"appName": "Guy park Pharmacy",
 		"form1": "Transfer Prescription",
 		"form2": "Refill Request",
 		"form3": "Price Check",
@@ -112,6 +113,7 @@
 		"email": "Email",
 		"password": "Password",
 		"phone": "Phone Number",
+		"mobile":"Mobile Number",
 		"checkLabel": "Yes, I want free delivery of RX.",
 		"selectLabel": "Would you like us to notify you when your prescription(s) are ready?",
 		"select": "Select",
@@ -141,6 +143,7 @@
 		"rx9": "Rx9 Medicine Name",
 		"rx10": "Rx10 Medicine Name",
 		"pickUp": "Pick Up",
+		"freeDelivery": "Free Delivery",
 		"refillHeaing": "Please Provide Rx# for each Refill Request:",
 		"pickDate": "Pick Up Date",
 		"pickTime": "Pick Up Time",
@@ -158,7 +161,16 @@
 			"email": "Email is required",
 			"email1": "Email is not valid",
 			"phone": "Phone number is required",
-			"password": "Password is required"
+			"mobile":"Mobile number is required",
+			"password": "Password is required",
+			"birthdate": "Birthdate is required",
+			"city": "City is required",
+			"state": "State is required",
+			"zipcode": "Zip code is required",
+			"pharmacyname": "Pharmacy name is required",
+			"pharmacynumber": "Pharmacy number is required",
+			"address": "Address is required",
+			"position":"Position is required"
 		}
 	},
 	"about": {

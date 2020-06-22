@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
-
+import { FormService } from '../../services/form.service';
+declare const $: any;
 @Component({
   selector: 'app-price-check',
   templateUrl: './price-check.component.html',
@@ -15,16 +16,19 @@ export class PriceCheckComponent implements OnInit {
   isDisable: Boolean = false;
   formDetail: any = this._translate.instant("form");
   language: string = "en";
+  currentUserData = JSON.parse(localStorage.getItem('userFormData'));
+  loading: Boolean = false;
 
   constructor(
     private _translate: TranslateService,
-    public _userService: UserService
+    public _userService: UserService,
+    public _formService: FormService
   ) {
     this.priceCheckForm = new FormGroup({
-      fname: new FormControl('', [Validators.required]),
-      lname: new FormControl('', [Validators.required]),
-      phone_number: new FormControl('', [Validators.required]),
+      first_name: new FormControl('', [Validators.required]),
+      last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
+      phone_number: new FormControl('', [Validators.required]),
       medicine_name_1: new FormControl(''),
       medicine_1_strength: new FormControl(''),
       madicine_1_quantity: new FormControl(''),
@@ -50,6 +54,35 @@ export class PriceCheckComponent implements OnInit {
       this.language = res.language
       this._initialiseTranslation();
     })
+    $(".next-step").click((e) => {
+      var active = $('.nav-tabs li.active');
+      active.next().removeClass('disabled');
+      this.nextTab(active);
+    });
+
+    $(".prev-step").click(function (e) {
+      var active = $('.nav-tabs li.active');
+      prevTab(active);
+
+    });
+
+    function prevTab(elem) {
+      $(elem).prev().find('a[data-toggle="tab"]').click();
+    }
+
+    $('.nav-tabs').on('click', 'li', function () {
+      $('.nav-tabs li.active').removeClass('active');
+      $(this).addClass('active');
+    });
+
+  }
+
+  nextTab(elem) {
+    this.submitted = true;
+    if (this.priceCheckForm.invalid) {
+      return
+    }
+    $(elem).next().find('a[data-toggle="tab"]').click();
   }
 
   get f() { return this.priceCheckForm.controls }
@@ -60,11 +93,26 @@ export class PriceCheckComponent implements OnInit {
    */
   addPriceForm(data) {
     this.submitted = true;
+    data['user_id'] = this.currentUserData.id;
     if (this.priceCheckForm.invalid) {
       return
     }
     this.isDisable = true;
     console.log(data);
+    this.isDisable = true;
+    this.loading = true;
+    console.log(data);
+    this._formService.addPriceCheckForm(data).subscribe((res: any) => {
+      console.log("refill", res);
+      this.loading = false;
+      this.isDisable = false;
+      this.submitted = false;
+      this.priceCheckForm.reset();
+    }, err => {
+      console.log("err", err);
+      this.loading = false;
+      this.isDisable = false;
+    })
   }
 
   /**

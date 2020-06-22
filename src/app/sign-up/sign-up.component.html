@@ -1,27 +1,30 @@
 <ion-content>
   <div class="login-page">
-
     <!-- <h4 class="text-center">Jax Pharmacy</h4> -->
     <div class="login_form">
+      <img src="assets/images/logo.png" class="logo-img">
+      <p class="english-title text-center mt-2">We don't just meet expectations, We exceed them.</p>
+      <p class="spanish-title text-center">No solo cumplimos con las expectativas, las superamos.</p>
       <h4 class="text-center text-color">{{details.signUp}}</h4>
       <form [formGroup]='signUpForm'>
 
         <div class="form-group mb-4">
-          <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" />
-          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
-            <div *ngIf="f.firstName.errors.required">{{formDetails.validation.fname}}</div>
+          <input type="text" class="form-control" formControlName="first_name" [placeholder]="formDetails.firstName" />
+          <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+            <div *ngIf="f.first_name.errors.required">{{formDetails.validation.fname}}</div>
           </div>
         </div>
 
         <div class="form-group mb-4">
-          <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" />
-          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-            <div *ngIf="f.lastName.errors.required">{{formDetails.validation.lname}}</div>
+          <input type="text" class="form-control" formControlName="last_name" [placeholder]="formDetails.lastName" />
+          <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+            <div *ngIf="f.last_name.errors.required">{{formDetails.validation.lname}}</div>
           </div>
         </div>
 
+
         <div class="form-group mb-4">
-          <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+          <input type="email" class="form-control" formControlName="email" [placeholder]="formDetails.email" />
           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
             <div *ngIf="f.email.errors.required">{{formDetails.validation.email}}</div>
             <div *ngIf="f.email.errors.email">{{formDetails.validation.email1}}</div>
@@ -29,18 +32,18 @@
         </div>
 
         <div class="form-group mb-4">
-          <input type="text" class="form-control" formControlName="mobile" placeholder="Mobile Number" />
-          <div *ngIf="submitted && f.mobile.errors" class="invalid-feedback">
-            <div *ngIf="f.mobile.errors.required">{{formDetails.validation.phone}}</div>
+          <input type="text" class="form-control" formControlName="phone_number" [placeholder]="formDetails.phone" />
+          <div *ngIf="submitted && f.phone_number.errors" class="invalid-feedback">
+            <div *ngIf="f.phone_number.errors.required">{{formDetails.validation.phone}}</div>
           </div>
         </div>
 
         <div class="form-group mb-4" style="position: relative;">
           <ion-icon [name]="passwordIcon" (click)="showHide()" class="eye-icon"></ion-icon>
           <input [type]="passwordType" class="form-control" formControlName="password" id="password"
-            placeholder="Password">
+            [placeholder]="formDetails.password">
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">{{formDetails.validation.phone}}</div>
+            <div *ngIf="f.password.errors.required">{{formDetails.validation.password}}</div>
           </div>
         </div>
         <button type="submit" class="login_btn btn" (click)="signUpUser(signUpForm.value)"

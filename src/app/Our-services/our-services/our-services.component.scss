@@ -7,7 +7,19 @@ h4 {
     color: var(--title-color);
     font-size: 18px;
 }
-
+.serivice-title {
+    display: flex;
+    align-items: center;
+    padding:10px 20px;
+    background: white;
+    .icon {
+        height: 27px;
+        width: 24px;
+    }
+    .logo-img {
+        height: 37px;
+    }
+}
 .service-list {
     background-color: #f0f2f9;
     padding: 45px 10px;

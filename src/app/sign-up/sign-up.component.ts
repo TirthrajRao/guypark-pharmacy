@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -23,12 +24,13 @@ export class SignUpComponent implements OnInit {
   constructor(
     private _translate: TranslateService,
     public _userService: UserService,
+    public router:Router
   ) {
     this.signUpForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
+      first_name: new FormControl('', [Validators.required]),
+      last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      mobile: new FormControl('', [Validators.required]),
+      phone_number: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
 
     })
@@ -64,7 +66,19 @@ export class SignUpComponent implements OnInit {
     }
     this.isDisable = true;
     this.loading = true;
-    console.log("sign up data", data)
+    console.log("sign up data", data);
+    this._userService.registerUser(data).subscribe((res: any) => {
+      console.log(res);
+      this.loading = false;
+      this.isDisable = false;
+      this.signUpForm.reset();
+      this.submitted = false;
+      this.router.navigate(['/home'])
+    },err=>{
+      console.log(err);
+      this.loading = false;
+      this.isDisable = false;
+    })
   }
 
   /**

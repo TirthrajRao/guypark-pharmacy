@@ -103,6 +103,7 @@
 		"title": "Notificación"
 	},
 	"form": {
+		"appName":"Farmacia Guy Park",
 		"form1": "Prescripción de transferencia",
 		"form2": "Solicitud de recarga",
 		"form3": "Comprobación de precio",
@@ -112,6 +113,7 @@
 		"email": "Correo electrónico",
 		"password": "Contraseña",
 		"phone": "Número de teléfono",
+		"mobile":"Número de teléfono móvil",
 		"checkLabel": "Sí, quiero la entrega gratuita de RX.",
 		"selectLabel": "¿Desea que le avisemos cuando sus recetas estén listas?",
 		"select": "Seleccione",
@@ -141,6 +143,7 @@
 		"rx9": "Nombre de medicina Rx9 ",
 		"rx10": "Nombre de medicina Rx10 ",
 		"pickUp": "Recoger",
+		"freeDelivery": "Entrega gratis",
 		"refillHeaing": "Proporcione Rx # para cada solicitud de recarga:",
 		"pickDate": "Fecha de recogida",
 		"pickTime": "Hora de recogida",
@@ -158,7 +161,16 @@
 			"email": "correo electronico es requerido",
 			"email1": "El correo no es válido",
 			"phone": "Se requiere número de teléfono",
-			"password": "se requiere contraseña"
+			"mobile":"Se requiere número de móvil",
+			"password": "se requiere contraseña",
+			"birthdate":"Se requiere fecha de nacimiento",
+			"city":"Se requiere ciudad",
+			"state":"Se requiere estado",
+			"zipcode":"Se requiere código postal",
+			"pharmacyname":"Se requiere el nombre de la farmacia.",
+			"pharmacynumber":"Se requiere número de farmacia.",
+			"address":"La dirección es necesaria",
+			"position":"Se requiere posición"
 		}
 	},
 	"about": {

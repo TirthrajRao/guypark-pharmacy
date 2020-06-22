@@ -53,14 +53,16 @@ ion-content {
             p {
                 font-size: 12px;
                 line-height: 14px;
-                color: var( --heading-color);
+                color: var(--heading-color);
                 // opacity: 52%;
                 margin-top: 5px;
-               
             }
         }
 
         .service-img {
+            border: 1.5px solid var(--heading-color);
+            border-radius: 5px;
+            padding: 5px;
             .service-img-sec {
                 height: 180px;
                 width: 174px;
