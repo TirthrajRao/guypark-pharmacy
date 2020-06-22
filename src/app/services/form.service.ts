@@ -41,4 +41,12 @@ export class FormService {
   addEmploymentForm(data){
     return this.http.post(config.baseApiUrl + 'employment/create', data);
   }
+
+  /**
+   * Add free delivery form
+   * @param {object} data 
+   */
+  addFreeDeliveryForm(data){
+    return this.http.post(config.baseApiUrl + 'home_delivery/create', data);
+  }
 }

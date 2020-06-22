@@ -11,51 +11,55 @@
 </ion-header>
 
 <ion-content class="service-detail">
-  <div class="cover-img curbside">
-    <div class="service-img">
-      <img src="assets/images/free-home.png">
-    </div>
+  <div class="about-img">
+    <img src="assets/images/free-home-inside.png">
   </div>
-  <div class="servicename-card">
-    <p class="card-title m-0">{{details.title}}</p>
+
+  <div class="servicename-card" style="height: 71px;">
+    <p class="card-title m-0 mt-2">{{details.title}}</p>
     <p class="des m-0">{{details.subTitle}}</p>
   </div>
-  <div class="form-section">
-    <div class="form-name">
-      <h4 class="mt-3 ubntu-regular mb-3">{{details.title}}</h4>
-    </div>
-    <form [formGroup]="freeDeliveryForm" class="form-detail">
+
+  <div class="form-section medication-forms" style="padding-top: 25px;">
+    <!-- <div class="form-name">
+      <p class="titles mb-3">{{details.title}}</p>
+    </div> -->
+    <form [formGroup]="freeDeliveryForm">
       <div class="form-group">
-        <input type="text" class="form-control" [placeholder]="formDetail.firstName" formControlName="fname">
-        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
-          <div *ngIf="f.fname.errors.required">First name is required</div>
+        <input type="text" class="form-control" [placeholder]="formDetail.firstName" formControlName="first_name"
+          [(ngModel)]="currentUserData.first_name">
+        <div *ngIf="submitted && f.first_name.errors" class="invalid-feedback">
+          <div *ngIf="f.first_name.errors.required">{{formDetail.validation.fname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="text" class="form-control" [placeholder]="formDetail.lastName" formControlName="lname">
-        <div *ngIf="submitted && f.lname.errors" class="invalid-feedback">
-          <div *ngIf="f.lname.errors.required">Last name is required</div>
+        <input type="text" class="form-control" [placeholder]="formDetail.lastName" formControlName="last_name"
+          [(ngModel)]="currentUserData.last_name">
+        <div *ngIf="submitted && f.last_name.errors" class="invalid-feedback">
+          <div *ngIf="f.last_name.errors.required">{{formDetail.validation.lname}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email">
+        <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email"
+          [(ngModel)]="currentUserData.email">
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-          <div *ngIf="f.email.errors.required">Email is required</div>
-          <div *ngIf="f.email.errors.email">Email is not valid</div>
+          <div *ngIf="f.email.errors.required">{{formDetail.validation.email}}</div>
+          <div *ngIf="f.email.errors.email">{{formDetail.validation.email1}}</div>
         </div>
       </div>
 
       <div class="form-group">
-        <input type="number" class="form-control" [placeholder]="formDetail.phone" formControlName="phone_number">
+        <input type="number" class="form-control" [placeholder]="formDetail.phone" formControlName="phone_number"
+          [(ngModel)]="currentUserData.phone_number">
         <div *ngIf="submitted && f.phone_number.errors" class="invalid-feedback">
-          <div *ngIf="f.phone_number.errors.required">Phone number is required</div>
+          <div *ngIf="f.phone_number.errors.required">{{formDetail.validation.phone}}</div>
         </div>
       </div>
 
       <div class="check-box ubntu-regular">
-        <ion-checkbox formControlName="freeDeliveryRx"></ion-checkbox>
+        <ion-checkbox formControlName="free_delivery"></ion-checkbox>
         <ion-label>{{formDetail.checkLabel}}</ion-label>
       </div>
 
@@ -63,7 +67,7 @@
         <span>{{formDetail.selectLabel}}</span>
         <ion-item>
           <ion-label>{{formDetail.select}}</ion-label>
-          <ion-select value="No Thanks" formControlName="notifyMethod">
+          <ion-select value="No Thanks" formControlName="notify">
             <ion-select-option value="No Thanks">{{formDetail.option1}}</ion-select-option>
             <ion-select-option value="Yes,By Email">{{formDetail.option2}}</ion-select-option>
             <ion-select-option value="Yes,By Phone">{{formDetail.option3}}</ion-select-option>
@@ -76,6 +80,14 @@
           (click)="addFreeDeliveryForm(freeDeliveryForm.value)">{{formDetail.btnText}}</button>
       </div>
     </form>
+  </div>
+
+  <div *ngIf="loading">
+    <div id="loader-wrapper">
+      <div class="heartbeatloader">
+        <ion-img class="svgdraw" src="assets/images/loader.gif"></ion-img>
+      </div>
+    </div>
   </div>
 
 </ion-content>

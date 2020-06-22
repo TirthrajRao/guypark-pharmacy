@@ -100,27 +100,34 @@ export class LoginComponent implements OnInit {
   facebookLogin() {
     console.log("facebook login ")
     this.isDisable = true;
-
     const permissions = ["public_profile", "email"];
-
     this.fb.login(permissions)
       .then(response => {
         let userId = response.authResponse.userID;
         console.log("response of fb", response)
-        this.isDisable = false;
-        //Getting name and gender properties
-        this.fb.api("/me?fields=name,email", permissions)
-          .then(user => {
-            console.log('Facebook Res', user)
-            user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
-            console.log("picture", user.picture);
-            this._userService.login(user);
-            this.router.navigate(['/home']);
-            //now we have the users info, let's save it in the NativeStorage
-          })
+        // this.isDisable = false;
+        this.loading = true;
+        const data = {
+          "access_token": response.authResponse.accessToken,
+          "social_login_type": "facebook",
+          "social_login_id": response.authResponse.userID
+        }
+        this._userService.login(data).subscribe((res: any) => {
+          console.log(res);
+          this.loading = false;
+          this.isDisable = false;
+          this.loginForm.reset();
+          this.router.navigate(['/home'])
+        }, err => {
+          console.log(err);
+          this.loading = false;
+          this.isDisable = false;
+        });
+
       }, error => {
         console.log("facebook err", error);
         this.isDisable = false;
+        this.loading = false;
       });
   }
 
@@ -133,8 +140,22 @@ export class LoginComponent implements OnInit {
     this.googlePlus.login({})
       .then(user => {
         console.log("google response", user);
-        this._userService.login(user);
-        this.router.navigate(['/home']);
+        const data = {
+          "access_token": user.accessToken,
+          "social_login_type": "google",
+          "social_login_id": user.userId
+        }
+        this._userService.login(data).subscribe((res: any) => {
+          console.log(res);
+          this.loading = false;
+          this.isDisable = false;
+          this.loginForm.reset();
+          this.router.navigate(['/home'])
+        }, err => {
+          console.log(err);
+          this.loading = false;
+          this.isDisable = false;
+        });
       }, err => {
         console.log("google err", err);
         this.isDisable = false;

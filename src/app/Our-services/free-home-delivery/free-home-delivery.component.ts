@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
+import { FormService } from '../../services/form.service';
 
 @Component({
   selector: 'app-free-home-delivery',
@@ -13,20 +14,24 @@ export class FreeHomeDeliveryComponent implements OnInit {
   freeDeliveryForm: FormGroup;
   submitted: Boolean = false;
   isDisable: Boolean = false;
+  loading: Boolean = false;
   language: string = "en";
   details: any = this._translate.instant("freeHome")
-  formDetail: any = this._translate.instant("form")
+  formDetail: any = this._translate.instant("form");
+  currentUserData = JSON.parse(localStorage.getItem('userFormData'));
+
   constructor(
     private _translate: TranslateService,
-    public _userService: UserService
+    public _userService: UserService,
+    public _formService:FormService
   ) {
     this.freeDeliveryForm = new FormGroup({
-      fname: new FormControl('', [Validators.required]),
-      lname: new FormControl('', [Validators.required]),
-      phone_number: new FormControl('', [Validators.required]),
+      first_name: new FormControl('', [Validators.required]),
+      last_name: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      freeDeliveryRx: new FormControl('false'),
-      notifyMethod: new FormControl(this.formDetail.option1),
+      phone_number: new FormControl('', [Validators.required]),
+      free_delivery: new FormControl('false'),
+      notify: new FormControl(this.formDetail.option1),
     })
     this._initialiseTranslation();
   }
@@ -46,12 +51,25 @@ export class FreeHomeDeliveryComponent implements OnInit {
    * @param {object} data 
    */
   addFreeDeliveryForm(data) {
-    this.submitted = true
+    this.submitted = true;
+    data['user_id'] = this.currentUserData.id
     if (this.freeDeliveryForm.invalid) {
       return
     }
-    this.isDisable = true;
     console.log(data);
+    this.isDisable = true;
+    this.loading = true;
+    this._formService.addFreeDeliveryForm(data).subscribe((res: any) => {
+      console.log("free delivery", res);
+      this.loading = false;
+      this.isDisable = false;
+      this.submitted = false;
+      this.freeDeliveryForm.reset();
+    }, err => {
+      console.log("err", err);
+      this.loading = false;
+      this.isDisable = false;
+    })
   }
 
   _initialiseTranslation(): void {
