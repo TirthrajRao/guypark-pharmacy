@@ -38,47 +38,56 @@ export class HomePage {
     this.getUserDetail();
   }
 
+
   createMenu() {
     this.menuPages = [
       {
         name: this.details.Home,
-        icon: 'assets/images/1.png',
+        icon: 'assets/images/black/home.svg',
+        icon1:'assets/images/white/home.svg',
         url: '/home/home-page',
         class: 'active'
       },
       {
         name: this.details.Medication,
-        icon: 'assets/images/2.png',
+        icon: 'assets/images/black/medicine.svg',
+        icon1: 'assets/images/white/medicine.svg',
         url: '/home/service-list'
       },
       {
         name: this.details.AboutUs,
-        icon: 'assets/images/3.png',
+        icon: 'assets/images/black/about.svg',
+        icon1: 'assets/images/white/about.svg',
         url: '/home/about-us'
       },
       {
         name: this.details.Services,
-        icon: 'assets/images/4.png',
+        icon: 'assets/images/black/service.svg',
+        icon1: 'assets/images/white/service.svg',
         url: '/home/our-services'
       },
       {
         name: this.details.Career,
-        icon: 'assets/images/5.png',
+        icon: 'assets/images/black/career.svg',
+        icon1: 'assets/images/white/career.svg',
         url: '/home/employment'
       },
       {
         name: this.details.HippaNotice,
-        icon: 'assets/images/6.png',
+        icon: 'assets/images/black/hipa notice.svg',
+        icon1: 'assets/images/white/hipa notice.svg',
         url: '/home/hippa-notice'
       },
       {
         name: this.details.Notification,
-        icon: 'assets/images/7.png',
+        icon: 'assets/images/black/notification.png',
+        icon1: 'assets/images/white/notification.png',
         url: '/home/notification'
       },
       {
         name: this.details.ContactUs,
-        icon: 'assets/images/8.png',
+        icon: 'assets/images/black/contact.svg',
+        icon1: 'assets/images/white/contact.svg',
         url: '/home/contact-us'
       },
 

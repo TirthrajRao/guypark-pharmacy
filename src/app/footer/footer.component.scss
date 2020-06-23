@@ -4,31 +4,8 @@ ul {
 }
 
 ion-toolbar:last-of-type {
-    height: 80px !important;
+    height: 92px !important;
     position: relative;
-    // &:before {
-    //     left: -1px;
-    //     transform: rotate(8deg);
-    //     @media only screen and (min-width: 627px) {
-    //       transform: rotate(4deg);
-    //     }
-    // }
-    // &:after {
-    //     right: -1px;
-    //     transform: rotate(-8deg);
-    //     @media only screen and (min-width: 627px) {
-    //         transform: rotate(-4deg);
-    //       }
-    // }
-    // &:after,
-    // &:before {
-    //     content: "";
-    //     position: absolute;
-    //     top: 20px;
-    //     height: 2px;
-    //     width: 51%;
-    //     background-color: #7a7375;
-    // }
 }
 .footer ul {
     width: 100%;
@@ -61,9 +38,9 @@ ion-toolbar:last-of-type {
         left: 0;
         right: 0;
         margin: auto;
-        height: 28px;
-        width: 23px;
-        fill: #bcbcbc;
+        // height: 28px;
+        // width: 23px;
+        // fill: #bcbcbc;
     }
 }
 .footer ul li.active {
@@ -78,12 +55,14 @@ ion-toolbar:last-of-type {
     color: #f90000;
     font-weight: 500;
     svg {
-        fill: #f90000;
+        path {
+            fill: #f90000;
+        }
     }
 }
 
 .footer {
-    height: 80px;
+    height: 109px;
 }
 .notify-badge {
     position: absolute;
@@ -98,5 +77,4 @@ ion-toolbar:last-of-type {
     color: white;
     font-weight: 600;
     z-index: 11;
-  }
-  
+}
