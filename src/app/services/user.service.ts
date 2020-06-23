@@ -79,6 +79,7 @@ export class UserService {
    */
   logOut() {
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('language');
     this.currentUserSubject.next(null);
   }
 

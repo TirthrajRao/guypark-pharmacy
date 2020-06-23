@@ -1,36 +1,3 @@
-<!-- <ion-header>
-  <app-header [cname]="'Major Insurance Plan'"></app-header>
-</ion-header>
-
-<ion-content>
-  <div class="cover-img plan">
-    <div class="cover-text">
-      <h4>Major Insurance Plan</h4>
-    </div>
-  </div>
-  <div class="about-text ion-padding">
-    <div class="form-name">
-      <h3 class="form-title">Accept All Major Insurance Plans</h3>
-    </div>
-    <p class="content-text"><strong>Jax Pharmacy</strong>accepts all major insurance plans such as: </p>
-    <ul>
-      <li>Aetna</li>
-      <li>Blue Cross & Blue Shield</li>
-      <li>Cigna</li>
-      <li>CVS/Caremark</li>
-      <li>Express Scripts</li>
-      <li>Humana</li>
-      <li>Medco</li>
-      <li>Medicare Part B</li>
-      <li>Medicare Part D</li>
-      <li>Medicaid (FL)</li>
-      <li>Optum</li>
-      <li>United Healthcare</li>
-    </ul>
-    <p class="content-text">We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!</p>
-  </div>
-</ion-content> -->
-
 <ion-header>
   <div class="header d-flex">
     <div class="back-icon float-left">
@@ -41,18 +8,18 @@
 </ion-header>
 
 <ion-content class="service-detail">
-  <div class="cover-img curbside">
+  <div >
     <div class="about-img">
-      <img src="assets/images/major.png">
+      <img src="assets/images/insurance-inside.jpg">
     </div>
   </div>
   <div class="servicename-card">
     <p class="card-title m-0">{{details.title}}</p>
     <p class="des m-0">{{details.subTitle}}</p>
   </div>
-  <div class="about-text sans-font">
-    <p class="content-text"><strong>{{details.contentTitle}}</strong> {{details.content1}} </p>
-    <ul class="content-text">
+  <div class="about-text">
+    <p class="sub-title"><strong>{{details.contentTitle}}</strong> {{details.content1}} </p>
+    <ul class="sub-title">
       <li>{{details.list1}}</li>
       <li>{{details.list2}}</li>
       <li>{{details.list3}}</li>
@@ -66,6 +33,6 @@
       <li>{{details.list11}}</li>
       <li>{{details.list12}}</li>
     </ul>
-    <p class="content-text"> {{details.content2}}</p>
+    <p class="sub-title"> {{details.content2}}</p>
   </div>
 </ion-content>

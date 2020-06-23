@@ -26,29 +26,29 @@
 		"headerTitle": "Our Services",
 		"title": "Services",
 		"readMore": "Read More",
-		"service1": "We offer free delivery",
-		"service2": "Accept E-scribe",
+		"service1": "E-Prescriptions",
+		"service2": "We offer specialty packing show with picture dose pack",
 		"service3": "Curbside delivery",
-		"service4": "We offer speciality packing show with picture dose packs",
+		"service4": "We Offer Free Delivery",
 		"service5": "$4.99 Generic Drug Plan",
 		"service6": "Accept All Major Insurance Plans",
-		"content1": "We assure you round-the-clock services along with providing you auto refills as and when your medicine supply draws to a close.",
-		"content2": "E-Prescribing supports a shift to a paperless for prescribers, payers and pharmacists to make better medication management decisions.",
+		"content1": "E-Prescribing supports a shift to a paperless for prescribes, payers and pharmacists to make better medication management decisions.",
+		"content2": "Guy Park Pharmacy provide specialty packing the top of each individual pack. It lists the person's name, the medication within and the time it should be taken.",
 		"content3": "Curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus.",
-		"content4": "The top of each individual blister pack lists the person's name, the medication within and the time it should be taken.",
-		"content5": "Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications.",
-		"content6": "Guy Park Pharmacy accepts all major insurance plans. We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!"
+		"content4": "It’s convenient and it’s FREE. Ask for your orders to be delivered at your home or office. Send your requests to Guy Park Pharmacy.",
+		"content5": "Make Guy Park Pharmacy your pharmacy of choice and save! Our prescription savings offers prescription deals, inexpensive prescriptions and general pharmacy savings. Hundreds of generic medications are available at greatly discounted prices $4.99 Generic Drug Plan for a 30-day supply.",
+		"content6": "Guy Park Pharmacy accepts all major insurance plans. We also help you find more economical solutions using generics or competitive drug companies and Insurance advice."
 	},
 	"curbside": {
 		"title": "Curbside Delivery",
 		"subTitle": "All kind of Care",
 		"contentTitle": "Guy Park Pharmacy",
 		"content1": "provide curbside delivery to prevent our patients from potential exposure to illness and reduce the number of people visiting our campus, Guy Park Pharmacy is providing free prescription delivery services to our patients’ households.",
-		"content2": "Patients may call the Guy Park Pharmacy at +1 904-222-8490 to request this service and make appropriate arrangements. For those patients who would like to utilize curbside delivery at the Pharmacy, they are welcome to park at the curb closest to the Pharmacy and call +1 904-222-8490 for a curbside delivery of their prescription(s).",
-		"content3": "Over-the-counter Pharmacy items are also available with curbside and home delivery services. Community members may call the Guy Park Pharmacy at +1 904-222-8490 for any questions regarding these services"
+		"content2": "Patients may call the Guy Park Pharmacy at 518-212-6020 to request this service and make appropriate arrangements. For those patients who would like to utilize curbside delivery at the Pharmacy, they are welcome to park at the curb closest to the Pharmacy and call 518-212-6020 for a curbside delivery of their prescription(s).",
+		"content3": "Over-the-counter Pharmacy items are also available with curbside and home delivery services. Community members may call the Guy Park Pharmacy at 518-212-6020for any questions regarding these services"
 	},
 	"eScribe": {
-		"title": "Accept E-scribe",
+		"title": "E-Prescriptions",
 		"subTitle": "All kind of Care",
 		"contentTitle": "Advanced E-prescribing",
 		"content1": "In order to serve you better, our pharmacy dispensing system accepts Surescripts E-prescriptions. This is especially helpful for our customers and Physicians. E-Prescribing supports a shift to a paperless and more informed way for prescribers, payers and pharmacists to make better medication management decisions. This more secure electronic workflow leads to improved health outcomes while helping to:",
@@ -60,7 +60,8 @@
 		"content3": "E-Prescription is helpful for our customers, who are always on the go and might not have the time to have their prescriptions filled traditionally."
 	},
 	"speciality": {
-		"title": "We Offer Speciality Packing Show With Picture Dose Packs",
+		"title":"We Offer Specialty Packing",
+		"contentTitle1": "We Offer Speciality Packing Show With Picture Dose Packs",
 		"subTitle": "All kind of Care",
 		"content1": "Dispill blisters are safe, simple and convenient :",
 		"list1": "Easy to open, detachable and portable",
@@ -74,10 +75,10 @@
 		"title": "$4.99 Generic Drug Plan",
 		"subTitle": "All kind of Care",
 		"contentTitle": "Guy Park Pharmacy",
-		"content1": "is an advocate of affordable yet quality healthcare. Our generic drug plan is to ensure that you get your medication in a less expensive way without compromising the quality of the medications. All of our medications are FDA approved generics and comply with the Florida’s pedigree law. When you visit our pharmacy, please make sure to ask our staff about our $4.99 Generic Drug Plan."
+		"content1": "Make Guy Park Pharmacy your pharmacy of choice and save! Our prescription savings offers prescription deals, inexpensive prescriptions and general pharmacy savings. Hundreds of generic medications are available at greatly discounted prices $4.99 Generic Drug Plan for a 30-day supply."
 	},
 	"major": {
-		"title": "Accept All Major Insurance Plans",
+		"title": "Insurance Plan",
 		"subTitle": "All kind of Care",
 		"contentTitle": "Guy Park Pharmacy",
 		"content1": "accepts all major insurance plans such as:",
@@ -96,8 +97,11 @@
 		"content2": "We will also match our local competitors’ prices so you can definitely get the highest value for the least amount of money you are willing to pay!"
 	},
 	"freeHome": {
-		"title": "Free Home Delivery",
-		"subTitle": "All kind of Care"
+		"title": "Home Delivery",
+		"subTitle": "All kind of Care",
+		"content1":"Customized medication compounding is Guy Park specialty and we feel proud to serve our customers with their specialty needs.",
+		"content2":"We prepare on-demand bio-identical hormone therapy customized to your specific needs. We also prepare cancer treatment compounds, dermatologic and pain care products and many more. We can convert any prescription from one dosage form to another.",
+		"content3":"Our highly qualified pharmacists are eager to discuss with you about your specific needs. We also serve pet care needs for compounded prescriptions."
 	},
 	"notification": {
 		"title": "Notification"
@@ -156,6 +160,7 @@
 		"position": "Position Applying for",
 		"attach": "Attach Resume",
 		"validation": {
+			"name":"Name is required",
 			"fname": "First name is required",
 			"lname": "Last name is required",
 			"email": "Email is required",
@@ -170,7 +175,9 @@
 			"pharmacyname": "Pharmacy name is required",
 			"pharmacynumber": "Pharmacy number is required",
 			"address": "Address is required",
-			"position":"Position is required"
+			"position":"Position is required",
+			"subject":"Subject is required",
+			"message":"Message is required"
 		}
 	},
 	"about": {

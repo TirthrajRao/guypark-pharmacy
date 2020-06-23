@@ -11,7 +11,7 @@ declare const $: any;
 })
 export class FooterComponent implements OnInit {
   details: any = this._translate.instant("footer");
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   constructor(
     public router: Router,
     public _userService: UserService,
@@ -65,8 +65,8 @@ export class FooterComponent implements OnInit {
    */
   _initialiseTranslation(): void {
     console.log(this.language)
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       this.details = this._translate.instant("footer");
       console.log("----------",this.details)
     }, 25);

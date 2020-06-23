@@ -13,7 +13,7 @@ export class HomePage {
 
   menuPages: any;
   details: any;
-  language: any = 'en';
+  language: any = localStorage.getItem('language');
 
   constructor(
     public menu: MenuController,
@@ -44,7 +44,7 @@ export class HomePage {
       {
         name: this.details.Home,
         icon: 'assets/images/black/home.svg',
-        icon1:'assets/images/white/home.svg',
+        icon1: 'assets/images/white/home.svg',
         url: '/home/home-page',
         class: 'active'
       },
@@ -117,8 +117,9 @@ export class HomePage {
 
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
+    console.log("language",this.language)
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log("in home page", this._translate.instant("sidemenu"));
       this.details = this._translate.instant("sidemenu");
       this.createMenu();
@@ -130,6 +131,7 @@ export class HomePage {
     this.menu.close();
     this.language = language;
     this._translate.use(this.language);
+    localStorage.setItem('language',this.language);
     this.details = this._translate.instant("sidemenu");
     this._userService.detectLanguageChange(this.language);
   }

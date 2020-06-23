@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class AboutUsComponent implements OnInit {
 
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("about")
 
   constructor(
@@ -28,8 +28,8 @@ export class AboutUsComponent implements OnInit {
   }
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("about"));
       this.details = this._translate.instant("about");
     }, 250);

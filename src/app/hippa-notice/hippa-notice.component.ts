@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
 })
 export class HippaNoticeComponent implements OnInit {
   
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("hippa")
 
   constructor(
@@ -28,8 +28,8 @@ export class HippaNoticeComponent implements OnInit {
   }
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("hippa"));
       this.details = this._translate.instant("hippa");
     }, 250);

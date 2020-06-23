@@ -374,7 +374,8 @@ ion-header ion-toolbar:first-child {
     }
     .servicename-card {
         background: linear-gradient(180deg, #4160b8, #15275e);
-        padding: 1px 24px;
+        // padding: 1px 24px;
+        padding: 11px 11px 26px;
         border-radius: 9px;
         margin-top: -26px;
         z-index: 4;
@@ -382,7 +383,7 @@ ion-header ion-toolbar:first-child {
         margin: -26px 15px 0;
         color: white;
         box-shadow: 0 3px 6px #00000029;
-        height: 91px;
+        // height: 91px;
         .card-title {
             font-size: 17px;
         }

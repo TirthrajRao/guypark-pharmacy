@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ContactUsComponent implements OnInit {
 
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("contact")
   contactForm: FormGroup;
   formDetail: any = this._translate.instant("form")
@@ -49,12 +49,11 @@ export class ContactUsComponent implements OnInit {
    * Detect and change language
    */
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("contact"));
       this.details = this._translate.instant("contact");
       this.formDetail = this._translate.instant("form")
-
     }, 250);
   }
 

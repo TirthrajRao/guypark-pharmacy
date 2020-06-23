@@ -13,23 +13,23 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
+  language: any = localStorage.getItem('language')
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router: Router,
     public fcm: FCM,
-    public _translate:TranslateService
+    public _translate: TranslateService
   ) {
 
-     //Exit app
-     this.platform.backButton.subscribe(() => {
+    //Exit app
+    this.platform.backButton.subscribe(() => {
       if (this.router.url === '/home/home-page' || this.router.url === '/login') {
         navigator['app'].exitApp();
       }
     })
-    
+
     this.initializeApp();
     // this.router.navigate(['/home'])
   }
@@ -38,7 +38,12 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.backgroundColorByHexString("#1F3C92");
       this.splashScreen.hide();
-      this._translate.setDefaultLang('en');
+      if (!this.language) {
+        this._translate.setDefaultLang('en');
+        localStorage.setItem('language', 'en');
+      }else{
+        this._translate.setDefaultLang(this.language)
+      }
       this.getNotification();
     });
   }

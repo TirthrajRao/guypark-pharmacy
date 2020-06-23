@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   loading: Boolean = false;
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("login");
   formDetails: any = this._translate.instant("form");
   forgotPswForm: FormGroup;
@@ -167,8 +167,8 @@ export class LoginComponent implements OnInit {
    */
   _initialiseTranslation() {
     console.log("in language", this.language)
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("login"));
       this.details = this._translate.instant("login");
       this.formDetails = this._translate.instant("form");

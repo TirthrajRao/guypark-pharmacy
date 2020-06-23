@@ -17,7 +17,7 @@ ion-toolbar:last-of-type {
     list-style: none;
     display: inline-block;
     position: relative;
-    padding-top: 45px;
+    padding-top: 29px;
     color: #c6c6c6;
     font-size: 13px;
     width: 20%;
@@ -44,7 +44,7 @@ ion-toolbar:last-of-type {
     }
 }
 .footer ul li.active {
-    padding-top: 38px;
+    padding-top: 11px;
     img {
         height: 55px;
         width: 55px;
@@ -62,12 +62,12 @@ ion-toolbar:last-of-type {
 }
 
 .footer {
-    height: 109px;
+    height: 73px;
 }
 .notify-badge {
     position: absolute;
     right: 25%;
-    top: 19%;
+    top: -3%;
     width: 17px;
     height: 17px;
     line-height: 18px;

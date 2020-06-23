@@ -15,7 +15,7 @@ export class PriceCheckComponent implements OnInit {
   submitted: Boolean = false;
   isDisable: Boolean = false;
   formDetail: any = this._translate.instant("form");
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   currentUserData = JSON.parse(localStorage.getItem('userFormData'));
   loading: Boolean = false;
 
@@ -119,8 +119,8 @@ export class PriceCheckComponent implements OnInit {
    * change and detect language
    */
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       this.formDetail = this._translate.instant("form")
     }, 250);
   }

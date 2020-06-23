@@ -17,7 +17,7 @@ export class SignUpComponent implements OnInit {
   loading: Boolean = false;
   passwordType: string = 'password';
   passwordIcon: string = 'eye-off';
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("login");
   formDetails: any = this._translate.instant("form");
 
@@ -85,8 +85,8 @@ export class SignUpComponent implements OnInit {
    * language change
    */
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("login"));
       this.details = this._translate.instant("login");
       this.formDetails = this._translate.instant("form");

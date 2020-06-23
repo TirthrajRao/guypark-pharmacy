@@ -15,7 +15,7 @@ export class FreeHomeDeliveryComponent implements OnInit {
   submitted: Boolean = false;
   isDisable: Boolean = false;
   loading: Boolean = false;
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("freeHome")
   formDetail: any = this._translate.instant("form");
   currentUserData = JSON.parse(localStorage.getItem('userFormData'));
@@ -73,8 +73,8 @@ export class FreeHomeDeliveryComponent implements OnInit {
   }
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("freeHome"));
       this.details = this._translate.instant("freeHome");
       this.formDetail = this._translate.instant("form")

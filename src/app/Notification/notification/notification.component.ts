@@ -77,8 +77,8 @@ export class NotificationComponent implements OnInit {
   }
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("freeHome"));
       this.details = this._translate.instant("notification");
 

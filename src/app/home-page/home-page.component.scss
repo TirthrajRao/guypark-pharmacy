@@ -3,7 +3,7 @@ ion-title {
 }
 ion-content {
     // --background: linear-gradient(#4160b8, #15275e 50%);
-    --background: white;
+    --background:#f0f2f9;
 }
 .pharmacy-service {
     h4 {
@@ -60,9 +60,9 @@ ion-content {
         }
 
         .service-img {
-            border: 1.5px solid var(--heading-color);
-            border-radius: 5px;
-            padding: 5px;
+            // border: 1.5px solid var(--heading-color);
+            // border-radius: 5px;
+            // padding: 5px;
             .service-img-sec {
                 height: 180px;
                 width: 174px;
@@ -86,7 +86,7 @@ ion-content {
                     font-size: 10px;
                 }
                 .service-btn {
-                    border: 1px solid #e7e7e7;
+                    border: 1px solid #9f9f9f;
                     text-align: center;
                     color: #f43350;
                     font-size: 11px;

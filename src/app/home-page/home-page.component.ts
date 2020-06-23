@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
 export class HomePageComponent implements OnInit {
   title: string;
   description: string;
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("home")
 
   constructor(
@@ -35,8 +35,9 @@ export class HomePageComponent implements OnInit {
   }
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
+    console.log("language in hompage",this.language)
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("home"));
       this.details = this._translate.instant("home");
     }, 250);

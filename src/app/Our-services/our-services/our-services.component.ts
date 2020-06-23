@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
 export class OurServicesComponent implements OnInit {
 
   allServices: any = [];
-  language: any = 'en';
+  language: any = localStorage.getItem('language');
   details: any;
 
   constructor(
@@ -37,15 +37,15 @@ export class OurServicesComponent implements OnInit {
     this.allServices = [
       {
         name: this.details.service1,
-        image: 'assets/images/free-home.png',
+        image: 'assets/images/e-scribe.png',
         content: this.details.content1,
-        url: "/home/free-home-delivery"
+        url: "/home/e-scribe"
       },
       {
         name: this.details.service2,
-        image: 'assets/images/e-scribe.png',
+        image: 'assets/images/speciality-packing.png',
         content: this.details.content2,
-        url: "/home/e-scribe"
+        url: "/home/speciality-packing"
       },
       {
         name: this.details.service3,
@@ -55,9 +55,9 @@ export class OurServicesComponent implements OnInit {
       },
       {
         name: this.details.service4,
-        image: 'assets/images/speciality-packing.png',
+        image: 'assets/images/free-home.png',
         content: this.details.content4,
-        url: "/home/speciality-packing"
+        url: "/home/free-home-delivery"
       },
       {
         name: this.details.service5,
@@ -82,8 +82,8 @@ export class OurServicesComponent implements OnInit {
    * langugae 
    */
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       this.details = this._translate.instant("services");
       console.log(this.details)
       this.createServiceList();

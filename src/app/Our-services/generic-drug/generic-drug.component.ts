@@ -8,7 +8,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./generic-drug.component.scss'],
 })
 export class GenericDrugComponent implements OnInit {
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("drug")
 
   constructor(
@@ -27,8 +27,8 @@ export class GenericDrugComponent implements OnInit {
   }
 
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("drug"));
       this.details = this._translate.instant("drug");
     }, 250);

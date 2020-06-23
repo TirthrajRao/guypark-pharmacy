@@ -11,7 +11,7 @@ export class ServicesListComponent implements OnInit {
 
   formList: any = [];
   detail: any = this._translate.instant("home");
-  language: string = "en";
+  language: string = localStorage.getItem('language');
 
   constructor(
     private _translate: TranslateService,
@@ -57,8 +57,8 @@ export class ServicesListComponent implements OnInit {
    * change and detect language
    */
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       this.detail = this._translate.instant("home");
       this.createServiceList();
     }, 250);

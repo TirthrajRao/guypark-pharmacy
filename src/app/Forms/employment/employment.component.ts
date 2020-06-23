@@ -18,7 +18,7 @@ export class EmploymentComponent implements OnInit {
   submitted: Boolean = false;
   isDisable: Boolean = false;
   loading: Boolean = false;
-  language: string = "en";
+  language: string = localStorage.getItem('language');
   details: any = this._translate.instant("employment");
   formDetail: any = this._translate.instant("form");
   currentUserData = JSON.parse(localStorage.getItem('userFormData'));
@@ -100,8 +100,8 @@ export class EmploymentComponent implements OnInit {
    * Change language
    */
   _initialiseTranslation(): void {
-    this._translate.use(this.language);
     setTimeout(() => {
+      this._translate.use(this.language);
       console.log(this._translate.instant("employment"));
       this.details = this._translate.instant("employment");
       this.formDetail = this._translate.instant("form");
