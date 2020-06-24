@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { TranslateService } from '@ngx-translate/core';
+declare const $:any;
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  language: any = localStorage.getItem('language')
+  language: any = localStorage.getItem('language');
+  message:any;
+  errMessage:any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -31,13 +33,15 @@ export class AppComponent {
     })
 
     this.initializeApp();
-    // this.router.navigate(['/home'])
+    this.router.navigate(['/home'])
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.backgroundColorByHexString("#1F3C92");
-      this.splashScreen.hide();
+      setTimeout(() => {
+        this.splashScreen.hide();
+      }, 700);
       if (!this.language) {
         this._translate.setDefaultLang('en');
         localStorage.setItem('language', 'en');
@@ -105,6 +109,34 @@ export class AppComponent {
     // }, (err) => {
     //   console.log("err in notification count", err)
     // })
+  }
+
+  /** 
+   *Sucess Alert
+   */
+  sucessAlert(message?) {
+    this.message = message;
+    $('.success_alert_box').fadeIn().addClass('animate');
+    $('.success_alert_box').click(function () {
+      $(this).hide().removeClass('animate');
+    });
+    $('.success_alert_box .alert_box_content').click(function (event) {
+      event.stopPropagation();
+    });
+  }
+
+  /** 
+   *Error Alert
+   */
+  errorAlert(message?) {
+    this.errMessage = message
+    $('.error_alert_box').fadeIn().addClass('animate');
+    $('.error_alert_box').click(function () {
+      $(this).hide().removeClass('animate');
+    });
+    $(' .error_alert_box .alert_box_content').click(function (event) {
+      event.stopPropagation();
+    });
   }
 }
 

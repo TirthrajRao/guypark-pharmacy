@@ -21,6 +21,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginGuard } from './guard/auth.guard';
+import { HTTP } from '@ionic-native/http/ngx';
 
 
 // AoT requires an exported function for factories
@@ -59,6 +60,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     GooglePlus,
     FCM,
     LoginGuard,
+    HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

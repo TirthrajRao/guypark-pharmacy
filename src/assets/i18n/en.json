@@ -5,9 +5,12 @@
 		"TransferPrescripsion": "Transfer Prescripsion",
 		"RefillRequest": "Refill Request",
 		"PriceCheck": "Price Check",
+		"eScribe":"E-scribe Prescription",
 		"Services": "Services",
 		"explore": "Explore More about services",
-		"allServices": "All Services"
+		"allServices": "All Services",
+		"title": "About Us",
+		"subTitle": "Engendering Resplendent Life"
 	},
 	"sidemenu": {
 		"Home": "Home",

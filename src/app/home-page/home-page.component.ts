@@ -16,7 +16,7 @@ export class HomePageComponent implements OnInit {
   constructor(
     private _translate: TranslateService,
     public _userService: UserService
-  ) { 
+  ) {
 
     this._initialiseTranslation();
   }
@@ -30,12 +30,17 @@ export class HomePageComponent implements OnInit {
 
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
+    this._userService.getNotificationCount().then((res: any) => {
+      console.log("res in footer", res);
+    }).catch(err => {
+      console.log(err)
+    });
     this._userService.detectFooterChange('home');
   }
 
   _initialiseTranslation(): void {
-    console.log("language in hompage",this.language)
+    console.log("language in hompage", this.language)
     setTimeout(() => {
       this._translate.use(this.language);
       console.log(this._translate.instant("home"));

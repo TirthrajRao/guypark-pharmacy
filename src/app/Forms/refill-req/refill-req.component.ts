@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
 import * as moment from 'moment';
 import { FormService } from '../../services/form.service';
+import { AppComponent } from '../../app.component';
+import { Router } from '@angular/router';
 declare const $: any;
 @Component({
   selector: 'app-refill-req',
@@ -26,7 +28,9 @@ export class RefillReqComponent implements OnInit {
   constructor(
     private _translate: TranslateService,
     public _userService: UserService,
-    public _formService:FormService
+    public _formService: FormService,
+    public appComponant:AppComponent,
+    public router:Router
   ) {
     this.nextYearCount();
 
@@ -127,16 +131,19 @@ export class RefillReqComponent implements OnInit {
     this.isDisable = true;
     this.loading = true;
     console.log(data);
-    this._formService.addRefillForm(data).subscribe((res: any) => {
+    this._formService.addRefillForm(data).then((res: any) => {
       console.log("refill", res);
       this.loading = false;
       this.isDisable = false;
       this.submitted = false;
-      this.refillReqForm.reset()
-    }, err => {
+      this.refillReqForm.reset();
+      this.appComponant.errorAlert();
+      this.router.navigate(['/home/home-page'])
+    }).catch(err => {
       console.log("err", err);
       this.loading = false;
       this.isDisable = false;
+      this.appComponant.errorAlert();
     })
   }
 

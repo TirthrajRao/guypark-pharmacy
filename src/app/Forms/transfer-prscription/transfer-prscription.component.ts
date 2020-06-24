@@ -4,6 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
 import { FormService } from '../../services/form.service';
 import * as moment from 'moment';
+import { AppComponent } from '../../app.component';
+import { Router } from '@angular/router';
 declare const $: any;
 
 @Component({
@@ -26,7 +28,9 @@ export class TransferPrscriptionComponent implements OnInit {
   constructor(
     private _translate: TranslateService,
     public _userService: UserService,
-    public _formService:FormService
+    public _formService: FormService,
+    public appComponant:AppComponent,
+    public router:Router
   ) {
 
     this.nextYearCount();
@@ -121,25 +125,28 @@ export class TransferPrscriptionComponent implements OnInit {
   addTransferPresForm(data) {
     console.log("--")
     this.submitted = true;
-    data['user_id']= this.currentUserData.id;
-    data.date_of_birth= moment(data.date_of_birth).format('DD/MM/yyyy');
-    data.refill_date= moment(data.refill_date).format('DD/MM/yyyy');
+    data['user_id'] = this.currentUserData.id;
+    data.date_of_birth = moment(data.date_of_birth).format('DD/MM/yyyy');
+    data.refill_date = moment(data.refill_date).format('DD/MM/yyyy');
     if (this.transferPrescriptionForm.invalid) {
       return
     }
     this.isDisable = true;
     this.loading = true;
     console.log(data);
-    this._formService.addTransferForm(data).subscribe((res: any) => {
+    this._formService.addTransferForm(data).then((res: any) => {
       console.log("transfer", res);
       this.loading = false;
       this.isDisable = false;
       this.submitted = false;
-      this.transferPrescriptionForm.reset()
-    }, err => {
+      this.transferPrescriptionForm.reset();
+      this.appComponant.sucessAlert();
+      this.router.navigate(['/home/home-page'])
+    }).catch(err => {
       console.log("err", err);
       this.loading = false;
       this.isDisable = false;
+      this.appComponant.errorAlert();
     })
   }
 

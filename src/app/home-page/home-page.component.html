@@ -14,12 +14,62 @@
   <div style=" height: 100%;">
     <div class="pharmacy-service">
       <div class="roboto-miduim serivice-title">
-        <img src="assets/images/rx-icon.png" class="medicarion-icon">
-        <h4>{{details.serviceOptionTitle}}</h4>
-        <img src="assets/images/logo.png" class="logo-img ml-auto mr-2">
+        <div class="inner-section">
+          <!-- <img src="assets/images/rx-icon.png" class="medicarion-icon"> -->
+          <h4>{{details.serviceOptionTitle}}</h4>
+          <img src="assets/images/logo.png" class="logo-img ml-auto mr-2">
+        </div>
       </div>
-      <div class="services-content">
-        <div class="row ubntu-regular  form-section">
+      <div class="services-content ion-padding">
+        <div class="row m-0">
+          <div class="col-3 p-0" routerLink="/home/transfer-prescription">
+            <div class="icon-bg">
+              <img src="assets/images/red/transfer.svg">
+            </div>
+            <p class="form-name">{{details.TransferPrescripsion}}</p>
+          </div>
+          <div class="col-3 p-0" routerLink="/home/refill-request">
+            <div class="icon-bg">
+              <img src="assets/images/red/refill request.svg">
+            </div>
+            <p class="form-name">{{details.RefillRequest}}</p>
+          </div>
+          <div class="col-3 p-0" routerLink="/home/price-check">
+            <div class="icon-bg">
+              <img src="assets/images/red/price check.svg">
+            </div>
+            <p class="form-name">{{details.PriceCheck}}</p>
+          </div>
+          <div class="col-3 p-0" routerLink="/home/e-scribe">
+            <div class="icon-bg">
+              <img src="assets/images/rx-icon.png" style="height: 36px;width: 36px;">
+            </div>
+            <p class="form-name">{{details.eScribe}}</p>
+          </div>
+        </div>
+        <div class="service-section" routerLink="/home/our-services">
+          <div class="service-detail">
+            <p class="mb-0 service-title">
+              {{details.Services}}
+            </p>
+            <span class="about">{{details.explore}}</span>
+            <div class="service-btn" >
+              <span class="btn-text">{{details.allServices}} <i class="fa fa-long-arrow-right ml-2"
+                  aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="service-img-sec">
+            <img src="assets/images/service.png">
+          </div>
+        </div>
+        <div class="service-detail">
+          <div class="servicename-card pl-4" style="margin: 26px 0px 0;">
+            <p class="card-title m-0 mt-2">{{details.title}}</p>
+            <p class="des m-0">{{details.subTitle}}</p>
+            <img src="assets/images/about3.png">
+          </div>
+        </div>
+        <!-- <div class="row  form-section">
           <div class="col-4 p-0 ">
             <div class="single-servics first-req" routerLink="/home/transfer-prescription">
               <img src="assets/images/form11.png">
@@ -51,10 +101,11 @@
             </p>
             <span class="about">{{details.explore}}</span>
             <div class="service-btn" routerLink="/home/our-services">
-              <span class="btn-text">{{details.allServices}}   <i class="fa fa-long-arrow-right ml-2" aria-hidden="true" ></i></span>
+              <span class="btn-text">{{details.allServices}} <i class="fa fa-long-arrow-right ml-2"
+                  aria-hidden="true"></i></span>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

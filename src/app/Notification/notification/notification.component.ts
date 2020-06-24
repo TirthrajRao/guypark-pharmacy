@@ -12,7 +12,8 @@ export class NotificationComponent implements OnInit {
   colors = ['first', 'second', 'third', 'fourth'];
   lastImage: any;
   language: string = "en";
-  details: any = this._translate.instant("notification")
+  details: any = this._translate.instant("notification");
+  loading: Boolean = false;
 
   constructor(
     private _translate: TranslateService,
@@ -72,8 +73,9 @@ export class NotificationComponent implements OnInit {
     this.generateBorder();
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this._userService.detectFooterChange('notification');
+    // this.getNotificationList();
   }
 
   _initialiseTranslation(): void {
@@ -96,5 +98,21 @@ export class NotificationComponent implements OnInit {
       notification['color'] = this.colors[rand];
       return notification;
     });
+  }
+  
+  /**
+   * get Notification List
+   */
+  getNotificationList() {
+    this.loading = true;
+    const data = {
+    }
+    this._userService.getNotificationList(data).then((res: any) => {
+      console.log(res);
+      this.loading = false;
+    }).catch((err) => {
+      console.log(err);
+      this.loading = false;
+    })
   }
 }

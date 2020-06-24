@@ -37,6 +37,11 @@ export class NotificationDetailComponent implements OnInit {
 
   ionViewWillEnter() {
     this._userService.detectFooterChange('notification-detail');
+    this._userService.getNotificationCount().then((res: any) => {
+      console.log("res in footer", res);
+    }).catch(err => {
+      console.log(err)
+    });
   }
 
   _initialiseTranslation(): void {

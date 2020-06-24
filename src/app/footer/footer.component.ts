@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -12,22 +12,25 @@ declare const $: any;
 export class FooterComponent implements OnInit {
   details: any = this._translate.instant("footer");
   language: string = localStorage.getItem('language');
+  notificationCount:any;
   constructor(
     public router: Router,
     public _userService: UserService,
     private _translate: TranslateService,
+    public _zone:NgZone
 
   ) {
-    // this._userService.notiFicationCounts().subscribe(response => {
-    //   this._zone.run(() => {
-    //     this.notificationCount = response.notification;
-    //     console.log("response of notification count =====>", this.notificationCount);
-    //   })
-    // })
+    this._userService.notiFicationCounts().subscribe(response => {
+      this._zone.run(() => {
+        this.notificationCount = response.notification;
+        console.log("response of notification count =====>", this.notificationCount);
+      })
+    })
 
     this._userService.footerChanges().subscribe((res) => {
       console.log("in footer", res);
-      this.addActiveClass(res.componantName)
+      this.addActiveClass(res.componantName);
+      // $('li a').css('display','none')
     });
     this._initialiseTranslation()
   }
@@ -44,18 +47,24 @@ export class FooterComponent implements OnInit {
 
   addActiveClass(name) {
     if ($('li').hasClass('active-page')) {
-      $('li').removeClass('active-page')
+      $('li').removeClass('active-page');
+      $('li a').css('display','none')
     }
     if (name == 'home') {
-      $('.home').addClass('active-page')
+      $('.home').addClass('active-page');
+      $('.home a').css('display','block');
     } else if (name == 'services') {
-      $('.services').addClass('active-page')
+      $('.services').addClass('active-page');
+      $('.services a').css('display','block');
     } else if (name == 'request') {
-      $('.request').addClass('active-page')
+      $('.request').addClass('active-page');
+      $('.request a').css('display','block');
     } else if (name == 'notification' || name=='notification-detail') {
-      $('.notification').addClass('active-page')
+      $('.notification').addClass('active-page');
+      $('.notification a').css('display','block');
     } else if (name == 'contact') {
-      $('.contact').addClass('active-page')
+      $('.contact').addClass('active-page');
+      $('.contact a').css('display','block');
     }
 
   }

@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-sign-up',
@@ -24,7 +25,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private _translate: TranslateService,
     public _userService: UserService,
-    public router:Router
+    public router: Router,
+    public appcomponent: AppComponent
   ) {
     this.signUpForm = new FormGroup({
       first_name: new FormControl('', [Validators.required]),
@@ -67,17 +69,19 @@ export class SignUpComponent implements OnInit {
     this.isDisable = true;
     this.loading = true;
     console.log("sign up data", data);
-    this._userService.registerUser(data).subscribe((res: any) => {
+    this._userService.registerUser(data).then((res: any) => {
       console.log(res);
       this.loading = false;
       this.isDisable = false;
       this.signUpForm.reset();
       this.submitted = false;
+      this.appcomponent.sucessAlert(res.message);
       this.router.navigate(['/home'])
-    },err=>{
+    }).catch((err) => {
       console.log(err);
       this.loading = false;
       this.isDisable = false;
+      this.appcomponent.errorAlert(err.error.message);
     })
   }
 

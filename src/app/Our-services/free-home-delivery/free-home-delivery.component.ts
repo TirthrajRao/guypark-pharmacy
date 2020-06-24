@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
 import { FormService } from '../../services/form.service';
+import { AppComponent } from '../../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-free-home-delivery',
@@ -23,7 +25,9 @@ export class FreeHomeDeliveryComponent implements OnInit {
   constructor(
     private _translate: TranslateService,
     public _userService: UserService,
-    public _formService:FormService
+    public _formService: FormService,
+    public appComponant:AppComponent,
+    public router:Router
   ) {
     this.freeDeliveryForm = new FormGroup({
       first_name: new FormControl('', [Validators.required]),
@@ -59,16 +63,19 @@ export class FreeHomeDeliveryComponent implements OnInit {
     console.log(data);
     this.isDisable = true;
     this.loading = true;
-    this._formService.addFreeDeliveryForm(data).subscribe((res: any) => {
+    this._formService.addFreeDeliveryForm(data).then((res: any) => {
       console.log("free delivery", res);
       this.loading = false;
       this.isDisable = false;
       this.submitted = false;
       this.freeDeliveryForm.reset();
-    }, err => {
+      this.appComponant.sucessAlert();
+      this.router.navigate(['/home/home-page'])
+    }).catch(err => {
       console.log("err", err);
       this.loading = false;
       this.isDisable = false;
+      this.appComponant.errorAlert();
     })
   }
 

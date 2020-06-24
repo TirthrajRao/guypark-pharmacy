@@ -8,19 +8,24 @@ ion-toolbar:last-of-type {
     position: relative;
 }
 .footer ul {
-    width: 100%;
-    height: 100%;
+    // width: 100%;
+    // height: 100%;
+    // display: flex;
+    // align-items: center;
     display: flex;
     align-items: center;
+    background: white;
+    border-radius: 13px;
+    // padding: 15px;
 }
 .footer ul li {
     list-style: none;
     display: inline-block;
     position: relative;
-    padding-top: 29px;
+    padding-top: 57px;
     color: #c6c6c6;
     font-size: 13px;
-    width: 20%;
+    width: 25%;
     text-align: center;
     z-index: 2;
     font-family: "Roboto", sans-serif;
@@ -42,6 +47,17 @@ ion-toolbar:last-of-type {
         // width: 23px;
         // fill: #bcbcbc;
     }
+    a {
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 30px;
+        border-bottom: 3px solid;
+        border-radius: 2px;
+        display: none;
+    }
 }
 .footer ul li.active {
     padding-top: 11px;
@@ -62,12 +78,19 @@ ion-toolbar:last-of-type {
 }
 
 .footer {
-    height: 73px;
+    // height: 73px;
+    background: rgba(99, 114, 189, 48%);
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+    padding-top: 23px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 20px;
 }
 .notify-badge {
     position: absolute;
-    right: 25%;
-    top: -3%;
+    right: 27%;
+    top: 14%;
     width: 17px;
     height: 17px;
     line-height: 18px;

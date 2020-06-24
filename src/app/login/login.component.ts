@@ -5,6 +5,8 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 import { TranslateService } from '@ngx-translate/core';
+import { AppComponent } from '../app.component';
+import { HttpClient } from '@angular/common/http';
 declare const $: any;
 
 @Component({
@@ -32,6 +34,8 @@ export class LoginComponent implements OnInit {
     public router: Router,
     public _userService: UserService,
     private _translate: TranslateService,
+    public appcomponent: AppComponent,
+    public http: HttpClient
   ) {
     console.log("in counstructor")
     this._initialiseTranslation()
@@ -80,17 +84,19 @@ export class LoginComponent implements OnInit {
     console.log("login data", data);
     this.isDisable = true;
     this.loading = true;
-    this._userService.login(data).subscribe((res: any) => {
+    this._userService.login(data).then((res: any) => {
       console.log(res);
       this.loading = false;
       this.isDisable = false;
       this.loginForm.reset();
       this.submitted = false;
-      this.router.navigate(['/home'])
-    }, err => {
+      this.appcomponent.sucessAlert(res.message);
+      this.router.navigate(['/home']);
+    }).catch((err) => {
       console.log(err);
       this.loading = false;
       this.isDisable = false;
+      this.appcomponent.errorAlert(err.error.message);
     });
   }
 
@@ -102,35 +108,49 @@ export class LoginComponent implements OnInit {
     this.isDisable = true;
     const permissions = ["public_profile", "email"];
     this.fb.login(permissions)
-      .then(response => {
-        let userId = response.authResponse.userID;
-        console.log("response of fb", response)
-        // this.isDisable = false;
-        this.loading = true;
-        const data = {
-          "access_token": response.authResponse.accessToken,
-          "social_login_type": "facebook",
-          "social_login_id": response.authResponse.userID
-        }
-        this._userService.login(data).subscribe((res: any) => {
-          console.log(res);
-          this.loading = false;
-          this.isDisable = false;
-          this.loginForm.reset();
-          this.router.navigate(['/home'])
-        }, err => {
-          console.log(err);
-          this.loading = false;
-          this.isDisable = false;
-        });
+      .then((response: FacebookLoginResponse) => {
+        console.log("response of fb", response);
+        this.fetchFacebookData(response.authResponse.accessToken).subscribe(async (res: any) => {
+          console.log('facebook data============>', res);
+          const userId = response.authResponse.userID
+          const data = {
+            social_login_id: userId,
+            access_token: response.authResponse.accessToken,
+            social_login_type: 'facebook',
+            first_name: res.first_name,
+            last_name: res.last_name,
+            username: res.name,
+          }
+          if (res.email) {
+            data['email'] = res.email
+          }
+          // this.isDisable = false;
+          this.loading = true;
+        await this._userService.login(data).then((res: any) => {
+            console.log(res);
+            this.loading = false;
+            this.isDisable = false;
+            this.loginForm.reset();
+            this.appcomponent.sucessAlert(res.message);
+            this.router.navigate(['/home'])
+          }).catch((err) => {
+            console.log(err);
+            this.appcomponent.errorAlert(err.error.message);
+            this.loading = false;
+            this.isDisable = false;
+          });
 
-      }, error => {
-        console.log("facebook err", error);
-        this.isDisable = false;
-        this.loading = false;
-      });
+        }, error => {
+          console.log("facebook err", error);
+          this.isDisable = false;
+          this.loading = false;
+        });
+      })
   }
 
+  fetchFacebookData(accessToken) {
+    return this.http.get("https://graph.facebook.com/v5.0/me?access_token=" + accessToken + "&debug=all&fields=id,name,birthday,first_name,last_name,hometown,locale,gender,email&format=json&method=get&pretty=1&suppress_http_code=1")
+  }
   /**
    * Google login
    */
@@ -141,20 +161,26 @@ export class LoginComponent implements OnInit {
       .then(user => {
         console.log("google response", user);
         const data = {
-          "access_token": user.accessToken,
-          "social_login_type": "google",
-          "social_login_id": user.userId
+          social_login_id: user.userId,
+          access_token: user.accessToken,
+          social_login_type: 'google',
+          email: user.email,
+          first_name: user.givenName,
+          last_name: user.familyName,
+          username: user.givenName + ' ' + user.familyName,
         }
-        this._userService.login(data).subscribe((res: any) => {
+        this._userService.login(data).then((res: any) => {
           console.log(res);
           this.loading = false;
           this.isDisable = false;
           this.loginForm.reset();
+          this.appcomponent.sucessAlert(res.message);
           this.router.navigate(['/home'])
-        }, err => {
+        }).catch((err) => {
           console.log(err);
           this.loading = false;
           this.isDisable = false;
+          this.appcomponent.errorAlert(err.error.message);
         });
       }, err => {
         console.log("google err", err);
@@ -187,21 +213,26 @@ export class LoginComponent implements OnInit {
     }
     this.loading = true;
     this.isDisable = true;
-    this._userService.forgotPassword(data).subscribe((res: any) => {
+    this._userService.forgotPassword(data).then((res: any) => {
       console.log("res of forgot psw", res);
       this.loading = false;
       this.isDisable = false;
       $("#forgot-password").fadeOut();
+      this.appcomponent.sucessAlert(res.message);
       // this.appComponent.sucessAlert("Please Check the mail")
-    }, (err) => {
+    }).catch((err) => {
       console.log("err in f psw", err);
       // this.appComponent.errorAlert(err.error.message);
       this.loading = false;
       this.isDisable = false;
       $("#forgot-password").fadeOut();
+      this.appcomponent.errorAlert(err.error.message);
     })
   }
 
+  /**
+   * open modal
+   */
   openModal() {
     $('#forgot-password').fadeIn();
     $('#forgot-password .modal_body').click(function (event) {

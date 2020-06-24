@@ -35,9 +35,12 @@ export class HomePage {
       this.language = res.language
       this._initialiseTranslation();
     })
-    this.getUserDetail();
+
   }
 
+  ionViewWillEnter() {
+    this.getUserDetail();
+  }
 
   createMenu() {
     this.menuPages = [
@@ -117,7 +120,7 @@ export class HomePage {
 
 
   _initialiseTranslation(): void {
-    console.log("language",this.language)
+    console.log("language", this.language)
     setTimeout(() => {
       this._translate.use(this.language);
       console.log("in home page", this._translate.instant("sidemenu"));
@@ -131,7 +134,7 @@ export class HomePage {
     this.menu.close();
     this.language = language;
     this._translate.use(this.language);
-    localStorage.setItem('language',this.language);
+    localStorage.setItem('language', this.language);
     this.details = this._translate.instant("sidemenu");
     this._userService.detectLanguageChange(this.language);
   }
@@ -142,11 +145,11 @@ export class HomePage {
       id: currentUserData.id,
       api_access_token: currentUserData.api_access_token
     }
-    this._userService.getUserDetail(data).subscribe((res: any) => {
+    this._userService.getUserDetail(data).then((res: any) => {
       console.log("user details", res);
       localStorage.setItem("userFormData", JSON.stringify(res.data))
       // this.currentUserData = res;
-    }, err => {
+    }).catch((err) => {
       console.log(err);
     })
   }

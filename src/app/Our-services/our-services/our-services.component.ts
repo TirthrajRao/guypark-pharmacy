@@ -74,7 +74,12 @@ export class OurServicesComponent implements OnInit {
     ]
   }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
+    this._userService.getNotificationCount().then((res: any) => {
+      console.log("res in footer", res);
+    }).catch(err => {
+      console.log(err)
+    });
     this._userService.detectFooterChange('services');
   }
 

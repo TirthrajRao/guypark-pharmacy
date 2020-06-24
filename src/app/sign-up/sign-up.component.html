@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group mb-4">
-          <input type="text" class="form-control" formControlName="phone_number" [placeholder]="formDetails.phone" />
+          <input type="number" class="form-control" formControlName="phone_number" [placeholder]="formDetails.phone" />
           <div *ngIf="submitted && f.phone_number.errors" class="invalid-feedback">
             <div *ngIf="f.phone_number.errors.required">{{formDetails.validation.phone}}</div>
           </div>
@@ -53,6 +53,15 @@
           <a href="#" routerLink='/login'>{{details.haveAcc}} <span> {{details.login}}</span></a>
         </div>
       </form>
+    </div>
+  </div>
+
+
+  <div *ngIf="loading">
+    <div id="loader-wrapper">
+      <div class="heartbeatloader">
+        <ion-img class="svgdraw" src="assets/images/loader.gif"></ion-img>
+      </div>
     </div>
   </div>
 </ion-content>
