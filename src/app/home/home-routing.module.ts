@@ -19,6 +19,7 @@ import { AboutUsComponent } from '../about-us/about-us.component';
 import { NotificationComponent } from '../Notification/notification/notification.component';
 import { HippaNoticeComponent } from '../hippa-notice/hippa-notice.component';
 import { NotificationDetailComponent } from '../Notification/notification-detail/notification-detail.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 const routes: Routes = [
   {
@@ -84,24 +85,28 @@ const routes: Routes = [
         component: MajorInsuranceComponent
       },
       {
-        path:'contact-us',
-        component:ContactUsComponent
+        path: 'contact-us',
+        component: ContactUsComponent
       },
       {
-        path:'about-us',
-        component:AboutUsComponent
+        path: 'about-us',
+        component: AboutUsComponent
       },
       {
-        path:'notification',
-        component:NotificationComponent
+        path: 'notification',
+        component: NotificationComponent
       },
       {
-        path:"hippa-notice",
-        component:HippaNoticeComponent
+        path: "hippa-notice",
+        component: HippaNoticeComponent
       },
       {
-        path:"notification-detail/:id",
-        component:NotificationDetailComponent
+        path: "notification-detail/:id",
+        component: NotificationDetailComponent
+      },
+      {
+        path: "profile",
+        component: ProfileComponent
       }
     ]
   }

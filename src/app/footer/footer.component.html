@@ -12,7 +12,7 @@
           </g>
         </svg>
         <a></a>
-        <!-- {{details.Home}} -->
+       <span> {{details.Home}}</span>
       </li>
       <li class="services" routerLink='/home/our-services'>
         <svg xmlns="http://www.w3.org/2000/svg" width="31.452" height="23.05" viewBox="0 0 31.452 23.05">
@@ -26,7 +26,7 @@
           </g>
         </svg>
         <a></a>
-        <!-- {{details.Services}} -->
+        <span> {{details.Services}}</span>
       </li>
       <!-- <li class="active request" routerLink='/home/service-list'>
 
@@ -45,7 +45,7 @@
         <!-- {{details.Medication}} -->
       <!-- </li> -->
       <li routerLink='/home/notification' class="notification">
-        <span class="notify-badge">5</span>
+        <span class="notify-badge" *ngIf="notificationCount">{{notificationCount}}</span>
         <svg xmlns="http://www.w3.org/2000/svg" width="22.101" height="23" viewBox="0 0 22.101 23">
           <g id="notification" transform="translate(-143.1 -1254)">
             <path id="Path_6152" data-name="Path 6152"
@@ -54,7 +54,7 @@
           </g>
         </svg>
         <a></a>
-        <!-- {{details.Notification}} -->
+        <span> {{details.Notification}}</span>
       </li>
       <li class="contact" routerLink='/home/contact-us'>
         <svg xmlns="http://www.w3.org/2000/svg" width="18.987" height="18.581" viewBox="0 0 18.987 18.581" style="height: 28px;
@@ -80,7 +80,7 @@
           </g>
         </svg>
         <a></a>
-        <!-- {{details.Contact}} -->
+        <span>  {{details.Contact}}</span>
       </li>
     </ul>
   </div>

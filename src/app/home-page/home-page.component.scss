@@ -59,6 +59,7 @@ ion-content {
             color: #0c1a44;
             font-weight: 600;
             margin-left: 9px;
+            text-align: center;
         }
         .service-section {
             height: 145px;
@@ -88,7 +89,7 @@ ion-content {
             }
             .about {
                 color: white;
-                font-size: 10px;
+                font-size: 13px;
             }
             .service-btn {
                 background: white;
@@ -96,6 +97,7 @@ ion-content {
                 font-size: 11px;
                 padding: 4px 10px 2px;
                 margin-top: 23px;
+                width: 71%;
             }
         }
         .form-section {

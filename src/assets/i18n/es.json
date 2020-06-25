@@ -6,7 +6,7 @@
 		"RefillRequest": "Solicitud de recarga",
 		"PriceCheck": "Comprobación de precio",
 		"eScribe":"Receta de escriba electrónico",
-		"Services": "Servicios",
+		"Services": "Servicios de farmacia",
 		"explore": "Todo tipo de cuidado",
 		"allServices": "Todos los servicios",
 		"title": "Sobre nosotras",
@@ -23,7 +23,8 @@
 		"ContactUs": "Contacta con nosotras",
 		"LogOut": "Cerrar sesión",
 		"English": "Inglesa",
-		"Spanish": "Española"
+		"Spanish": "Española",
+		"Profile":"Perfil"
 	},
 	"services": {
 		"headerTitle": "Nuestros servicios",
@@ -200,14 +201,17 @@
 	},
 	"contact": {
 		"title": "Contacta con nosotras",
-		"subTitle": "Puede ubicarnos en diferentes ubicaciones cercanas",
-		"contentTitle1": "Estamos disponibles en la siguiente ubicación",
+		"subTitle": "Puede ubicarnos en ubicaciones cercanas",
+		"contentTitle1": "Puede ubicarnos en diferentes ubicaciones cercanas",
 		"location": "Ubicación",
 		"name": "Farmacias De Guy Park",
-		"address": "151 Guy Park Ave, Amsterdam, Nueva York",
+		"address1": "151 Guy Park Ave,",
+		"address2":"Amsterdam, Nueva York 12010",
+		"country":"Estados Unidos",
 		"email": "guyparkpharmacy@gmail.com",
 		"phone": "518-212-6020",
 		"Phone": "Teléfono"
+		
 	},
 	"employment": {
 		"title": "Empleo",

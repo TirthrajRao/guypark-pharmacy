@@ -48,23 +48,29 @@ export class FooterComponent implements OnInit {
   addActiveClass(name) {
     if ($('li').hasClass('active-page')) {
       $('li').removeClass('active-page');
+      $('li span').removeClass('icon-name')
       $('li a').css('display','none')
     }
     if (name == 'home') {
       $('.home').addClass('active-page');
       $('.home a').css('display','block');
+      $('.home span').addClass('icon-name')
     } else if (name == 'services') {
       $('.services').addClass('active-page');
       $('.services a').css('display','block');
+      $('.services span').addClass('icon-name')
     } else if (name == 'request') {
       $('.request').addClass('active-page');
       $('.request a').css('display','block');
+      $('.request span').addClass('icon-name')
     } else if (name == 'notification' || name=='notification-detail') {
       $('.notification').addClass('active-page');
       $('.notification a').css('display','block');
+      $('.notification span').addClass('icon-name')
     } else if (name == 'contact') {
       $('.contact').addClass('active-page');
       $('.contact a').css('display','block');
+      $('.contact span').addClass('icon-name')
     }
 
   }

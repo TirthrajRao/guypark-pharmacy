@@ -26,6 +26,7 @@ import { AboutUsComponent } from '../about-us/about-us.component';
 import { NotificationComponent } from '../Notification/notification/notification.component';
 import { HippaNoticeComponent } from '../hippa-notice/hippa-notice.component';
 import { NotificationDetailComponent } from '../Notification/notification-detail/notification-detail.component';
+import { ProfileComponent } from '../profile/profile.component';
 
 
 
@@ -63,6 +64,7 @@ import { NotificationDetailComponent } from '../Notification/notification-detail
     NotificationComponent,
     NotificationDetailComponent,
     HippaNoticeComponent,
+    ProfileComponent
   ]
 })
 export class HomePageModule { }

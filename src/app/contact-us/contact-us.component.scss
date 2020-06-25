@@ -37,16 +37,27 @@ h4 {
             border: 1.5px solid var(--heading-color);
             text-align: center;
             margin-right: 10px;
+            i{
+                color: var(--heading-color);
+            }
+        }
+        .email{
+            height: 27px;
+            width: 27px;
+            i{
+                font-size: 14px;
+            }
         }
         .title{
             font-size: 13px;
             color: var(--title-color);
             font-weight: 600;
         }
-        .detail{
-            color: black;
+        .detail,a{
+            color: #000000ad;
             font-size: 13px;
             font-weight: 100;
+            text-decoration: none;
         }
     }
     

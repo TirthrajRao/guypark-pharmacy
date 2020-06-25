@@ -93,7 +93,12 @@ export class HomePage {
         icon1: 'assets/images/white/contact.svg',
         url: '/home/contact-us'
       },
-
+      {
+        name: this.details.Profile,
+        icon: 'assets/images/black/user.svg',
+        icon1: 'assets/images/white/user.svg',
+        url: '/home/profile'
+      }
     ]
   }
 

@@ -64,6 +64,7 @@ export class NotificationComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this._userService.languageChanges().subscribe((res: any) => {
       console.log("RESPONSE", res);
       this.language = res.language

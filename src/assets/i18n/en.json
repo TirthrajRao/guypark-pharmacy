@@ -6,7 +6,7 @@
 		"RefillRequest": "Refill Request",
 		"PriceCheck": "Price Check",
 		"eScribe":"E-scribe Prescription",
-		"Services": "Services",
+		"Services": "Pharmacy Services",
 		"explore": "All Kind Of Care",
 		"allServices": "All Services",
 		"title": "About Us",
@@ -23,7 +23,8 @@
 		"ContactUs": "Contact Us",
 		"LogOut": "Log Out",
 		"English": "English",
-		"Spanish": "Spanish"
+		"Spanish": "Spanish",
+		"Profile":"Profile"
 	},
 	"services": {
 		"headerTitle": "Our Services",
@@ -200,14 +201,17 @@
 	},
 	"contact": {
 		"title": "Contact Us",
-		"subTitle": "You can locate us on Different Nearby Locations",
+		"subTitle": "You can locate us on Nearby Location",
 		"contentTitle1": "We are available at Following location",
 		"location": "Location",
 		"name": "Guy Park Pharmacy",
-		"address": "151 Guy Park Ave, Amsterdam, New York",
+		"address1": "151 Guy Park Ave,",
+		"address2":"Amsterdam, New York 12010",
+		"country":"USA",
 		"email": "guyparkpharmacy@gmail.com",
 		"phone": "518-212-6020",
-		"Phone": "Phone"
+		"Phone": "Phone",
+		"Fax":"Fax"
 	},
 	"employment": {
 		"title": "Employment",

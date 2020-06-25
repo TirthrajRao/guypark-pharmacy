@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../services/user.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact-us',
@@ -16,7 +17,7 @@ export class ContactUsComponent implements OnInit {
   formDetail: any = this._translate.instant("form")
   submitted: Boolean = false;
   isDisable:Boolean = false;
-
+  
   constructor(
     private _translate: TranslateService,
     public _userService: UserService
@@ -27,7 +28,7 @@ export class ContactUsComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       message: new FormControl('', [Validators.required]),
 
-    })
+    }) 
     this._initialiseTranslation();
   }
 
@@ -44,6 +45,8 @@ export class ContactUsComponent implements OnInit {
   }
 
   get f() { return this.contactForm.controls }
+
+
 
   /**
    * Detect and change language

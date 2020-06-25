@@ -22,7 +22,7 @@ ion-toolbar:last-of-type {
     list-style: none;
     display: inline-block;
     position: relative;
-    padding-top: 57px;
+    padding-top: 42px;
     color: #c6c6c6;
     font-size: 13px;
     width: 25%;
@@ -49,7 +49,7 @@ ion-toolbar:last-of-type {
     }
     a {
         position: absolute;
-        bottom: 0px;
+        bottom: -10px;
         left: 0;
         right: 0;
         margin: auto;
@@ -100,4 +100,11 @@ ion-toolbar:last-of-type {
     color: white;
     font-weight: 600;
     z-index: 11;
+}
+.icon-name{
+    position: absolute;
+    /* top: 0; */
+    bottom: -4px;
+    left: 0;
+    right: 0;
 }

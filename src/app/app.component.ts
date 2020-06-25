@@ -33,7 +33,7 @@ export class AppComponent {
     })
 
     this.initializeApp();
-    this.router.navigate(['/home'])
+    // this.router.navigate(['/home'])
   }
 
   initializeApp() {
