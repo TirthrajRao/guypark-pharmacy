@@ -22,13 +22,7 @@ h4 {
     }
 }
 
-// .service-header {
-//     background: white;
-//     img {
-//         height: 25px;
-//         width: 24px;
-//     }
-// }
+
 .notification-list {
     // background-color: #f0f2f9;
     padding: 10px;
@@ -42,6 +36,10 @@ h4 {
             width: 70px;
             border-radius: 5px;
             overflow: hidden;
+            background-image: url('../../../assets/images/imgloader.gif');
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
             img {
                 max-height: 100%;
                 min-height: 100%;
@@ -91,4 +89,10 @@ h4 {
 }
 .fourth{
     border-left: 4px solid rgb(31, 60, 146,49%);
+}
+.no-data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 79%;
 }

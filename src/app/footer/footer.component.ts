@@ -22,7 +22,8 @@ export class FooterComponent implements OnInit {
   ) {
     this._userService.notiFicationCounts().subscribe(response => {
       this._zone.run(() => {
-        this.notificationCount = response.notification;
+        console.log("notification count response",response)
+        this.notificationCount = response.count;
         console.log("response of notification count =====>", this.notificationCount);
       })
     })

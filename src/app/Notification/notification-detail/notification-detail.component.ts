@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { AppComponent } from '../../app.component';
+declare const $: any;
 
 @Component({
   selector: 'app-notification-detail',
@@ -12,27 +14,31 @@ export class NotificationDetailComponent implements OnInit {
   language: string = "en";
   details: any = this._translate.instant("notification");
   notificationId: any;
-
+  loading: Boolean = false;
+  currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  notificationDetail: any;
   constructor(
     private _translate: TranslateService,
     public _userService: UserService,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public appComonent: AppComponent
   ) {
     this._initialiseTranslation();
 
     this.route.params.subscribe((param) => {
       this.notificationId = param.id;
     })
+
   }
-  
+
   ngOnInit() {
-    console.log("notification id",this.notificationId)
+    console.log("notification id", this.notificationId)
     this._userService.languageChanges().subscribe((res: any) => {
       console.log("RESPONSE", res);
       this.language = res.language
       this._initialiseTranslation();
     })
-
+    this.getNotificationDetail();
   }
 
   ionViewWillEnter() {
@@ -53,4 +59,25 @@ export class NotificationDetailComponent implements OnInit {
     }, 250);
   }
 
+  getNotificationDetail() {
+    const data = {
+      id: this.currentUser.id,
+      api_access_token: this.currentUser.api_access_token,
+      notification_id: this.notificationId
+    }
+    this.loading = true;
+    this._userService.getNotificationDetail(data).then((res: any) => {
+      console.log("details", res);
+      this.notificationDetail = res.data.data;
+      this.loading = false;
+    }).catch((err) => {
+      console.log(err);
+      this.loading = false;
+      this.appComonent.errorAlert(err.error.message)
+    })
+  }
+
+  onImageLoad() {
+    $('.image').css('background', 'none')
+  }
 }

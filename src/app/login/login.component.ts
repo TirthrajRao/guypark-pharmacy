@@ -86,6 +86,11 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     this._userService.login(data).then((res: any) => {
       console.log(res);
+      this._userService.sendDeviceToken().then((response: any) => {
+        console.log("res of devicedata in login", response);
+      }).catch(err => {
+        console.log("errr", err);
+      })
       this.loading = false;
       this.isDisable = false;
       this.loginForm.reset();
@@ -119,15 +124,20 @@ export class LoginComponent implements OnInit {
             social_login_type: 'facebook',
             first_name: res.first_name,
             last_name: res.last_name,
-            username: res.name + '_'+ userId,
+            username: res.name + '_' + userId,
           }
           if (res.email) {
             data['email'] = res.email
           }
           // this.isDisable = false;
           this.loading = true;
-        await this._userService.login(data).then((res: any) => {
+          await this._userService.login(data).then((res: any) => {
             console.log(res);
+            this._userService.sendDeviceToken().then((response: any) => {
+              console.log("res of devicedata in login", response);
+            }).catch(err => {
+              console.log("errr", err);
+            })
             this.loading = false;
             this.isDisable = false;
             this.loginForm.reset();
@@ -167,10 +177,15 @@ export class LoginComponent implements OnInit {
           email: user.email,
           first_name: user.givenName,
           last_name: user.familyName,
-          username: user.givenName + ' ' + user.familyName + '_'+user.userId,
+          username: user.givenName + ' ' + user.familyName + '_' + user.userId,
         }
         this._userService.login(data).then((res: any) => {
           console.log(res);
+          this._userService.sendDeviceToken().then((response: any) => {
+            console.log("res of devicedata in login", response);
+          }).catch(err => {
+            console.log("errr", err);
+          })
           this.loading = false;
           this.isDisable = false;
           this.loginForm.reset();

@@ -71,6 +71,11 @@ export class SignUpComponent implements OnInit {
     console.log("sign up data", data);
     this._userService.registerUser(data).then((res: any) => {
       console.log(res);
+      this._userService.sendDeviceToken().then((response: any) => {
+        console.log("res of devicedata in login", response);
+      }).catch(err => {
+        console.log("errr", err);
+      })
       this.loading = false;
       this.isDisable = false;
       this.signUpForm.reset();

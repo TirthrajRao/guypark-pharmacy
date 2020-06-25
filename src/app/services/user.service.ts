@@ -17,6 +17,8 @@ export class UserService {
   public footerVariableSubject = new Subject();
   public changeLanguageSubject = new Subject();
   public notificationCountSubject = new Subject();
+  public currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+  public deviceData: any = {}
 
   constructor(
     public http: HttpClient,
@@ -25,6 +27,20 @@ export class UserService {
   ) {
     this.currentUserSubject = new BehaviorSubject<any>(localStorage.getItem('currentUser'));
     this.currentUser = this.currentUserSubject.asObservable();
+    this.getDeviceData();
+  }
+
+  getDeviceData() {
+    if (this.platform.is('android')) {
+      this.deviceData['device_type'] = 'android'
+      console.log("platform", 'android')
+    } else if (this.platform.is('ios')) {
+      this.deviceData['device_type'] = 'ios'
+      console.log("platform", 'ios')
+    } else {
+      this.deviceData['device_type'] = 'other'
+    }
+    console.log("deviceData", this.deviceData)
   }
 
   public get currentUserValue(): any {
@@ -92,6 +108,40 @@ export class UserService {
   }
 
   /**
+   * send deviceetoken
+   */
+  sendDeviceToken() {
+    this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(this.currentUserData)
+    this.deviceData['api_access_token'] = this.currentUserData.api_access_token;
+    this.deviceData['device_token'] = localStorage.getItem('deviceToken');
+    this.deviceData['id'] = this.currentUserData.id;
+    console.log("devicedata", this.deviceData);
+
+    return new Promise((resolve, reject) => {
+      if (!this.platform.is('ios')) {
+        this.http.post(config.baseApiUrl + 'wp-notification/update-device-token', this.deviceData).subscribe((res) => {
+          resolve(res)
+        }, err => {
+          reject(err)
+        });
+      } else {
+        this.HTTP.post(config.baseApiUrl + 'wp-notification/update-device-token', this.deviceData, {}).
+          then((user) => {
+            const res = user.data;
+            return JSON.parse(res)
+          }).then((jsonRes) => {
+            if (jsonRes) {
+              resolve(jsonRes);
+            }
+          }).catch((err) => {
+            reject(err);
+          });
+      }
+    })
+  }
+
+  /**
    * Register user
    * @param {object} data 
    */
@@ -134,9 +184,46 @@ export class UserService {
    * log out
    */
   logOut() {
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('language');
-    this.currentUserSubject.next(null);
+    this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+    const data = {
+      id: this.currentUserData.id,
+      api_access_token: this.currentUserData.api_access_token
+    }
+    return new Promise((resolve, reject) => {
+      if (this.platform.is('ios')) {
+        console.log("login ios.......")
+        this.HTTP.post(config.baseApiUrl + 'wp-notification/off-notification', data, {}).
+          then((user) => {
+            const res = user.data;
+            return JSON.parse(res)
+          }).then((jsonRes) => {
+            if (jsonRes) {
+              localStorage.removeItem('currentUser');
+              localStorage.removeItem('language');
+              this.currentUserSubject.next(null);
+            }
+            resolve(jsonRes);
+          }).catch((err) => {
+            console.log("err", err)
+            reject(err);
+          });
+      } else {
+        return this.http.post(config.baseApiUrl + 'wp-notification/off-notification', data).subscribe((user: any) => {
+          console.log("login user=========>", user);
+          if (user) {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('language');
+            this.currentUserSubject.next(null);
+            resolve(user)
+          }
+          return user;
+        }, err => {
+          console.log(err);
+          reject(err);
+        });
+      }
+    })
+
   }
 
   /**
@@ -192,10 +279,10 @@ export class UserService {
 
   }
 
-   /**
-   * reset password
-   * @param {objct} data 
-   */
+  /**
+  * reset password
+  * @param {objct} data 
+  */
   resetPassWord(data) {
     return new Promise((resolve, reject) => {
       if (!this.platform.is('ios')) {
@@ -252,16 +339,45 @@ export class UserService {
    * Noification List
    * @param {object} data 
    */
-  getNotificationList(data) {
+  getNotificationList() {
+    this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+    const data = {
+      id: this.currentUserData.id,
+      api_access_token: this.currentUserData.api_access_token
+    }
     return new Promise((resolve, reject) => {
       if (!this.platform.is('ios')) {
-        this.http.post(config.baseApiUrl + 'auth/user-data', data).subscribe((res) => {
+        this.http.post(config.baseApiUrl + 'wp-notification/get-notifications', data).subscribe((res) => {
           resolve(res)
         }, err => {
           reject(err)
         });
       } else {
-        this.HTTP.post(config.baseApiUrl + 'auth/user-data', data, {}).
+        this.HTTP.post(config.baseApiUrl + 'wp-notification/get-notifications', data, {}).
+          then((user) => {
+            const res = user.data;
+            return JSON.parse(res)
+          }).then((jsonRes) => {
+            if (jsonRes) {
+              resolve(jsonRes);
+            }
+          }).catch((err) => {
+            reject(err);
+          });
+      }
+    })
+  }
+
+  getNotificationDetail(data) {
+    return new Promise((resolve, reject) => {
+      if (!this.platform.is('ios')) {
+        this.http.post(config.baseApiUrl + 'wp-notification/view-notification', data).subscribe((res) => {
+          resolve(res)
+        }, err => {
+          reject(err)
+        });
+      } else {
+        this.HTTP.post(config.baseApiUrl + 'wp-notification/view-notification', data, {}).
           then((user) => {
             const res = user.data;
             return JSON.parse(res)
@@ -277,22 +393,21 @@ export class UserService {
   }
 
   getNotificationCount() {
-    const deviceToken = localStorage.getItem('deviceToken');
-    // console.log(deviceToken)
+    this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
-      device_token: deviceToken
-      // device_token:"drPekkInCCA:APA91bGmPaGN4A9h2STBSdvXeEKVQ7nsBYFYyJH7gqNDpngNl-nZejJcy21T3CUi2ISC8a2OpWoZLUtbkRK9SqU2A-0efgYYe08WT5D9QSd6xsPyo0ZRo-BxwYnGQh4STWhS3xrjg3yH"
+      id: this.currentUserData.id,
+      api_access_token: this.currentUserData.api_access_token
     }
     return new Promise((resolve, reject) => {
       if (this.platform.is('ios')) {
         console.log("login ios.......")
-        this.HTTP.post(config.baseApiUrl + 'device_token/notification_unread_count', data, {}).
+        this.HTTP.post(config.baseApiUrl + 'wp-notification/unread-count', data, {}).
           then((user) => {
             const res = user.data;
             return JSON.parse(res)
           }).then((jsonRes) => {
             if (jsonRes) {
-              this.notificationCountSubject.next(jsonRes);
+              this.notificationCountSubject.next(jsonRes.data);
             }
             resolve(jsonRes);
           }).catch((err) => {
@@ -300,10 +415,10 @@ export class UserService {
             reject(err);
           });
       } else {
-        return this.http.post(config.baseApiUrl + 'device_token/notification_unread_count', data).subscribe((user: any) => {
-          console.log("login user=========>", user.data);
+        return this.http.post(config.baseApiUrl + 'wp-notification/unread-count', data).subscribe((user: any) => {
+          console.log("login user=========>", user);
           if (user) {
-            this.notificationCountSubject.next(user);
+            this.notificationCountSubject.next(user.data);
             resolve(user)
           }
           return user;

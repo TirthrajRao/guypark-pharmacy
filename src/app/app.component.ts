@@ -5,7 +5,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { TranslateService } from '@ngx-translate/core';
-declare const $:any;
+declare const $: any;
 
 @Component({
   selector: 'app-root',
@@ -14,8 +14,8 @@ declare const $:any;
 })
 export class AppComponent {
   language: any = localStorage.getItem('language');
-  message:any;
-  errMessage:any;
+  message: any;
+  errMessage: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -25,6 +25,13 @@ export class AppComponent {
     public _translate: TranslateService
   ) {
 
+    if (!this.language) {
+      this._translate.setDefaultLang('en');
+      localStorage.setItem('language', 'en');
+    } else {
+      this._translate.setDefaultLang(this.language)
+    }
+
     //Exit app
     this.platform.backButton.subscribe(() => {
       if (this.router.url === '/home/home-page' || this.router.url === '/login') {
@@ -33,7 +40,7 @@ export class AppComponent {
     })
 
     this.initializeApp();
-    // this.router.navigate(['/home'])
+    this.router.navigate(['/home'])
   }
 
   initializeApp() {
@@ -42,12 +49,7 @@ export class AppComponent {
       setTimeout(() => {
         this.splashScreen.hide();
       }, 700);
-      if (!this.language) {
-        this._translate.setDefaultLang('en');
-        localStorage.setItem('language', 'en');
-      }else{
-        this._translate.setDefaultLang(this.language)
-      }
+
       this.getNotification();
     });
   }
