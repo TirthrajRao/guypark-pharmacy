@@ -22,30 +22,30 @@
       </div>
       <div class="services-content ion-padding">
         <div class="row m-0">
-          <div class="col-3 p-0" routerLink="/home/transfer-prescription">
+          <div class="col-4 p-0" routerLink="/home/transfer-prescription">
             <div class="icon-bg">
               <img src="assets/images/red/transfer.svg">
             </div>
             <p class="form-name">{{details.TransferPrescripsion}}</p>
           </div>
-          <div class="col-3 p-0" routerLink="/home/refill-request">
+          <div class="col-4 p-0" routerLink="/home/refill-request">
             <div class="icon-bg">
               <img src="assets/images/red/refill request.svg">
             </div>
             <p class="form-name">{{details.RefillRequest}}</p>
           </div>
-          <div class="col-3 p-0" routerLink="/home/price-check">
+          <div class="col-4 p-0" routerLink="/home/price-check">
             <div class="icon-bg">
               <img src="assets/images/red/price check.svg">
             </div>
             <p class="form-name">{{details.PriceCheck}}</p>
           </div>
-          <div class="col-3 p-0" routerLink="/home/e-scribe">
+          <!-- <div class="col-3 p-0" routerLink="/home/e-scribe">
             <div class="icon-bg">
               <img src="assets/images/rx-icon.png" style="height: 36px;width: 36px;">
             </div>
             <p class="form-name">{{details.eScribe}}</p>
-          </div>
+          </div> -->
         </div>
         <div class="service-section" routerLink="/home/our-services">
           <div class="service-detail">
@@ -53,9 +53,8 @@
               {{details.Services}}
             </p>
             <span class="about">{{details.explore}}</span>
-            <div class="service-btn" >
-              <span class="btn-text">{{details.allServices}} <i class="fa fa-long-arrow-right ml-2"
-                  aria-hidden="true"></i></span>
+            <div class="service-btn  text-center" >
+              <span class="btn-text">{{details.allServices}} </span>
             </div>
           </div>
           <div class="service-img-sec">
@@ -63,7 +62,7 @@
           </div>
         </div>
         <div class="service-detail">
-          <div class="servicename-card pl-4" style="margin: 26px 0px 0;">
+          <div class="servicename-card pl-4" style="margin: 26px 0px 0;" routerLink="/home/about-us">
             <p class="card-title m-0 mt-2">{{details.title}}</p>
             <p class="des m-0">{{details.subTitle}}</p>
             <img src="assets/images/about3.png">
