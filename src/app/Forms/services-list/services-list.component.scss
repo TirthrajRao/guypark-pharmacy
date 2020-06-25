@@ -1,11 +1,46 @@
 .form-name {
-    border: 2px solid #133682;
+    // border: 2px solid #133682;
+    background: #ffeee0;
     padding: 18px;
-    border-top-right-radius: 20px;
-    box-shadow: 1px 0px 15px rgba(146, 140, 142, 0.28);
-    border-bottom-left-radius: 20px;
+    border-radius: 11px;
+    color: #020a21;
     outline: none;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    img {
+        height: 35px;
+        width: 27px;
+    }
+    .icons {
+        margin-left: auto;
+        color: rgb(9, 40, 130, 0.5);
+    }
 }
 ion-content {
-    --background: #f0f2f9;
+    --background: white;
+}
+.serivice-title {
+    background: #133682;
+    padding-top: 10px;
+    .inner-section {
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.95);
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+        padding: 7px 10px;
+        h4 {
+            color: #131212;
+            font-weight: 400;
+            margin-top: 10px;
+        }
+    }
+    .logo-img {
+        height: 37px;
+    }
+}
+.form-list {
+    padding: 20px 35px;
 }

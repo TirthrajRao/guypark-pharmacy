@@ -44,15 +44,18 @@ export class ServicesListComponent implements OnInit {
     this.formList = [
       {
         name: this.detail.TransferPrescripsion,
-        url: '/home/transfer-prescription'
+        url: '/home/transfer-prescription',
+        icon:"assets/images/red/transfer.svg"
       },
       {
         name: this.detail.RefillRequest,
-        url: '/home/refill-request'
+        url: '/home/refill-request',
+        icon:"assets/images/red/refill request.svg"
       },
       {
         name: this.detail.PriceCheck,
-        url: '/home/price-check'
+        url: '/home/price-check',
+        icon:"assets/images/red/price check.svg"
       }
     ]
   }
