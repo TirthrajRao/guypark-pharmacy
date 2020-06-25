@@ -129,6 +129,8 @@
 		"option2": "Yes,By Email",
 		"option3": "Yes,By Phone",
 		"btnText": "Submit",
+		"btnText1":"Save",
+		"resetPsw":"Reset Password",
 		"name": "Name",
 		"subject": "Subject",
 		"message": "Message",
@@ -163,6 +165,9 @@
 		"note": "Note To Pharmacy",
 		"position": "Position Applying for",
 		"attach": "Attach Resume",
+		"old":"Old Password",
+		"new":"New Password",
+		"confirm":"Confirm Password",
 		"validation": {
 			"name":"Name is required",
 			"fname": "First name is required",
@@ -181,7 +186,10 @@
 			"address": "Address is required",
 			"position":"Position is required",
 			"subject":"Subject is required",
-			"message":"Message is required"
+			"message":"Message is required",
+			"new":"New password is required",
+			"old":"Old password is required",
+			"confirm":"Confirm password is required"
 		}
 	},
 	"about": {

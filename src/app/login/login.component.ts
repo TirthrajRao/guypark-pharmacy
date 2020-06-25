@@ -119,7 +119,7 @@ export class LoginComponent implements OnInit {
             social_login_type: 'facebook',
             first_name: res.first_name,
             last_name: res.last_name,
-            username: res.name,
+            username: res.name + '_'+ userId,
           }
           if (res.email) {
             data['email'] = res.email
@@ -167,7 +167,7 @@ export class LoginComponent implements OnInit {
           email: user.email,
           first_name: user.givenName,
           last_name: user.familyName,
-          username: user.givenName + ' ' + user.familyName,
+          username: user.givenName + ' ' + user.familyName + '_'+user.userId,
         }
         this._userService.login(data).then((res: any) => {
           console.log(res);

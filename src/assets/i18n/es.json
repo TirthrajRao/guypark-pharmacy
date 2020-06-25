@@ -129,6 +129,8 @@
 		"option2": "Sí, por correo electrónico",
 		"option3": "Sí, por teléfono",
 		"btnText": "Enviar",
+		"btnText1":"Salvar",
+		"resetPsw":"Restablecer la contraseña",
 		"name": "Nombre",
 		"subject": "Sujeta",
 		"message": "Mensaje",
@@ -163,6 +165,9 @@
 		"note": "Nota para farmacia",
 		"position": "Puesto que solicita",
 		"attach": "Adjuntar curriculum vitae",
+		"old":"Contraseña anterior",
+		"new":"Nueva contraseña",
+		"confirm":"Confirmar contraseña",
 		"validation": {
 			"name":"Se requiere el nombre",
 			"fname": "Se requiere el primer nombre",
@@ -181,7 +186,10 @@
 			"address":"La dirección es necesaria",
 			"position":"Se requiere posición",
 			"subject":"El sujeto es requerido",
-			"message":"Mensaje requerido"
+			"message":"Mensaje requerido",
+			"new":"Se requiere nueva contraseña",
+			"old":"Se requiere contraseña anterior",
+			"confirm":"Confirme que se requiere contraseña"
 		}
 	},
 	"about": {

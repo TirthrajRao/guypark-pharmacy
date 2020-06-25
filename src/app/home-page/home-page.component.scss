@@ -2,8 +2,6 @@ ion-title {
     margin-left: 17px;
 }
 ion-content {
-    // --background: linear-gradient(#4160b8, #15275e 50%);
-    // --background: #f0f2f9;
     --background: white;
 }
 .pharmacy-service {
@@ -14,10 +12,6 @@ ion-content {
         padding-left: 5px;
     }
     .serivice-title {
-        // display: flex;
-        // align-items: center;
-        // padding: 8px;
-        // background: white;
         background: #133682;
         padding-top: 10px;
         .inner-section {
@@ -32,17 +26,12 @@ ion-content {
                 font-weight: 400;
             }
         }
-        .medicarion-icon {
-            height: 33px;
-            width: 33px;
-        }
         .logo-img {
             height: 37px;
         }
     }
 
     .services-content {
-        // padding: 35px 0;
         .icon-bg {
             text-align: center;
             background: #ffeee0;
@@ -85,7 +74,7 @@ ion-content {
                 color: #ffffffc4;
                 font-weight: 100;
                 text-transform: uppercase;
-                letter-spacing: 3px;
+                letter-spacing: 1px;
             }
             .about {
                 color: white;
@@ -98,86 +87,6 @@ ion-content {
                 padding: 4px 10px 2px;
                 margin-top: 23px;
                 width: 71%;
-            }
-        }
-        .form-section {
-            background-image: url("../../assets/images/form-bg.png");
-            padding: 25px 35px 15px 35px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: 100%;
-        }
-        .single-servics {
-            padding: 10px;
-            text-align: center;
-            margin: 5px;
-            min-height: 122px;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            height: 86%;
-            box-shadow: 0 3px 6px #00000024;
-            background-color: white;
-            img {
-                width: 66px;
-                height: 67px;
-            }
-            p {
-                font-size: 12px;
-                line-height: 14px;
-                color: var(--heading-color);
-                // opacity: 52%;
-                margin-top: 5px;
-            }
-        }
-
-        .service-img {
-            // border: 1.5px solid var(--heading-color);
-            // border-radius: 5px;
-            // padding: 5px;
-            .service-img-sec {
-                height: 180px;
-                width: 174px;
-                img {
-                    max-height: 100%;
-                    min-height: 100%;
-                    max-width: 100%;
-                    min-width: 100%;
-                    object-fit: cover;
-                }
-            }
-            .service-detail {
-                p {
-                    color: #f43350;
-                    font-size: 17px;
-                    font-weight: 100;
-                    text-transform: uppercase;
-                }
-                .about {
-                    color: #184f68;
-                    font-size: 10px;
-                }
-                .service-btn {
-                    border: 1px solid #9f9f9f;
-                    text-align: center;
-                    color: #f43350;
-                    font-size: 11px;
-                    padding: 6px 0;
-                    margin-top: 37px;
-                    i {
-                        font-size: 14px;
-                    }
-                    .btn-text {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-            }
-            .detail {
-                z-index: 2;
-                position: relative;
-                padding-top: 24px !important;
             }
         }
     }

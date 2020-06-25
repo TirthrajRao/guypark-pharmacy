@@ -192,6 +192,62 @@ export class UserService {
 
   }
 
+   /**
+   * reset password
+   * @param {objct} data 
+   */
+  resetPassWord(data) {
+    return new Promise((resolve, reject) => {
+      if (!this.platform.is('ios')) {
+        this.http.post(config.baseApiUrl + 'auth/change-password', data).subscribe((res) => {
+          resolve(res)
+        }, err => {
+          reject(err)
+        });
+      } else {
+        this.HTTP.post(config.baseApiUrl + 'auth/change-password', data, {}).
+          then((user) => {
+            const res = user.data;
+            return JSON.parse(res)
+          }).then((jsonRes) => {
+            if (jsonRes) {
+              resolve(jsonRes);
+            }
+          }).catch((err) => {
+            reject(err);
+          });
+      }
+    })
+  }
+
+  /**
+   * Edit profile
+   * @param {objct} data 
+   */
+  editUserProfile(data) {
+    return new Promise((resolve, reject) => {
+      if (!this.platform.is('ios')) {
+        this.http.post(config.baseApiUrl + 'auth/edit-user', data).subscribe((res) => {
+          resolve(res)
+        }, err => {
+          reject(err)
+        });
+      } else {
+        this.HTTP.post(config.baseApiUrl + 'auth/edit-user', data, {}).
+          then((user) => {
+            const res = user.data;
+            return JSON.parse(res)
+          }).then((jsonRes) => {
+            if (jsonRes) {
+              resolve(jsonRes);
+            }
+          }).catch((err) => {
+            reject(err);
+          });
+      }
+    })
+  }
+
   /**
    * Noification List
    * @param {object} data 
