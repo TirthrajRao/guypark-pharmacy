@@ -428,6 +428,33 @@ export class UserService {
         });
       }
     })
+  }
+
+  deleteNotification(data){
+    this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+    data['id'] = this.currentUserData.id;
+    data['api_access_token'] = this.currentUserData.api_access_token;
+    return new Promise((resolve, reject) => {
+      if (!this.platform.is('ios')) {
+        this.http.post(config.baseApiUrl + 'wp-notification/delete-notification', data).subscribe((res) => {
+          resolve(res)
+        }, err => {
+          reject(err)
+        });
+      } else {
+        this.HTTP.post(config.baseApiUrl + 'wp-notification/delete-notification', data, {}).
+          then((user) => {
+            const res = user.data;
+            return JSON.parse(res)
+          }).then((jsonRes) => {
+            if (jsonRes) {
+              resolve(jsonRes);
+            }
+          }).catch((err) => {
+            reject(err);
+          });
+      }
+    })
 
   }
 }

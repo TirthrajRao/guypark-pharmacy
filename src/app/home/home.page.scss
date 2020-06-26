@@ -28,7 +28,7 @@
   color: white;
   position: relative;
   &::after {
-    content: "";
+    // content: "";
     position: absolute;
     border-right: 23px solid white;
     border-top: 27px solid transparent;

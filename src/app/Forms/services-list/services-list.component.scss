@@ -1,25 +1,42 @@
 .form-name {
     // border: 2px solid #133682;
     background: #ffeee0;
-    padding: 18px;
+    padding:25px 22px;
     border-radius: 11px;
     color: #020a21;
     outline: none;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 600;
     display: flex;
     align-items: center;
-    img {
-        height: 35px;
-        width: 27px;
+    .img-div {
+        height: 48px;
+        width: 34px;
+      
+        img {
+            max-width: 100%;
+            min-width: 100%;
+            max-height: 100%;
+            min-height: 100%;
+            // object-fit: cover;
+        }
     }
+    // img {
+    //     height: 35px;
+    //     width: 27px;
+    // }
     .icons {
         margin-left: auto;
         color: rgb(9, 40, 130, 0.5);
     }
 }
 ion-content {
-    --background: white;
+    --background: none;
+    background-image: url("../../../assets/images/login-bg.png");
+    background-position: center;
+}
+ion-footer{
+    background: #b6bcbfd6;
 }
 .serivice-title {
     background: #133682;

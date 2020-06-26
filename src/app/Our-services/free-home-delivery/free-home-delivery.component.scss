@@ -20,10 +20,10 @@ ion-content {
     }
     ion-item {
         // color: var(--text-color);
-        --border-color: unset;
-        border-bottom: 1.5px solid var(--heading-color);
+        // --border-color: unset;
+        // border-bottom: 1.5px solid var(--heading-color);
         ion-label{
-            color: var(--heading-color);
+            color: #033295d6;
             font-size: 15px;
         }
     }
@@ -51,5 +51,11 @@ h4 {
 ion-select{
     border-bottom: none;
     
+}
+.submit-btn{
+    .btn{
+        background: linear-gradient(to right, #15275E, #4160B8);
+        padding: 7px 46px;
+    }
 }
 

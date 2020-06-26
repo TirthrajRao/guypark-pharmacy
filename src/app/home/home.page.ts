@@ -3,6 +3,7 @@ import { MenuController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { UserService } from '../services/user.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ export class HomePage {
     public menu: MenuController,
     public router: Router,
     private _translate: TranslateService,
-    public _userService: UserService
+    public _userService: UserService,
+    public appcomponent: AppComponent
   ) {
 
     this._initialiseTranslation();
@@ -119,8 +121,12 @@ export class HomePage {
    * log out
    */
   logOut() {
-    this._userService.logOut();
-    this.router.navigate(['/login'])
+    this._userService.logOut().then((res: any) => {
+      console.log("in home page logout",res)
+      this.router.navigate(['/login'])
+    }).catch((err) => {
+      this.appcomponent.errorAlert()
+    });
   }
 
 

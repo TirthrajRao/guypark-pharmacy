@@ -34,7 +34,7 @@
 
 :root {
     --text-color: #a1a1a1;
-    --btn-color: #113A8B;
+    --btn-color: #113a8b;
     --title-color: #de1937;
     --heading-color: #092882;
 }
@@ -51,15 +51,6 @@ body *[routerlink] {
     font-family: "Roboto", sans-serif;
 }
 
-.ubntu-regular {
-    font-family: "Ubuntu", sans-serif;
-}
-.sans-font {
-    font-family: "Open Sans", sans-serif;
-}
-.montserrat-font {
-    font-family: "Montserrat", sans-serif;
-}
 // Header css start
 
 ion-header ion-toolbar:first-child {
@@ -142,7 +133,7 @@ ion-header ion-toolbar:first-child {
         display: inline-block;
         a {
             font-size: 12px;
-            color: #184F68;
+            color: #184f68;
             font-weight: 500;
             cursor: pointer;
             text-decoration: none;
@@ -160,7 +151,7 @@ ion-header ion-toolbar:first-child {
         position: relative;
         font-size: 12px;
         text-align: center;
-        color:#184F68;
+        color: #184f68;
         font-weight: 500;
         margin-bottom: 20px;
     }
@@ -273,8 +264,11 @@ ion-header ion-toolbar:first-child {
     font-size: 12px;
     // font-weight: 600;
     --padding-start: 0px;
-    --border-color: #7c7577;
-    color: var(--text-color);
+    border-bottom: 1.5px solid #033295d6;
+    ion-datetime,ion-input{
+        border-bottom: none;
+    }
+  
 }
 .submit-btn {
     button {
@@ -302,53 +296,7 @@ ion-header ion-toolbar:first-child {
 }
 //footer css end
 
-// .cover-img {
-//     height: 200px;
-//     padding: 20px;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: cover;
-//     position: relative;
-//     display: flex;
-//     align-items: flex-end;
-//     border-bottom: 1px solid #707070;
-//     &:after {
-//         content: "";
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         right: 0;
-//         bottom: 0;
-//         background: linear-gradient(178deg, #f8f8f8, #70a0ff);
-//         opacity: 0.64;
-//     }
-// }
-// .cover-text {
-//     position: relative;
-//     z-index: 2;
-//     color: #ffffff;
-//     p {
-//         font-size: 13px;
-//         line-height: 18px;
-//         margin-bottom: 10px;
-//     }
-//     h4 {
-//         font-size: 18px;
-//         font-weight: 600;
-//     }
-// }
-// .header-text {
-//     font-size: 20px;
-//     font-weight: 600;
-// }
-// .sub-title {
-//     color: #898989;
-//     font-size: 14px;
-// }
-// .content-text {
-//     font-size: 14px;
-//     color: #898989;
-// }
+
 .service-header {
     display: flex;
     align-items: center;
@@ -440,53 +388,6 @@ ion-header ion-toolbar:first-child {
         }
     }
 }
-// .service-detail {
-//     .service-img {
-//         height: 120px;
-//         width: 220px;
-//         margin: auto;
-//         z-index: 2;
-//         img {
-//             max-height: 100%;
-//             min-height: 100%;
-//             max-width: 100%;
-//             min-width: 100%;
-//             object-fit: cover;
-//         }
-//     }
-//     .servicename-card {
-//         background: linear-gradient(180deg, #4160b8, #15275e);
-//         padding: 1px 24px;
-//         border-radius: 9px;
-//         margin-top: -26px;
-//         z-index: 4;
-//         position: relative;
-//         margin: -26px 15px 0;
-//         color: white;
-//         box-shadow: 0 3px 6px #00000029;
-//         height: 91px;
-//         .card-title {
-//             font-size: 17px;
-//         }
-//         .des {
-//             font-size: 12px;
-//             font-family: 'Ubuntu', sans-serif;
-//             font-weight: 300;
-//         }
-//         img{
-//             position: absolute;
-//             right: 0;
-//             top: 10px;
-//         }
-//     }
-//     .about-text {
-//         padding: 30px 25px 30px 43px;
-//         .content-text {
-//             color: #787878;
-//             font-size: 13px;
-//         }
-//     }
-// }
 
 .medication-forms {
     padding: 35px;
@@ -495,28 +396,34 @@ ion-header ion-toolbar:first-child {
         font-weight: 400;
         font-size: 17px;
     }
-    input,textarea {
-        border-bottom: 1.5px solid #033295 !important;
+    .form-control,
+    textarea {
+        border-bottom: 1.5px solid #033295d6 !important;
         border: none;
         border-radius: 0;
         background: transparent;
-        color: #033295;
+        color: #033295d6;
         font-size: 15px;
         padding-left: 0;
         box-shadow: none;
     }
-    .form-control{
+    .form-control {
         box-shadow: none;
     }
+    .form-control:focus {
+        color: var(--heading-color);
+        background-color: transparent;
+    }
+   
     ion-datetime,
     ion-select {
         padding: 9px 0;
-        border-bottom: 1.5px solid #033295;
-        color: #033295;
+        border-bottom: 1.5px solid #033295d6;
+        color: #033295d6;
         font-size: 15px;
     }
     ion-select {
-        --placeholder-color: #033295;
+        --placeholder-color: #033295d6;
         --placeholder-opacity: 1;
 
         font-size: 15px;
@@ -525,10 +432,10 @@ ion-header ion-toolbar:first-child {
         }
     }
     ion-label {
-        --color: #033295;
+        --color: #033295d6;
     }
     ::placeholder {
-        color: #033295;
+        color: #033295d6;
         font-size: 15px;
     }
     .date-icon {
@@ -606,7 +513,13 @@ ion-header ion-toolbar:first-child {
     height: 30px;
     border-radius: 15px;
     border: 1px solid var(--heading-color);
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, var(--heading-color)), color-stop(50%, #ffffff));
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(50%, var(--heading-color)),
+        color-stop(50%, #ffffff)
+    );
     background-image: linear-gradient(to right, var(--heading-color) 50%, #ffffff 50%);
 }
 
@@ -620,7 +533,7 @@ ion-header ion-toolbar:first-child {
     width: 70px;
     height: 7px;
     border-radius: 50%;
-    background-color:#30408754;
+    background-color: #30408754;
     -webkit-transform: translateY(-15px);
     transform: translateY(-15px);
     -webkit-animation: loaderPillScale 1800ms linear infinite;
@@ -837,7 +750,7 @@ ion-header ion-toolbar:first-child {
     }
     .modal_content {
         padding: 20px 20px 30px 20px;
-        h5{
+        h5 {
             color: #033295;
         }
         ion-input {
@@ -854,8 +767,6 @@ ion-header ion-toolbar:first-child {
             --padding-start: 0px;
             --inner-padding-top: 0px;
         }
-      
-
     }
 }
 

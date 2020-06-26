@@ -5,6 +5,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router } from '@angular/router';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { TranslateService } from '@ngx-translate/core';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { UserService } from './services/user.service';
 declare const $: any;
 
 @Component({
@@ -16,13 +18,16 @@ export class AppComponent {
   language: any = localStorage.getItem('language');
   message: any;
   errMessage: any;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     public router: Router,
     public fcm: FCM,
-    public _translate: TranslateService
+    public _translate: TranslateService,
+    public localNotifications: LocalNotifications,
+    public _userService:UserService
   ) {
 
     if (!this.language) {
@@ -68,7 +73,7 @@ export class AppComponent {
       console.log("notification data", data, data.notification_id);
       if (data.wasTapped) {
         console.log("Received in background", data);
-        // this.router.navigateByUrl('/home/notification-detail/' + data.notification_id)
+        this.router.navigateByUrl('/home/notification-detail/' + data.notification_id)
       } else {
         console.log("Received in foreground", data);
         this.getLocalNotification(data);
@@ -82,13 +87,13 @@ export class AppComponent {
    */
   getLocalNotification(data) {
     console.log("daata in local notification", data);
-    // this.localNotifications.schedule({
-    //   id: data.notification_id,
-    //   title: data.title,
-    //   text: data.body,
-    //   foreground: true,
-    //   icon: data.image
-    // });
+    this.localNotifications.schedule({
+      id: data.notification_id,
+      title: data.title,
+      text: data.body,
+      foreground: true,
+      icon: data.image
+    });
 
   }
 
@@ -107,10 +112,10 @@ export class AppComponent {
    * get unread notification count
    */
   getNotificationCount() {
-    // this._formService.getNotificationCount().subscribe((res: any) => {
-    // }, (err) => {
-    //   console.log("err in notification count", err)
-    // })
+    this._userService.getNotificationCount().then((res: any) => {
+    }).catch((err) => {
+      console.log("err in notification count", err)
+    })
   }
 
   /** 

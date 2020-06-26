@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
       this.userData = res.data;
       this.loading = false;
     }).catch((err) => {
-      console.log(err);
+      console.log("errrrr",err);
       this.loading = false;
       this.isDisable = false;
       this.appcomponent.errorAlert(err.error.message);

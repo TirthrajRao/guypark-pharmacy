@@ -9,11 +9,13 @@
     <img src="assets/images/logo.png" class="logo-img ml-auto mr-2">
   </div>
   <div class="notification-list" *ngIf="notificationList.length">
-    <div class="notification-card mb-3" *ngFor="let notification of notificationList;let i=index" [ngClass]="notification.color">
-      <div class="row">
+    <div class="notification-card mb-3 notification-{{i}}" *ngFor="let notification of notificationList;let i=index"
+      [ngClass]="notification.color" >
+      <div class="row" (swipe)="swipeEvent($event,notification.notification_id,i)"
+      [style.touch-action]="'pan-y'">
         <div class="col-3">
           <div class="notification-img" class="image-{{i}}">
-            <img [src]="notification.image"  onError="src='assets/images/placholder.png'" (load)="onImageLoad(i)">
+            <img [src]="notification.image" onError="src='assets/images/placholder.png'" (load)="onImageLoad(i)">
           </div>
         </div>
         <div class="col-9 pl-0 mt-2">

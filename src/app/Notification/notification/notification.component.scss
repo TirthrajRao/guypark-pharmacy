@@ -31,6 +31,15 @@ h4 {
         border-radius: 2px;
         box-shadow: 0 1px 0 #0000000d;
         padding: 10px 6px;
+        transition: all 1s;
+        position: relative;
+        left: 0;
+        float: left;
+        width: 100%;
+        &.rotate-left {
+            left: -150%;
+            z-index: 10;    
+        }
         .notification-img {
             height: 66px;
             width: 70px;
@@ -76,6 +85,8 @@ h4 {
                 }
             }
         }
+      
+      
     }
 }
 .first{

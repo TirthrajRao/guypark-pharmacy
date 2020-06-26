@@ -13,22 +13,14 @@ export class ContactUsComponent implements OnInit {
 
   language: string = localStorage.getItem('language');
   details: any = this._translate.instant("contact")
-  contactForm: FormGroup;
   formDetail: any = this._translate.instant("form")
-  submitted: Boolean = false;
-  isDisable:Boolean = false;
+ 
   
   constructor(
     private _translate: TranslateService,
     public _userService: UserService
   ) {
-    this.contactForm = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      subject: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      message: new FormControl('', [Validators.required]),
-
-    }) 
+    
     this._initialiseTranslation();
   }
 
@@ -44,10 +36,6 @@ export class ContactUsComponent implements OnInit {
     this._userService.detectFooterChange('contact');
   }
 
-  get f() { return this.contactForm.controls }
-
-
-
   /**
    * Detect and change language
    */
@@ -60,17 +48,6 @@ export class ContactUsComponent implements OnInit {
     }, 250);
   }
 
-  /**
-   * Add Contact form
-   * @param {object} data 
-   */
-  addContactForm(data) {
-    this.submitted = true;
-    if (this.contactForm.invalid) {
-      return
-    }
-    this.isDisable = true;
-    console.log(data)
-  }
+ 
 
 }

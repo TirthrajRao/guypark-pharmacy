@@ -60,7 +60,8 @@
             </div>
           </div>
           <ul class="list-inline pull-right submit-btn">
-            <li><button type="button" class="default-btn next-step btn">Next</button></li>
+            <li><button type="button" class="default-btn next-step btn">Next <i class="fa fa-long-arrow-right ml-1"
+              aria-hidden="true"></i></button></li>
           </ul>
         </div>
         <div class="tab-pane" role="tabpanel" id="step2">
@@ -137,10 +138,12 @@
               <ion-input type="text" formControlName="note_to_pharmacy"></ion-input>
             </ion-item>
           </div>
-          <ul class="list-inline submit-btn">
-            <li><button type="button" class="default-btn prev-step btn">Back</button></li>
+          <ul class="list-inline submit-btn float-right">
+            <li><button type="button" class="default-btn prev-step btn"> 
+              <i class="fa fa-long-arrow-left mr-2"
+              aria-hidden="true"></i> Back</button></li>
           </ul>
-          <div class="submit-btn mt-4">
+          <div class="submit-btn">
             <button class="btn " [disabled]="isDisable"
               (click)="addPriceForm(priceCheckForm.value)">{{formDetail.btnText}}</button>
           </div>

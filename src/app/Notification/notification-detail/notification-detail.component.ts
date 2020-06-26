@@ -11,11 +11,11 @@ declare const $: any;
   styleUrls: ['./notification-detail.component.scss'],
 })
 export class NotificationDetailComponent implements OnInit {
+  currentUser = JSON.parse(localStorage.getItem('currentUser'));
   language: string = "en";
   details: any = this._translate.instant("notification");
   notificationId: any;
   loading: Boolean = false;
-  currentUser = JSON.parse(localStorage.getItem('currentUser'));
   notificationDetail: any;
   constructor(
     private _translate: TranslateService,
@@ -23,11 +23,12 @@ export class NotificationDetailComponent implements OnInit {
     public route: ActivatedRoute,
     public appComonent: AppComponent
   ) {
-    this._initialiseTranslation();
-
+    
     this.route.params.subscribe((param) => {
+      console.log("params",param)
       this.notificationId = param.id;
     })
+    this._initialiseTranslation();
 
   }
 
@@ -38,7 +39,7 @@ export class NotificationDetailComponent implements OnInit {
       this.language = res.language
       this._initialiseTranslation();
     })
-    this.getNotificationDetail();
+   
   }
 
   ionViewWillEnter() {
@@ -48,6 +49,7 @@ export class NotificationDetailComponent implements OnInit {
     }).catch(err => {
       console.log(err)
     });
+    this.getNotificationDetail();
   }
 
   _initialiseTranslation(): void {

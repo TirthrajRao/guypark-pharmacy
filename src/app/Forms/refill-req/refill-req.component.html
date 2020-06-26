@@ -86,7 +86,8 @@
             <ion-icon name="chevron-down-outline" class="date-icon" style="top: 14px;"></ion-icon>
           </div>
           <ul class="list-inline pull-right submit-btn">
-            <li><button type="button" class="default-btn next-step btn">Next</button></li>
+            <li><button type="button" class="default-btn next-step btn">Next <i class="fa fa-long-arrow-right ml-1"
+                  aria-hidden="true"></i></button></li>
           </ul>
         </div>
 
@@ -95,66 +96,56 @@
           <div class="row rx-number m-0">
             <label class="w-100">{{formDetail.refillHeaing}}</label>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 1 #" formControlName="rx_number_1">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 2 #" formControlName="rx_number_2">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 3 #" formControlName="rx_number_3">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 4 #" formControlName="rx_number_4">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 5 # " formControlName="rx_number_5">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 6 #" formControlName="rx_number_6">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 7 #" formControlName="rx_number_7">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 8 #" formControlName="rx_number_8">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 9 #" formControlName="rx_number_9">
             </div>
 
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 10 #" formControlName="rx_number_10">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 11 #" formControlName="rx_number_11">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-6 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 12 #" formControlName="rx_number_12">
             </div>
           </div>
           <div class="form-footer">
-
             <ion-item lines="none">
               <ion-label position="floating">
-                {{formDetail.reminder}}
-              </ion-label>
-              <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}"
-                formControlName="refill_date">
-              </ion-datetime>
-            </ion-item>
-
-            <ion-item lines="none">
-              <ion-label position="floating">
-                {{formDetail.pickDate}}
+                <i class="fa fa-calendar-o" aria-hidden="true"></i> {{formDetail.pickDate}}
               </ion-label>
               <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}"
                 formControlName="pick_up_date">
@@ -163,16 +154,25 @@
 
             <ion-item lines="none">
               <ion-label position="floating">
-                {{formDetail.pickTime}}
+                <i class="fa fa-clock-o" aria-hidden="true"></i> {{formDetail.pickTime}}
               </ion-label>
               <ion-datetime display-format="h:mm A" picker-format="h:mm A" formControlName="pick_up_time">
               </ion-datetime>
             </ion-item>
+            <ion-item lines="none">
+              <ion-label position="floating">
+                <i class="fa fa-calendar-o" aria-hidden="true"></i>   {{formDetail.reminder}}
+              </ion-label>
+              <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}"
+                formControlName="refill_date">
+              </ion-datetime>
+            </ion-item>
           </div>
-          <ul class="list-inline submit-btn">
-            <li><button type="button" class="default-btn prev-step btn">Back</button></li>
+          <ul class="list-inline submit-btn float-right">
+            <li><button type="button" class="default-btn prev-step btn"><i class="fa fa-long-arrow-left mr-2"
+                  aria-hidden="true"></i>Back</button></li>
           </ul>
-          <div class="submit-btn mt-4">
+          <div class="submit-btn">
             <button class="btn" [disabled]="isDisable"
               (click)="addRefillReq(refillReqForm.value)">{{formDetail.btnText}}</button>
           </div>

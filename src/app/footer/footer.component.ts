@@ -13,6 +13,7 @@ export class FooterComponent implements OnInit {
   details: any = this._translate.instant("footer");
   language: string = localStorage.getItem('language');
   notificationCount:any;
+  isActive:Boolean = false;
   constructor(
     public router: Router,
     public _userService: UserService,
@@ -50,7 +51,8 @@ export class FooterComponent implements OnInit {
     if ($('li').hasClass('active-page')) {
       $('li').removeClass('active-page');
       $('li span').removeClass('icon-name')
-      $('li a').css('display','none')
+      $('li a').css('display','none');
+      this.isActive = false;
     }
     if (name == 'home') {
       $('.home').addClass('active-page');
@@ -67,7 +69,8 @@ export class FooterComponent implements OnInit {
     } else if (name == 'notification' || name=='notification-detail') {
       $('.notification').addClass('active-page');
       $('.notification a').css('display','block');
-      $('.notification span').addClass('icon-name')
+      $('.notification span').addClass('icon-name');
+      this.isActive = true;
     } else if (name == 'contact') {
       $('.contact').addClass('active-page');
       $('.contact a').css('display','block');

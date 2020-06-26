@@ -29,11 +29,22 @@ import { NotificationDetailComponent } from '../Notification/notification-detail
 import { ProfileComponent } from '../profile/profile.component';
 
 
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
-// AoT requires an exported function for factories
-// export function HttpLoaderFactory(http: HttpClient) {
-//   return new TranslateHttpLoader(http, "../../assets/i18n/", ".json");
-// }
+export class MyHammerConfig extends HammerGestureConfig {
+
+  overrides = <any>{
+    // override hammerjs default configuration
+    'pan': { threshold: 5 },
+    'swipe': {
+      velocity: 0.4,
+      threshold: 20,
+      direction: Hammer.DIRECTION_HORIZONTAL // /!\ ugly hack to allow swipe in all direction
+    }
+  }
+}
+
 @NgModule({
   imports: [
     CommonModule,
@@ -65,6 +76,12 @@ import { ProfileComponent } from '../profile/profile.component';
     NotificationDetailComponent,
     HippaNoticeComponent,
     ProfileComponent
+  ],
+  providers:[
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }
   ]
 })
 export class HomePageModule { }

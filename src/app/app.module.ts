@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
@@ -22,7 +22,23 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginGuard } from './guard/auth.guard';
 import { HTTP } from '@ionic-native/http/ngx';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class MyHammerConfig extends HammerGestureConfig {
+
+  overrides = <any>{
+    // override hammerjs default configuration
+    'pan': { threshold: 5 },
+    'swipe': {
+      velocity: 0.4,
+      threshold: 20,
+      direction: Hammer.DIRECTION_HORIZONTAL // /!\ ugly hack to allow swipe in all direction
+    }
+  }
+}
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
+    HammerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -61,7 +78,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     FCM,
     LoginGuard,
     HTTP,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    LocalNotifications,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    }
   ],
   bootstrap: [AppComponent]
 })

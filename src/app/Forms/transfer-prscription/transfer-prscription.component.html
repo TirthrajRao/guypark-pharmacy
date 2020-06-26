@@ -60,9 +60,10 @@
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" style="position: relative;">
             <ion-datetime [placeholder]="formDetail.birthDate" max="{{curruntDate}}" formControlName="date_of_birth">
             </ion-datetime>
+            <i class="fa fa-calendar-o date-icon" aria-hidden="true"></i>
             <div *ngIf="submitted && f.date_of_birth.errors" class="invalid-feedback">
               <div *ngIf="f.date_of_birth.errors.required">{{formDetail.validation.birthdate}}</div>
             </div>
@@ -112,87 +113,89 @@
             </div>
           </div>
           <ul class="list-inline pull-right submit-btn">
-            <li><button type="button" class="default-btn next-step btn">Next</button></li>
+            <li><button type="button" class="default-btn next-step btn"> Next <i class="fa fa-long-arrow-right ml-1"
+              aria-hidden="true"></i></button></li>
           </ul>
         </div>
         <div class="tab-pane" role="tabpanel" id="step2">
           <div class="row rx-number m-0">
             <label class="w-100 ">{{formDetail.heading2}}</label>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx1" formControlName="mad_name_1">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 1 #" formControlName="mad_number_1">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx2" formControlName="mad_name_2">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 2 #" formControlName="mad_number_2">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx3" formControlName="mad_name_3">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 3 #" formControlName="mad_number_3">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx4" formControlName="mad_name_4">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 4 #" formControlName="mad_number_4">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx5" formControlName="mad_name_5">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx5# " formControlName="mad_number_5">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx6" formControlName="mad_name_6">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 6 #" formControlName="mad_number_6">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx7" formControlName="mad_name_7">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 7 #" formControlName="mad_number_7">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx8" formControlName="mad_name_8">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 8 #" formControlName="mad_number_8">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx9" formControlName="mad_name_9">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 9 #" formControlName="mad_number_9">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-7 p-0 pr-2">
               <input type="text" class="form-control" [placeholder]="formDetail.rx10" formControlName="mad_name_10">
             </div>
-            <div class="col-6 p-0 pr-1">
+            <div class="col-5 p-0 pr-2">
               <input type="text" class="form-control" placeholder="Rx 10 #" formControlName="mad_number_10">
             </div>
           </div>
           <div class="form-footer">
             <ion-item lines="none">
               <ion-label position="floating">
-                {{formDetail.reminder}}
+                <i class="fa fa-calendar-o" aria-hidden="true"></i>   {{formDetail.reminder}}
               </ion-label>
               <ion-datetime display-timezone="utc" min="{{curruntDate}}" max="{{nextYear}}"
                 formControlName="refill_date">
               </ion-datetime>
             </ion-item>
           </div>
-          <ul class="list-inline submit-btn">
-            <li><button type="button" class="default-btn prev-step btn">Back</button></li>
+          <ul class="list-inline submit-btn float-right">
+            <li><button type="button" class="default-btn prev-step btn"><i class="fa fa-long-arrow-left mr-2"
+              aria-hidden="true"></i> Back</button></li>
           </ul>
-          <div class="submit-btn mt-4">
+          <div class="submit-btn">
             <button class="btn" (click)="addTransferPresForm(transferPrescriptionForm.value)"
               [disabled]="isDisable">{{formDetail.btnText}}</button>
           </div>

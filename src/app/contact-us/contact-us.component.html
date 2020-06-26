@@ -88,43 +88,5 @@
         width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
         tabindex="0"></iframe>
     </div>
-    <!-- <div class="contact-form">
-      <p class="heading  mb-3">{{details.title}}</p>
-      <form [formGroup]="contactForm" class="form-detail">
-        <div class="form-group">
-          <input type="text" class="form-control" [placeholder]="formDetail.name" formControlName="name">
-          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-            <div *ngIf="f.name.errors.required">{{formDetail.validation.name}}</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <input type="email" class="form-control" [placeholder]="formDetail.email" formControlName="email">
-          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">{{formDetail.validation.email}}</div>
-            <div *ngIf="f.email.errors.email">{{formDetail.validation.email1}}</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <input type="text" class="form-control" [placeholder]="formDetail.subject" formControlName="subject">
-          <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
-            <div *ngIf="f.subject.errors.required">{{formDetail.validation.subject}}</div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <textarea class="form-control p-2" [placeholder]="formDetail.message" formControlName="message"></textarea>
-          <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
-            <div *ngIf="f.message.errors.required">{{formDetail.validation.message}}</div>
-          </div>
-        </div>
-
-        <div class="submit-btn">
-          <button class="btn " [disabled]="isDisable"
-            (click)="addContactForm(contactForm.value)">{{formDetail.btnText}}</button>
-        </div>
-      </form>
-    </div> -->
   </div>
 </ion-content>

@@ -122,4 +122,35 @@ export class NotificationComponent implements OnInit {
   onImageLoad(index) {
     $('.image-' + index).css('background', 'none')
   }
+
+  /**
+ * swipe right to delete 
+ */
+  swipeEvent(e, notificationId, index) {
+    console.log(e, notificationId);
+    if (e.direction == 2) {
+      console.log("in if");
+      $('.notification-' + index).addClass('rotate-left');
+      this.deleteNotification(notificationId, index);
+    }
+  }
+
+  /**
+  * Delete Notification
+  * @param {number} id 
+  */
+  deleteNotification(id, index) {
+    // this.loading = true;
+    console.log(id);
+    const obj = {
+      notification_id: id,
+    }
+    this._userService.deleteNotification(obj).then((res: any) => {
+      console.log(res);
+      this.notificationList.splice(index, 1)
+    }).catch(err => {
+      console.log(err);
+      this.appComonent.errorAlert();
+    })
+  }
 }

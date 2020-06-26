@@ -102,9 +102,9 @@ export class TransferPrscriptionComponent implements OnInit {
 
   nextTab(elem) {
     this.submitted = true;
-    // if (this.transferPrescriptionForm.invalid) {
-    //   return
-    // }
+    if (this.transferPrescriptionForm.invalid) {
+      return
+    }
     $(elem).next().find('a[data-toggle="tab"]').click();
   }
 
