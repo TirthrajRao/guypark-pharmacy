@@ -29,8 +29,8 @@ export class RefillReqComponent implements OnInit {
     private _translate: TranslateService,
     public _userService: UserService,
     public _formService: FormService,
-    public appComponant:AppComponent,
-    public router:Router
+    public appComponant: AppComponent,
+    public router: Router
   ) {
     this.nextYearCount();
 
@@ -121,9 +121,14 @@ export class RefillReqComponent implements OnInit {
     this.submitted = true;
     data['user_id'] = this.currentUserData.id;
     data.date_of_birth = moment(data.date_of_birth).format('DD/MM/yyyy');
-    data.pick_up_date = moment(data.pick_up_date).format('DD/MM/yyyy');
-    data.refill_date = moment(data.refill_date).format('DD/MM/yyyy');
-    data.pick_up_time = moment(data.pick_up_time).format('hh:mm')
+    if (data.pick_up_date)
+      data.pick_up_date = moment(data.pick_up_date).format('DD/MM/yyyy');
+    if (data.refill_date) {
+      data.refill_date = moment(data.refill_date).format('DD/MM/yyyy');
+      data['auto_refill'] = true
+    }
+    if (data.pick_up_time)
+      data.pick_up_time = moment(data.pick_up_time).format('hh:mm')
     if (this.refillReqForm.invalid) {
       return
     }
@@ -137,7 +142,7 @@ export class RefillReqComponent implements OnInit {
       this.isDisable = false;
       this.submitted = false;
       this.refillReqForm.reset();
-      this.appComponant.errorAlert();
+      this.appComponant.sucessAlert();
       this.router.navigate(['/home/home-page'])
     }).catch(err => {
       console.log("err", err);

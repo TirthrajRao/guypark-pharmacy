@@ -5,7 +5,7 @@ ion-content {
         .form-control {
             border-radius: 0;
         }
-        label{
+        label {
             color: #033295d6;
             font-size: 15px;
         }
@@ -34,14 +34,20 @@ ion-content {
             height: 37px;
         }
     }
-    ion-label{
+    ion-label {
         color: #033295d6;
         font-size: 16px;
     }
 }
-.submit-btn{
-    .btn{
-        background: linear-gradient(to right, #15275E, #4160B8);
-        padding: 7px 46px;
+.submit-btn {
+    .btn {
+        background: linear-gradient(to right, #15275e, #4160b8);
+        // padding: 11px 66px;
+        padding: 8px 43px;
+        font-size: 21px;
+        @media only screen and (max-width: 360px) {
+            padding: 6px 37px;
+            font-size: 18px;
+        }
     }
 }

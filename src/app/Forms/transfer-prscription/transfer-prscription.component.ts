@@ -6,6 +6,7 @@ import { FormService } from '../../services/form.service';
 import * as moment from 'moment';
 import { AppComponent } from '../../app.component';
 import { Router } from '@angular/router';
+import { identifierModuleUrl } from '@angular/compiler';
 declare const $: any;
 
 @Component({
@@ -29,8 +30,8 @@ export class TransferPrscriptionComponent implements OnInit {
     private _translate: TranslateService,
     public _userService: UserService,
     public _formService: FormService,
-    public appComponant:AppComponent,
-    public router:Router
+    public appComponant: AppComponent,
+    public router: Router
   ) {
 
     this.nextYearCount();
@@ -126,8 +127,13 @@ export class TransferPrscriptionComponent implements OnInit {
     console.log("--")
     this.submitted = true;
     data['user_id'] = this.currentUserData.id;
+
     data.date_of_birth = moment(data.date_of_birth).format('DD/MM/yyyy');
-    data.refill_date = moment(data.refill_date).format('DD/MM/yyyy');
+    if (data.refill_date) {
+      data.refill_date = moment(data.refill_date).format('DD/MM/yyyy');
+      data['auto_refill'] = true
+    }
+    console.log(data)
     if (this.transferPrescriptionForm.invalid) {
       return
     }

@@ -155,6 +155,11 @@ export class LoginComponent implements OnInit {
           this.isDisable = false;
           this.loading = false;
         });
+      }).catch((err)=>{
+        console.log("err",err);
+        this.isDisable = false;
+        this.loading = false;
+        this.appcomponent.errorAlert("Error in facbook login")
       })
   }
 
@@ -199,7 +204,9 @@ export class LoginComponent implements OnInit {
         });
       }, err => {
         console.log("google err", err);
+        this.appcomponent.errorAlert("Error in Google login");
         this.isDisable = false;
+        this.loading = false;
       });
   }
 

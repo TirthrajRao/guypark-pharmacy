@@ -22,7 +22,7 @@ ion-content {
         // color: var(--text-color);
         // --border-color: unset;
         // border-bottom: 1.5px solid var(--heading-color);
-        ion-label{
+        ion-label {
             color: #033295d6;
             font-size: 15px;
         }
@@ -44,18 +44,17 @@ h4 {
     font-size: 14px;
 }
 
-
 .form-section {
     padding: 15px 45px;
 }
-ion-select{
+ion-select {
     border-bottom: none;
-    
 }
-.submit-btn{
-    .btn{
-        background: linear-gradient(to right, #15275E, #4160B8);
-        padding: 7px 46px;
+.submit-btn {
+    .btn {
+        background: linear-gradient(to right, #15275e, #4160b8);
+        padding: 8px 43px;
+        font-size: 21px;
+        
     }
 }
-
