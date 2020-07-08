@@ -23,6 +23,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginGuard } from './guard/auth.guard';
 import { HTTP } from '@ionic-native/http/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FCM,
     LoginGuard,
     HTTP,
+    Geolocation ,
     LocalNotifications,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {

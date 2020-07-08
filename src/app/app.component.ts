@@ -7,6 +7,7 @@ import { FCM } from '@ionic-native/fcm/ngx';
 import { TranslateService } from '@ngx-translate/core';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { UserService } from './services/user.service';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
 declare const $: any;
 
 @Component({
@@ -18,7 +19,8 @@ export class AppComponent {
   language: any = localStorage.getItem('language');
   message: any;
   errMessage: any;
-
+currentLat:any;
+currentLng:any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -27,7 +29,8 @@ export class AppComponent {
     public fcm: FCM,
     public _translate: TranslateService,
     public localNotifications: LocalNotifications,
-    public _userService:UserService
+    public _userService:UserService,
+    private geolocation: Geolocation
   ) {
 
     if (!this.language) {
@@ -45,6 +48,7 @@ export class AppComponent {
     })
 
     this.initializeApp();
+    this.getCurrentLatLng();
     this.router.navigate(['/home'])
   }
 
@@ -145,5 +149,53 @@ export class AppComponent {
       event.stopPropagation();
     });
   }
+
+  getCurrentLatLng(){
+  this.geolocation.getCurrentPosition().then((resp) => {
+  this.currentLat=resp.coords.latitude;
+  this.currentLng = resp.coords.longitude
+  console.log("current lat lng",this.currentLat,this.currentLng);
+this.getLocationDistance();
+}).catch((error) => {
+  console.log('Error getting location', error);
+});
+  }
+
+  getLocationDistance() {
+      let distance = this.calculateDistance( 21.8974, 70.4997, 21.8974, 70.4997,"K");
+  console.log("caluculated distance",distance);
+  if(distance <=2){
+    console.log("in if");
+    const data = {
+    title:"Guy Park Pharmacy",
+    body:"You are near by from pharmacy"
+    }
+    getLocalNotification(data)
+    
+  }
+  }
+
+  /**
+   * Calculate distance from current location
+   */
+  calculateDistance(lat1, lon1, lat2, lon2, unit) {
+    var radlat1 = Math.PI * lat1 / 180
+    var radlat2 = Math.PI * lat2 / 180
+    var radlon1 = Math.PI * lon1 / 180
+    var radlon2 = Math.PI * lon2 / 180
+    var theta = lon1 - lon2
+    var radtheta = Math.PI * theta / 180
+    var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+    dist = Math.acos(dist)
+    dist = dist * 180 / Math.PI
+    dist = dist * 60 * 1.1515
+    console.log("dist",dist)
+    if (unit == "K") { dist = dist * 1.609344 }
+    if (unit == "N") { dist = dist * 0.8684 }
+    return dist
+  }
+
+  
+
 }
 
