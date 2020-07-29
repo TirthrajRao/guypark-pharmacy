@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject, BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { config } from '../config';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Platform } from '@ionic/angular';
 
@@ -68,9 +68,9 @@ export class UserService {
   }
 
   /**
-   * Login User
-   * @param {object} data 
-   */
+  * Login User
+  * @param {object} data 
+  */
   login(data) {
     return new Promise((resolve, reject) => {
       if (this.platform.is('ios')) {
@@ -108,8 +108,8 @@ export class UserService {
   }
 
   /**
-   * send deviceetoken
-   */
+  * send deviceetoken
+  */
   sendDeviceToken() {
     this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
     console.log(this.currentUserData)
@@ -142,9 +142,9 @@ export class UserService {
   }
 
   /**
-   * Register user
-   * @param {object} data 
-   */
+  * Register user
+  * @param {object} data 
+  */
   registerUser(data) {
     return new Promise((resolve, reject) => {
       if (this.platform.is('ios')) {
@@ -181,8 +181,8 @@ export class UserService {
   }
 
   /**
-   * log out
-   */
+  * log out
+  */
   logOut() {
     this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
@@ -227,9 +227,9 @@ export class UserService {
   }
 
   /**
-   * Forgot Password
-   * @param {object} data 
-   */
+  * Forgot Password
+  * @param {object} data 
+  */
   forgotPassword(data) {
     return new Promise((resolve, reject) => {
       if (!this.platform.is('ios')) {
@@ -308,9 +308,9 @@ export class UserService {
   }
 
   /**
-   * Edit profile
-   * @param {objct} data 
-   */
+  * Edit profile
+  * @param {objct} data 
+  */
   editUserProfile(data) {
     return new Promise((resolve, reject) => {
       if (!this.platform.is('ios')) {
@@ -336,9 +336,9 @@ export class UserService {
   }
 
   /**
-   * Noification List
-   * @param {object} data 
-   */
+  * Noification List
+  * @param {object} data 
+  */
   getNotificationList() {
     this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
     const data = {
@@ -430,7 +430,7 @@ export class UserService {
     })
   }
 
-  deleteNotification(data){
+  deleteNotification(data) {
     this.currentUserData = JSON.parse(localStorage.getItem('currentUser'));
     data['id'] = this.currentUserData.id;
     data['api_access_token'] = this.currentUserData.api_access_token;
@@ -456,5 +456,47 @@ export class UserService {
       }
     })
 
+  }
+
+  sendNotification() {
+    let deviceToken = localStorage.getItem('deviceToken');
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization':  'key=AAAAdKQjMjc:APA91bELvxjOXZJta5TykNjkSzGxzs-U5dbOEsKELFJL037zPa8VKLu6P49fap84zEmIquFQiRnN3H8yBGbXDd0vN3yO1R81EOQ9rW1k0ioqVKfNCKRS-07eovixfNuboVcGKBrCmE-C'
+    });
+    let options = { headers: headers };
+    if (deviceToken) {
+      let data = {
+        "to": deviceToken,
+        "notification": {
+          "title": "Hi!! From Guy Park Pharmacy",
+          "body": "Please visit our store for best Pharmacy Services",
+          image: "https://i.ibb.co/v4k20BW/guy-park.png"
+        },
+        "priority": "high"
+      }
+      return new Promise((resolve, reject) => {
+        if (!this.platform.is('ios')) {
+          this.http.post('https://fcm.googleapis.com/fcm/send', data,options).subscribe((res) => {
+            console.log("notification res",res)
+            resolve(res)
+          }, err => {
+            reject(err)
+          });
+        } else {
+          this.HTTP.post('https://fcm.googleapis.com/fcm/send', data, {}).
+            then((user) => {
+              const res = user.data;
+              return JSON.parse(res)
+            }).then((jsonRes) => {
+              if (jsonRes) {
+                resolve(jsonRes);
+              }
+            }).catch((err) => {
+              reject(err);
+            });
+        }
+      })
+    }
   }
 }

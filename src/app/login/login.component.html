@@ -1,7 +1,5 @@
 <ion-content>
   <div class="login-page" *ngIf="details && formDetails">
-
-    <!-- <h4 class="text-center">Jax Pharmacy</h4> -->
     <div class="login_form">
       <img src="assets/images/logo.png" class="logo-img">
       <p class="english-title text-center mt-2">We don't just meet expectations, We exceed them.</p>
@@ -9,8 +7,6 @@
       <h4 class="text-center text-color">{{details.title}}</h4>
       <form [formGroup]='loginForm'>
         <div class="form-group mb-4" style="position: relative;">
-          <!-- <i class="fa fa-email "></i> -->
-          <!-- <i class="fa fa-envelope-o email-icon" aria-hidden="true"></i> -->
           <input type="email" class="form-control" formControlName="username" [placeholder]="formDetails.email" />
           <ion-icon name="mail-outline" class="lock-icon" style="top: 10px;"></ion-icon>
           <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
@@ -49,6 +45,13 @@
                   {{details.google}}</button>
               </div>
             </div>
+          </div>
+        </div>
+        <div *ngIf="!isPlatformIos" class="social_media_login mt-3">
+          <div class="google_login">
+            <button class="google_btn apple_btn btn" (click)="appleLogin()" [disabled]="isDisable">
+              <ion-icon name="logo-apple"></ion-icon>
+              Sign in with Apple</button>
           </div>
         </div>
         <div class="sign_up_link text-center">

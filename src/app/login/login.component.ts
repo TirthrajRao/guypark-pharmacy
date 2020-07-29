@@ -7,6 +7,8 @@ import { UserService } from '../services/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
+import { Platform } from '@ionic/angular';
+import { SignInWithApple, AppleSignInResponse, AppleSignInErrorResponse, ASAuthorizationAppleIDRequest } from '@ionic-native/sign-in-with-apple/ngx';
 declare const $: any;
 
 @Component({
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
   formDetails: any = this._translate.instant("form");
   forgotPswForm: FormGroup;
   submmitedFPsw: Boolean = false;
+  isPlatformIos: Boolean = false;
 
   constructor(
     private fb: Facebook,
@@ -35,7 +38,9 @@ export class LoginComponent implements OnInit {
     public _userService: UserService,
     private _translate: TranslateService,
     public appcomponent: AppComponent,
-    public http: HttpClient
+    public http: HttpClient,
+    public platform: Platform,
+    private signInWithApple: SignInWithApple
   ) {
     console.log("in counstructor")
     this._initialiseTranslation()
@@ -47,6 +52,9 @@ export class LoginComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email])
     })
 
+    if (platform.is("ios")) {
+      this.isPlatformIos = true;
+    }
   }
 
   ngOnInit() {
@@ -155,8 +163,8 @@ export class LoginComponent implements OnInit {
           this.isDisable = false;
           this.loading = false;
         });
-      }).catch((err)=>{
-        console.log("err",err);
+      }).catch((err) => {
+        console.log("err", err);
         this.isDisable = false;
         this.loading = false;
         this.appcomponent.errorAlert("Error in facbook login")
@@ -263,6 +271,29 @@ export class LoginComponent implements OnInit {
     $('#forgot-password').click(() => {
       $('#forgot-password').fadeOut();
       this.submmitedFPsw = false;
+    });
+  }
+
+  /**
+   * Apple login
+   */
+  appleLogin() {
+    console.log('apple login');
+    this.isDisable = true;
+    this.signInWithApple.signin({
+      requestedScopes: [
+        ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
+        ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
+      ]
+    })
+    .then((res: AppleSignInResponse) => {
+      // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
+      alert('Send token to apple for verification: ' + res.identityToken);
+      console.log(res);
+    })
+    .catch((error: AppleSignInErrorResponse) => {
+      alert(error.code + ' ' + error.localizedDescription);
+      console.error(error);
     });
   }
 }

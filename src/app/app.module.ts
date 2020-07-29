@@ -24,9 +24,18 @@ import { LoginGuard } from './guard/auth.guard';
 import { HTTP } from '@ionic-native/http/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+
+import { AngularFireModule } from '@angular/fire';
+import {
+  AngularFireFunctionsModule,
+  // FUNCTIONS_REGION
+} from '@angular/fire/functions';
+import { environment } from './../environments/environment';
 
 import * as Hammer from 'hammerjs';
 import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { SignInWithApple } from '@ionic-native/sign-in-with-apple/ngx';
 
 export class MyHammerConfig extends HammerGestureConfig {
 
@@ -64,6 +73,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireFunctionsModule,
     IonicModule.forRoot({
       backButtonText: '',
     }),
@@ -81,11 +92,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     HTTP,
     Geolocation ,
     LocalNotifications,
+    BackgroundMode,
+    SignInWithApple,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: MyHammerConfig
-    }
+    },
+    // { provide: FUNCTIONS_REGION, useValue: 'us-central1' },
   ],
   bootstrap: [AppComponent]
 })

@@ -8,8 +8,11 @@ import { TranslateService } from '@ngx-translate/core';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { UserService } from './services/user.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { BackgroundMode } from '@ionic-native/background-mode/ngx';
+import { AngularFireFunctions } from '@angular/fire/functions';
+// import * as cordova from 'com.red_folder.phonegap.plugin.backgroundservice.sample'
 declare const $: any;
-
+declare const cordova: any;
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -19,8 +22,11 @@ export class AppComponent {
   language: any = localStorage.getItem('language');
   message: any;
   errMessage: any;
-currentLat:any;
-currentLng:any;
+  currentLat: any;
+  currentLng: any;
+  myService;
+  serviceName;
+  factory;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -29,8 +35,10 @@ currentLng:any;
     public fcm: FCM,
     public _translate: TranslateService,
     public localNotifications: LocalNotifications,
-    public _userService:UserService,
-    private geolocation: Geolocation
+    public _userService: UserService,
+    private geolocation: Geolocation,
+    private backgroundMode: BackgroundMode,
+    private functions: AngularFireFunctions,
   ) {
 
     if (!this.language) {
@@ -48,7 +56,6 @@ currentLng:any;
     })
 
     this.initializeApp();
-    this.getCurrentLatLng();
     this.router.navigate(['/home'])
   }
 
@@ -58,14 +65,16 @@ currentLng:any;
       setTimeout(() => {
         this.splashScreen.hide();
       }, 700);
-
+      this.getCurrentLatLng();
       this.getNotification();
     });
   }
 
+
+ 
   /**
- * Get Notification
- */
+  * Get Notification
+  */
   getNotification() {
     this.getToken();
     this.fcm.clearAllNotifications();
@@ -87,8 +96,8 @@ currentLng:any;
   }
 
   /**
-   * Get LOcal NOtification when app is in foreground
-   */
+  * Get LOcal NOtification when app is in foreground
+  */
   getLocalNotification(data) {
     console.log("daata in local notification", data);
     this.localNotifications.schedule({
@@ -96,14 +105,15 @@ currentLng:any;
       title: data.title,
       text: data.body,
       foreground: true,
-      icon: data.image
+      // icon: data.image,
+      attachments: [data.image]
     });
 
   }
 
   /**
-   * Get DeviceToken
-   */
+  * Get DeviceToken
+  */
   getToken() {
     this.fcm.getToken().then(token => {
       console.log('token======>', token);
@@ -113,8 +123,8 @@ currentLng:any;
   }
 
   /**
-   * get unread notification count
-   */
+  * get unread notification count
+  */
   getNotificationCount() {
     this._userService.getNotificationCount().then((res: any) => {
     }).catch((err) => {
@@ -123,8 +133,8 @@ currentLng:any;
   }
 
   /** 
-   *Sucess Alert
-   */
+  *Sucess Alert
+  */
   sucessAlert(message?) {
     this.message = message;
     $('.success_alert_box').fadeIn().addClass('animate');
@@ -137,8 +147,8 @@ currentLng:any;
   }
 
   /** 
-   *Error Alert
-   */
+  *Error Alert
+  */
   errorAlert(message?) {
     this.errMessage = message
     $('.error_alert_box').fadeIn().addClass('animate');
@@ -150,34 +160,38 @@ currentLng:any;
     });
   }
 
-  getCurrentLatLng(){
-  this.geolocation.getCurrentPosition().then((resp) => {
-  this.currentLat=resp.coords.latitude;
-  this.currentLng = resp.coords.longitude
-  console.log("current lat lng",this.currentLat,this.currentLng);
-this.getLocationDistance();
-}).catch((error) => {
-  console.log('Error getting location', error);
-});
+  getCurrentLatLng() {
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.currentLat = resp.coords.latitude;
+      this.currentLng = resp.coords.longitude
+      console.log("current lat lng", this.currentLat, this.currentLng);
+      this.getLocationDistance();
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
   }
 
   getLocationDistance() {
-      let distance = this.calculateDistance( 21.8974, 70.4997, 21.8974, 70.4997,"K");
-  console.log("caluculated distance",distance);
-  if(distance <=2){
-    console.log("in if");
-    const data = {
-    title:"Guy Park Pharmacy",
-    body:"You are near by from pharmacy"
+    // let distance = this.calculateDistance(this.currentLat, this.currentLng, 42.944587, -74.1997,"K");
+    let distance = this.calculateDistance(21.8532, 70.2453, 21.8532, 70.2453, "K");
+
+    console.log("caluculated distance", distance);
+    if (distance <= 2) {
+      console.log("in if");
+      const data = {
+        notification_id: 1,
+        title: "Hi!! From Guy Park Pharmacy",
+        body: "Please visit our store for best Pharmacy Services",
+        image: "https://i.ibb.co/v4k20BW/guy-park.png",
+        // attachments:'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQu_fpPmbK-bebEeX036y7frmW06amtCkG1ew&usqp=CAU'
+      }
+      this.getLocalNotification(data)
     }
-    getLocalNotification(data)
-    
-  }
   }
 
   /**
-   * Calculate distance from current location
-   */
+  * Calculate distance from current location
+  */
   calculateDistance(lat1, lon1, lat2, lon2, unit) {
     var radlat1 = Math.PI * lat1 / 180
     var radlat2 = Math.PI * lat2 / 180
@@ -189,13 +203,10 @@ this.getLocationDistance();
     dist = Math.acos(dist)
     dist = dist * 180 / Math.PI
     dist = dist * 60 * 1.1515
-    console.log("dist",dist)
+    console.log("dist", dist)
     if (unit == "K") { dist = dist * 1.609344 }
     if (unit == "N") { dist = dist * 0.8684 }
     return dist
   }
-
-  
-
 }
 
