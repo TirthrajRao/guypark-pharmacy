@@ -10,6 +10,7 @@ import { UserService } from './services/user.service';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { BackgroundMode } from '@ionic-native/background-mode/ngx';
 import { AngularFireFunctions } from '@angular/fire/functions';
+import * as firebase from 'firebase/app';
 // import * as cordova from 'com.red_folder.phonegap.plugin.backgroundservice.sample'
 declare const $: any;
 declare const cordova: any;

@@ -8,8 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from '../app.component';
 import { HttpClient } from '@angular/common/http';
 import { Platform } from '@ionic/angular';
+import * as firebase from 'firebase/app';
 import { SignInWithApple, AppleSignInResponse, AppleSignInErrorResponse, ASAuthorizationAppleIDRequest } from '@ionic-native/sign-in-with-apple/ngx';
 declare const $: any;
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +42,8 @@ export class LoginComponent implements OnInit {
     public appcomponent: AppComponent,
     public http: HttpClient,
     public platform: Platform,
-    private signInWithApple: SignInWithApple
+    private signInWithApple: SignInWithApple,
+    private afAuth: AngularFireAuth
   ) {
     console.log("in counstructor")
     this._initialiseTranslation()
@@ -286,10 +289,37 @@ export class LoginComponent implements OnInit {
         ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
       ]
     })
-    .then((res: AppleSignInResponse) => {
-      // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
-      alert('Send token to apple for verification: ' + res.identityToken);
-      console.log(res);
+    .then(async (res: AppleSignInResponse) => {
+      // // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
+      // alert('Send token to apple for verification: ' + res.identityToken);
+      // console.log(res);
+      const credentials = new firebase.auth.OAuthProvider('apple.com').credential(res.identityToken);
+      const response = await this.afAuth.signInWithCredential(credentials);
+
+      const data = {
+        social_login_id: res.identityToken,
+        social_login_type: 'apple',
+        email: response.user,
+      }
+
+      this._userService.login(data).then((res: any) => {
+        console.log(res);
+        this._userService.sendDeviceToken().then((response: any) => {
+          console.log("res of devicedata in login", response);
+        }).catch(err => {
+          console.log("errr", err);
+        })
+        this.loading = false;
+        this.isDisable = false;
+        this.loginForm.reset();
+        this.appcomponent.sucessAlert(res.message);
+        this.router.navigate(['/home'])
+      }).catch((err) => {
+        console.log(err);
+        this.loading = false;
+        this.isDisable = false;
+        this.appcomponent.errorAlert(err.error.message);
+      });
     })
     .catch((error: AppleSignInErrorResponse) => {
       alert(error.code + ' ' + error.localizedDescription);
