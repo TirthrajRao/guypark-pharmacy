@@ -299,7 +299,8 @@ export class LoginComponent implements OnInit {
       const data = {
         social_login_id: res.identityToken,
         social_login_type: 'apple',
-        email: response.user,
+        email: response.user.email ? response.user.email : "",
+        username: response.fullName.givenName + response.fullName.familyName
       }
 
       this._userService.login(data).then((res: any) => {
