@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div *ngIf="!isPlatformIos" class="social_media_login mt-3">
+        <div *ngIf="isPlatformIos" class="social_media_login mt-3">
           <div class="google_login">
             <button class="google_btn apple_btn btn" (click)="appleLogin()" [disabled]="isDisable">
               <ion-icon name="logo-apple"></ion-icon>

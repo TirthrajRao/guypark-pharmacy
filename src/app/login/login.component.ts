@@ -292,15 +292,18 @@ export class LoginComponent implements OnInit {
     .then(async (res: AppleSignInResponse) => {
       // // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
       // alert('Send token to apple for verification: ' + res.identityToken);
-      // console.log(res);
+      console.log("Apple sign in response..." ,res);
       const credentials = new firebase.auth.OAuthProvider('apple.com').credential(res.identityToken);
       const response = await this.afAuth.signInWithCredential(credentials);
-
+      console.log("response of firebase...", response)
       const data = {
         social_login_id: res.identityToken,
+        access_token: res.authorizationCode,
         social_login_type: 'apple',
-        email: response.user.email ? response.user.email : "",
-        username: response.fullName.givenName + response.fullName.familyName
+        email: res.email,
+        first_name: res.fullName.givenName,
+        last_name: res.fullName.familyName,
+        username: res.fullName.givenName + ' ' + res.fullName.familyName,
       }
 
       this._userService.login(data).then((res: any) => {
