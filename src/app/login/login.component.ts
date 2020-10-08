@@ -297,7 +297,7 @@ export class LoginComponent implements OnInit {
       const response = await this.afAuth.signInWithCredential(credentials);
       console.log("response of firebase...", response)
       const data = {
-        social_login_id: res.identityToken,
+        social_login_id: response.user.uid,
         access_token: res.authorizationCode,
         social_login_type: 'apple',
         email: res.email,
@@ -305,6 +305,8 @@ export class LoginComponent implements OnInit {
         last_name: res.fullName.familyName,
         username: res.fullName.givenName + ' ' + res.fullName.familyName,
       }
+
+      console.log("data ==>> ", data);
 
       this._userService.login(data).then((res: any) => {
         console.log(res);
@@ -319,10 +321,12 @@ export class LoginComponent implements OnInit {
         this.appcomponent.sucessAlert(res.message);
         this.router.navigate(['/home'])
       }).catch((err) => {
-        console.log(err);
+        const error = JSON.parse(err.error);
+        console.log("error after parse>>>>>", error);
         this.loading = false;
         this.isDisable = false;
-        this.appcomponent.errorAlert(err.error.message);
+        this.loginForm.reset();
+        this.appcomponent.errorAlert(error.message);              
       });
     })
     .catch((error: AppleSignInErrorResponse) => {
